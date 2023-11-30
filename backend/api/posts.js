@@ -188,6 +188,8 @@ router.get("/", async (req, res) => {
     const totalPosts = await Post.countDocuments(query);
 
     res.json({
+      status: 200,
+      message: "Articles récupérés avec succès",
       posts,
       totalPosts,
       totalPages: Math.ceil(totalPosts / limit),
