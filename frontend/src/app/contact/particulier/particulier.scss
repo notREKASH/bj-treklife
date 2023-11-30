@@ -1,0 +1,102 @@
+@import "../../../styles/variables.scss";
+
+@mixin input {
+  width: calc(100% - 5px);
+  padding: 0.5em 0;
+  border: 1px solid #1a1a1a;
+  border-radius: 5px;
+  font-weight: 400;
+  padding-left: 5px;
+}
+
+.particulier {
+  background-color: white;
+  padding: 2em 0;
+
+  h1 {
+    font-size: 1.2em;
+    text-align: center;
+    font-weight: 700;
+
+    @media (min-width: $md) {
+      font-size: 1.5em;
+    }
+  }
+
+  &__container {
+    height: calc(100vh - 12em);
+    width: 90%;
+    margin: 2em auto;
+
+    &__form {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+
+      &__name {
+        display: flex;
+        flex-direction: row;
+        gap: 1em;
+
+        div {
+          display: flex;
+          flex-direction: column;
+          gap: 0.2em;
+
+          input {
+            @include input;
+          }
+        }
+      }
+
+      &__email {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+
+        input {
+          @include input;
+        }
+      }
+
+      &__subject {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+
+        select {
+          @include input;
+          text-align: center;
+        }
+      }
+
+      &__message {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+
+        textarea {
+          @include input;
+          resize: vertical;
+          font-size: 1em;
+          height: 150px;
+        }
+      }
+
+      &__submit {
+        display: flex;
+        justify-content: flex-end;
+
+        button {
+          padding: 0.5em 1em;
+          background-color: #1a1a1a;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          font-weight: 700;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

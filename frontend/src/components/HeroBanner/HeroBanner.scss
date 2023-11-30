@@ -1,0 +1,132 @@
+@import "../../styles/variables.scss";
+
+.home {
+  &__background {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: 0;
+    margin: 0 auto;
+    max-width: 1440px;
+
+    @media (min-width: $sm) {
+      margin-top: 9em;
+      position: static;
+      flex-direction: column;
+      gap: 2em;
+    }
+
+    &--title {
+      position: absolute;
+      height: 90vh;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      max-width: 90%;
+      margin: 0 auto;
+      top: 15%;
+      width: 80%;
+
+      @media (min-width: $sm) {
+        gap: 2em;
+        position: static;
+        height: auto;
+        width: 90%;
+      }
+
+      @media (min-width: $lg) {
+        padding: 0 4em;
+        margin: 0;
+      }
+
+      h2 {
+        text-transform: uppercase;
+        font-size: 1.25em;
+        font-weight: 600;
+        color: $color-primary;
+        position: relative;
+
+        @media (min-width: $sm) {
+          width: 80%;
+        }
+
+        @media (min-width: $md) {
+          font-size: 1.45em;
+        }
+
+        @media (min-width: $lg) {
+          font-size: 1.5em;
+          width: 50%;
+        }
+      }
+
+      h3 {
+        padding-left: 5em;
+        font-size: 1.1em;
+        text-align: right;
+        color: $color-secondary;
+        position: relative;
+        top: 50%;
+
+        & .lineBreak {
+          display: none;
+        }
+
+        @media (min-width: $sm) {
+          padding-left: 6em;
+        }
+
+        @media (min-width: $md) {
+          font-size: 1.2em;
+          margin-top: -40px;
+          padding-left: 4em;
+
+          & .lineBreak {
+            display: flex;
+          }
+        }
+
+        @media (min-width: $lg) {
+          padding-left: 18em;
+          margin-top: -60px;
+        }
+
+        @media (min-width: $xl) {
+          padding-left: 20em;
+        }
+      }
+    }
+
+    &__img {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1em;
+
+      img {
+        margin: 0 auto;
+        z-index: -1;
+        width: 100%;
+        object-fit: cover;
+        height: 90vh;
+
+        @media (min-width: $sm) {
+          width: 90%;
+          height: 300px;
+        }
+
+        @media (min-width: $md) {
+          height: 400px;
+        }
+
+        @media (min-width: $lg) {
+          height: 500px;
+        }
+
+        @media (min-width: 1450px) {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

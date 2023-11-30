@@ -1,0 +1,42 @@
+.filterPanel {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(233, 233, 233);
+  padding: 1em;
+  align-items: center;
+
+  &__ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+  }
+
+  h3 {
+    font-size: 1.5em;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+    color: #0e0e0e;
+    border-bottom: 1px solid #0e0e0e;
+  }
+
+  button {
+    height: 40px;
+    width: 300px;
+    background-color: #0e0e0e;
+    border-radius: 6px;
+    color: rgb(233, 233, 233);
+    font-size: 1.5em;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      background-color: rgb(233, 233, 233);
+      color: #0e0e0e;
+      border: 1px solid #0e0e0e;
+    }
+  }
+}

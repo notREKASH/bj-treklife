@@ -1,0 +1,69 @@
+@import "../../styles/variables.scss";
+
+.full-screen-bg {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  display: none;
+  z-index: 1000;
+}
+
+.full-screen-bg.active {
+  display: block;
+}
+
+.full-screen {
+  width: 100vw;
+  height: 100vh;
+
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+}
+
+.close-screen {
+  width: 100%;
+  height: 100%;
+}
+
+.close-screen-ico {
+  background-color: black;
+  padding: 0.5em;
+  z-index: 9999;
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  color: white;
+  font-size: 1em;
+
+  @media (min-width: $sm) {
+    right: 1em;
+  }
+
+  @media (min-width: $md) {
+    font-size: 1.5em;
+  }
+
+  @media (min-width: $xl) {
+    font-size: 2em;
+  }
+}
+
+.full-screen-ico {
+  cursor: pointer;
+  position: absolute;
+  color: white;
+  bottom: 1em;
+  right: 1em;
+  z-index: 3;
+}

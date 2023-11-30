@@ -1,0 +1,20 @@
+.sectionTag {
+  width: fit-content;
+  background-color: #1c271f;
+  color: #3da759;
+  padding: 0.5em;
+  border-radius: 4px;
+
+  // @media (min-width: 480px) {
+  // }
+
+  h2 {
+    font-size: 1em;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+
+    // @media (min-width: 480px) {
+    //   font-size: 1.2em;
+    // }
+  }
+}

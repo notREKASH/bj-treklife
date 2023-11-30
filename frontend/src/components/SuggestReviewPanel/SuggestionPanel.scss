@@ -1,0 +1,62 @@
+.suggestionPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 0.5em;
+  background-color: rgb(233, 233, 233);
+
+  h2 {
+    color: black;
+    text-align: center;
+    font-size: 1.3em;
+    font-weight: 700;
+    padding: 0 0.5em;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 0 0.5em;
+
+    &__card {
+      background-color: rgb(80, 80, 80);
+      display: flex;
+      height: 120px;
+      width: 100%;
+      text-decoration: none;
+      color: white;
+      gap: 0.5em;
+
+      img {
+        object-fit: cover;
+        height: 100%;
+        min-width: 40%;
+      }
+
+      &--text {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        padding: 0.5em;
+        align-items: center;
+        justify-content: center;
+
+        h3 {
+          text-align: center;
+          font-size: 0.8em;
+          font-weight: 700;
+          text-transform: uppercase;
+          text-decoration: underline;
+        }
+
+        p {
+          text-align: left;
+          font-size: 0.7em;
+          font-weight: 400;
+          font-style: italic;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,269 @@
+@import "../../styles/variables.scss";
+
+@mixin Button {
+  height: 30px;
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  font-size: 1em;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.articles-layout {
+  position: relative;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 1440px) {
+    max-width: 1440px;
+  }
+
+  &__background {
+    padding: 0.5em 0;
+
+    h2 {
+      text-transform: uppercase;
+      font-size: 1.3em;
+      font-weight: 600;
+      margin: 1em 0 0 0;
+      color: #0e0e0e;
+
+      @media (min-width: $xs) {
+        width: 50%;
+        margin: 1em 0;
+      }
+
+      @media (min-width: $sm) {
+        width: 60%;
+      }
+    }
+  }
+
+  &--rightPanel {
+    display: flex;
+    flex-direction: column;
+    order: 0;
+
+    @media (min-width: $xs) {
+      position: absolute;
+      margin: 1.3em 0;
+      right: 0;
+      gap: 2em;
+      justify-content: center;
+    }
+
+    @media (min-width: $lg) {
+      display: none;
+    }
+  }
+
+  &--pagination {
+    margin-top: 2em;
+    padding-bottom: 2em;
+    order: 2;
+
+    @media (min-width: $lg) {
+      width: 70%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+.articles {
+  width: 100%;
+  margin: 0 auto;
+  gap: 2em;
+  order: 1;
+
+  @media (min-width: $lg) {
+    display: flex;
+  }
+
+  &--container {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+
+    @media (min-width: $lg) {
+      width: 70%;
+    }
+  }
+
+  &__filterPanel {
+    display: none;
+
+    @media (min-width: $lg) {
+      width: 30%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1em;
+    }
+
+    &--desktop {
+      background-color: rgb(233, 233, 233);
+      width: 100%;
+      box-sizing: border-box;
+      padding: 1em;
+
+      h3 {
+        width: 100%;
+        text-align: center;
+        font-size: 1.3em;
+        font-weight: 700;
+        margin-bottom: 1em;
+        padding-bottom: 1em;
+        color: #000000;
+        border-bottom: 1px solid #0e0e0e;
+      }
+
+      &__ul {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+        width: 100%;
+
+        li {
+          button {
+            @include Button;
+            background-color: black;
+            border-radius: 6px;
+            color: rgb(233, 233, 233);
+
+            &.selected {
+              color: black;
+              background-color: rgb(233, 233, 233);
+              border: 1px solid black;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.socialMediaRando {
+  width: 100%;
+}
+
+.filterPanel--mobile {
+  margin: 1em auto;
+
+  @media (min-width: 641px) {
+    margin: 0 auto;
+  }
+}
+
+.dropdownMenu {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  gap: 1em;
+
+  @media (min-width: $xs) {
+    gap: 0.5em;
+  }
+
+  .filter-ico {
+    color: #0e0e0e;
+  }
+
+  &__custom-select {
+    position: relative;
+    min-width: 150px;
+    max-width: 100%;
+    color: #000;
+
+    &__select-button {
+      width: 100%;
+      background-color: #fff;
+      padding: 0.5em;
+      font-size: 0.9em;
+      border: 1px solid #caced1;
+      border-radius: 0.25rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5em;
+
+      & ::first-letter {
+        text-transform: uppercase;
+      }
+
+      &--arrow {
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 6px solid #000;
+        transition: transform ease-in-out 0.3s;
+      }
+    }
+
+    &--select-dropdown {
+      position: absolute;
+      list-style: none;
+      width: 180px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      background-color: #fff;
+      border: 1px solid #caced1;
+      border-radius: 4px;
+      margin-top: 10px;
+      max-height: 200px;
+      overflow-y: auto;
+      transition: 0.5s ease;
+      opacity: 0;
+      visibility: hidden;
+      height: 0;
+
+      & li {
+        position: relative;
+        cursor: pointer;
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        padding: 0.5rem;
+
+        &:hover {
+          background-color: #f1f1f1;
+        }
+
+        &.selected {
+          background-color: #000;
+          color: white;
+        }
+      }
+
+      &::-webkit-scrollbar {
+        width: 7px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 25px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: #ccc;
+        border-radius: 25px;
+      }
+    }
+  }
+
+  &__custom-select.active .dropdownMenu__custom-select__select-button--arrow {
+    transform: rotate(180deg);
+  }
+
+  &__custom-select.active .dropdownMenu__custom-select--select-dropdown {
+    opacity: 1;
+    visibility: visible;
+    height: 100px;
+  }
+}

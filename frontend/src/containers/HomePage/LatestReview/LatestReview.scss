@@ -1,0 +1,117 @@
+@import "../../../styles/variables.scss";
+
+.latestReview {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  max-width: 90%;
+  margin: 4em auto 0 auto;
+
+  @media (min-width: $md) {
+    gap: 3em;
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+    @media (min-width: 1440px) {
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: $md) {
+      flex-direction: row;
+      align-items: center;
+    }
+
+    &--h2 {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
+
+      h3 {
+        width: 250px;
+        font-weight: 600;
+        font-size: 1.3em;
+      }
+    }
+
+    p {
+      color: $color-secondary;
+      text-align: right;
+
+      @media (min-width: $lg) {
+        padding-left: 2em;
+      }
+
+      @media (min-width: $xl) {
+        padding-left: 5em;
+      }
+
+      a {
+        color: white;
+        text-decoration: none;
+      }
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 60px;
+    width: 100%;
+
+    @media (min-width: 1440px) {
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+
+    .expedition-item {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      width: 100%;
+
+      img {
+        width: 100%;
+        height: 500px;
+        order: 1;
+        object-fit: cover;
+        background-color: red;
+
+        @media (min-width: $xl) {
+          height: 600px;
+        }
+      }
+
+      &__content {
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.678);
+        bottom: 0;
+        right: 0;
+        width: 120px;
+        display: flex;
+        padding: 0.5em 1.5em;
+        flex-direction: column;
+        gap: 10px;
+        text-align: right;
+
+        h4 {
+          font-size: 0.9em;
+          font-weight: 600;
+        }
+
+        .date {
+          color: white;
+          font-size: 0.7em;
+          font-weight: 400;
+          font-style: italic;
+        }
+      }
+    }
+  }
+}

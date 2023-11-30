@@ -1,0 +1,62 @@
+@import "../../styles/variables.scss";
+
+.logos {
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 60px 0;
+  position: relative;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.logos::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background: linear-gradient(to left, #ff000000, #0e0e0e);
+  z-index: 2;
+}
+
+.logos::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 100%;
+  background: linear-gradient(to right, #ff000000, #0e0e0e);
+  z-index: 2;
+}
+
+.logos-slide {
+  display: inline-block;
+  animation: slide 10s linear infinite;
+}
+
+.logos-slide img {
+  height: 50px;
+  width: auto;
+  margin: 0 20px;
+
+  @media (min-width: $md) {
+    height: 60px;
+    margin: 0 30px;
+  }
+
+  @media (min-width: $lg) {
+    height: 70px;
+    margin: 0 40px;
+  }
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
