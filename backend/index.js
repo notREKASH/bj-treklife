@@ -2,19 +2,19 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 require("dotenv").config();
-const postsRoute = require("./routes/posts");
-const authRoute = require("./routes/auth");
-const productsReviewsRoute = require("./routes/productsReviews");
-const newsLetterRoute = require("./routes/newsLetter");
+const postsRoute = require("./api/posts");
+const authRoute = require("./api/auth");
+const productsReviewsRoute = require("./api/productsReviews");
+const newsLetterRoute = require("./api/newsLetter");
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use("/newsLetter", newsLetterRoute);
-app.use("/posts", postsRoute);
-app.use("/auth", authRoute);
-app.use("/productsReviews", productsReviewsRoute);
+app.use("/api/newsLetter", newsLetterRoute);
+app.use("/api/posts", postsRoute);
+app.use("/api/auth", authRoute);
+app.use("/api/productsReviews", productsReviewsRoute);
 
 const PORT = process.env.PORT;
 
