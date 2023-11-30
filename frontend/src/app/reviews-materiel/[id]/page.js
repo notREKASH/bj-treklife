@@ -3,9 +3,9 @@ import ReviewPage from "@/containers/ReviewPage/ReviewPage";
 export async function generateMetadata({ params, searchParams }, parent) {
   const id = params.id;
 
-  const post = await fetch(`http://localhost:5000/productsReviews/${id}`).then(
-    (res) => res.json()
-  );
+  const post = await fetch(
+    `https://bj-treklife.vercel.app/api/productsReviews/${id}`
+  ).then((res) => res.json());
 
   return {
     title: post.title,

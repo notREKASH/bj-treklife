@@ -33,7 +33,7 @@ function Footer() {
     };
 
     axios
-      .post("http://localhost:5000/newsLetter", newsletterData)
+      .post("https://bj-treklife.vercel.app/api/newsLetter", newsletterData)
       .then((res) => {
         toast.success(`${res.data.message}`, {
           position: "top-center",

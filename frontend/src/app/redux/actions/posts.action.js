@@ -43,7 +43,7 @@ export const getPosts = (page = 1, limit = 5) => {
     dispatch({ type: "GET_POSTS_REQUEST" });
     try {
       const res = await axios.get(
-        `http://localhost:5000/posts?page=${page}&limit=${limit}`
+        `https://bj-treklife.vercel.app/api/posts?page=${page}&limit=${limit}`
       );
       const postsClone = [...res.data.posts];
       dispatch({
@@ -67,7 +67,9 @@ export const getLatestPosts = () => {
       type: "GET_POSTS_REQUEST",
     });
     try {
-      const res = await axios.get("http://localhost:5000/posts/latest-posts");
+      const res = await axios.get(
+        "https://bj-treklife.vercel.app/api/posts/latest-posts"
+      );
       const postsClone = [...res.data];
       dispatch({
         type: "GET_LATEST_POSTS",
@@ -89,7 +91,9 @@ export const getSpecificPost = (id) => {
       type: "GET_POSTS_REQUEST",
     });
     try {
-      const res = await axios.get(`http://localhost:5000/posts/${id}`);
+      const res = await axios.get(
+        `https://bj-treklife.vercel.app/api/posts/${id}`
+      );
       dispatch({
         type: "GET_SPECIFIC_POST",
         payload: res.data,
@@ -113,13 +117,16 @@ export const getFilteredPosts = (filterName, page = 1, limit = 5) => {
     dispatch(setRandonneeTrekkingFilterName(filterName));
     dispatch({ type: "GET_POSTS_REQUEST" });
     try {
-      const response = await axios.get(`http://localhost:5000/posts`, {
-        params: {
-          activityType: filterName,
-          page,
-          limit,
-        },
-      });
+      const response = await axios.get(
+        `https://bj-treklife.vercel.app/api/posts`,
+        {
+          params: {
+            activityType: filterName,
+            page,
+            limit,
+          },
+        }
+      );
 
       const postsClone = [...response.data.posts];
       dispatch({
@@ -145,7 +152,7 @@ export const createPost = (post, token) => {
   return async (dispatch) => {
     try {
       const res = await axios.post(
-        "http://localhost:5000/posts",
+        "https://bj-treklife.vercel.app/api/posts",
         {
           ...post,
         },
@@ -185,11 +192,14 @@ export const createPost = (post, token) => {
 export const deletePost = (id, token) => {
   return async (dispatch) => {
     try {
-      const res = await axios.delete(`http://localhost:5000/posts/${id}`, {
-        headers: {
-          "auth-token": token,
-        },
-      });
+      const res = await axios.delete(
+        `https://bj-treklife.vercel.app/api/posts/${id}`,
+        {
+          headers: {
+            "auth-token": token,
+          },
+        }
+      );
       dispatch({
         type: "DELETE_POST",
         payload: res.data,
@@ -222,7 +232,7 @@ export const updatePost = (id, post, token) => {
   return async (dispatch) => {
     try {
       const res = await axios.patch(
-        `http://localhost:5000/posts/${id}`,
+        `https://bj-treklife.vercel.app/api/posts/${id}`,
         {
           ...post,
         },

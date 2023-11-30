@@ -12,11 +12,14 @@ export default function Newsletter() {
 
   const getNewsletter = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/newsLetter", {
-        headers: {
-          "auth-token": token,
-        },
-      });
+      const res = await axios.get(
+        "https://bj-treklife.vercel.app/api/newsLetter",
+        {
+          headers: {
+            "auth-token": token,
+          },
+        }
+      );
       setNewsletter(res.data);
     } catch (err) {
       const errors = err.response.data;
@@ -36,11 +39,14 @@ export default function Newsletter() {
 
   const handleDeleteSubscriber = async (id) => {
     try {
-      const res = await axios.delete(`http://localhost:5000/newsLetter/${id}`, {
-        headers: {
-          "auth-token": token,
-        },
-      });
+      const res = await axios.delete(
+        `https://bj-treklife.vercel.app/api/newsLetter/${id}`,
+        {
+          headers: {
+            "auth-token": token,
+          },
+        }
+      );
       toast.success(`${res.data.message}`, {
         position: "top-center",
         autoClose: 3000,

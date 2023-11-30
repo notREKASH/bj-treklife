@@ -42,7 +42,7 @@ export const getProductsRComments = (id, page = 1, limit = 20) => {
     dispatch({ type: "GET_PRODUCTR_COMMENTS_REQUEST" });
     try {
       const res = await axios.get(
-        `http://localhost:5000/productsReviews/${id}/comments-with-replies?page=${page}&limit=${limit}`
+        `https://bj-treklife.vercel.app/api/productsReviews/${id}/comments-with-replies?page=${page}&limit=${limit}`
       );
 
       const commentsClone = [...res.data.comments];
@@ -65,7 +65,7 @@ export const addProductsRComment = (id, comment) => {
   return async (dispatch) => {
     try {
       const res = await axios.post(
-        `http://localhost:5000/productsReviews/${id}/comments`,
+        `https://bj-treklife.vercel.app/api/productsReviews/${id}/comments`,
         comment
       );
       dispatch({
@@ -99,7 +99,7 @@ export const deleteProductsRComment = (id, commentId, token) => {
   return async (dispatch) => {
     try {
       const res = await axios.delete(
-        `http://localhost:5000/productsReviews/${id}/comments/${commentId}`,
+        `https://bj-treklife.vercel.app/api/productsReviews/${id}/comments/${commentId}`,
         {
           headers: {
             "auth-token": token,
@@ -136,7 +136,7 @@ export const addProductsRReply = (id, commentId, reply) => {
   return async (dispatch) => {
     try {
       const res = await axios.post(
-        `http://localhost:5000/productsReviews/${id}/comments/${commentId}/replies`,
+        `https://bj-treklife.vercel.app/api/productsReviews/${id}/comments/${commentId}/replies`,
         reply
       );
       dispatch({
@@ -170,7 +170,7 @@ export const deleteProductsRReply = (id, commentId, replyId, token) => {
   return async (dispatch) => {
     try {
       const res = await axios.delete(
-        `http://localhost:5000/productsReviews/${id}/comments/${commentId}/replies/${replyId}`,
+        `https://bj-treklife.vercel.app/api/productsReviews/${id}/comments/${commentId}/replies/${replyId}`,
         {
           headers: {
             "auth-token": token,

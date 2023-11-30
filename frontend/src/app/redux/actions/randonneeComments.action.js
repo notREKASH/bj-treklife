@@ -42,7 +42,7 @@ export const getRandonneeComments = (id, page = 1, limit = 20) => {
     dispatch({ type: "GET_RANDONNEE_COMMENTS_REQUEST" });
     try {
       const res = await axios.get(
-        `http://localhost:5000/posts/${id}/comments-with-replies?page=${page}&limit=${limit}`
+        `https://bj-treklife.vercel.app/api/posts/${id}/comments-with-replies?page=${page}&limit=${limit}`
       );
       const commentsClone = [...res.data.comments];
       dispatch({
@@ -64,7 +64,7 @@ export const addRandonneeComment = (id, comment) => {
   return async (dispatch) => {
     try {
       const res = await axios.post(
-        `http://localhost:5000/posts/${id}/comments`,
+        `https://bj-treklife.vercel.app/api/posts/${id}/comments`,
         comment
       );
       dispatch({
@@ -98,7 +98,7 @@ export const deleteRandonneeComment = (id, commentId, token) => {
   return async (dispatch) => {
     try {
       const res = await axios.delete(
-        `http://localhost:5000/posts/${id}/comments/${commentId}`,
+        `https://bj-treklife.vercel.app/api/posts/${id}/comments/${commentId}`,
         {
           headers: {
             "auth-token": token,
@@ -135,7 +135,7 @@ export const addRandonneeReply = (id, commentId, reply) => {
   return async (dispatch) => {
     try {
       const res = await axios.post(
-        `http://localhost:5000/posts/${id}/comments/${commentId}/replies`,
+        `https://bj-treklife.vercel.app/api/posts/${id}/comments/${commentId}/replies`,
         reply
       );
       dispatch({
@@ -169,7 +169,7 @@ export const deleteRandonneeReply = (id, commentId, replyId, token) => {
   return async (dispatch) => {
     try {
       const res = await axios.delete(
-        `http://localhost:5000/posts/${id}/comments/${commentId}/replies/${replyId}`,
+        `https://bj-treklife.vercel.app/api/posts/${id}/comments/${commentId}/replies/${replyId}`,
         {
           headers: {
             "auth-token": token,

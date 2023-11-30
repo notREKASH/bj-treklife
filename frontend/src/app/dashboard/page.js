@@ -19,7 +19,9 @@ function NewPost() {
     const id = inputIdP.current.value;
 
     try {
-      const res = await axios.get(`http://localhost:5000/posts/${id}`);
+      const res = await axios.get(
+        `https://bj-treklife.vercel.app/api/posts/${id}`
+      );
       const data = res.data;
 
       if (data && data.message && typeof data.message === "object") {
@@ -55,7 +57,7 @@ function NewPost() {
 
     try {
       const res = await axios.get(
-        `http://localhost:5000/productsReviews/${id}`
+        `https://bj-treklife.vercel.app/api/productsReviews/${id}`
       );
 
       const data = res.data;

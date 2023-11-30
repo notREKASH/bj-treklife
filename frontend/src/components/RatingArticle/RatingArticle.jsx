@@ -20,7 +20,7 @@ export default function RatingArticle({ contentType, articleId }) {
 
     try {
       const res = axios.post(
-        `http://localhost:5000/posts/${articleId}/ratings`,
+        `https://bj-treklife.vercel.app/api/posts/${articleId}/ratings`,
         {
           rating: index,
         }
