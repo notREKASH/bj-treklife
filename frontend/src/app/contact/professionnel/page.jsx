@@ -18,19 +18,7 @@ export default function Professionnel() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.target);
-    console.log({
-      firstName: data.get("firstName"),
-      lastName: data.get("lastName"),
-      email: data.get("email"),
-      company: data.get("company"),
-      phone: data.get("phone"),
-      subject: data.get("subject"),
-      message: data.get("message"),
-      privacyPolicy: data.get("privacyPolicy") === "accepted" ? true : false,
-      cgu: data.get("cgu") === "accepted" ? true : false,
-      mentionsLegales:
-        data.get("mentionsLegales") === "accepted" ? true : false,
-    });
+
     try {
       const res = await axios.post(
         "http://localhost:5000/api/sendmail/contact",

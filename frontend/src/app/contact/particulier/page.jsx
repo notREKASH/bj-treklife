@@ -18,17 +18,6 @@ export default function Particulier() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.target);
-    console.log({
-      firstName: data.get("firstName"),
-      lastName: data.get("lastName"),
-      email: data.get("email"),
-      subject: data.get("subject"),
-      message: data.get("message"),
-      privacyPolicy: data.get("privacyPolicy") === "accepted" ? true : false,
-      cgu: data.get("cgu") === "accepted" ? true : false,
-      mentionsLegales:
-        data.get("mentionsLegales") === "accepted" ? true : false,
-    });
 
     try {
       const res = await axios.post(
