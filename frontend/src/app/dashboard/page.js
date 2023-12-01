@@ -20,7 +20,9 @@ function NewPost() {
     const id = inputIdP.current.value;
 
     try {
-      const res = await axios.get(`${URL_API}/api/posts/${id}`);
+      const res = await axios.get(
+        `https://bj-treklife.vercel.app/api/posts/${id}`
+      );
       const data = res.data;
 
       if (data && data.message && typeof data.message === "object") {
@@ -55,7 +57,9 @@ function NewPost() {
     const id = inputIdR.current.value;
 
     try {
-      const res = await axios.get(`${URL_API}/api/productsReviews/${id}`);
+      const res = await axios.get(
+        `https://bj-treklife.vercel.app/api/productsReviews/${id}`
+      );
 
       const data = res.data;
 

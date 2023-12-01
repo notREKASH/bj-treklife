@@ -1,5 +1,4 @@
 "use client";
-import axios from "axios";
 import "./login.scss";
 import { useState, useRef } from "react";
 import { useDispatch } from "react-redux";

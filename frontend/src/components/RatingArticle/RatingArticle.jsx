@@ -20,9 +20,12 @@ export default function RatingArticle({ contentType, articleId }) {
     setRating(index);
 
     try {
-      const res = axios.post(`${URL_API}/api/posts/${articleId}/ratings`, {
-        rating: index,
-      });
+      const res = axios.post(
+        `https://bj-treklife.vercel.app/api/posts/${articleId}/ratings`,
+        {
+          rating: index,
+        }
+      );
       localStorage.setItem(`rating-${articleId}`, index);
     } catch (err) {
       console.log(err);

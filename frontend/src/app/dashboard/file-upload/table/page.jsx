@@ -13,7 +13,7 @@ export default function TableFileUpload() {
   const getFiles = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/api/upload/files",
+        "https://bj-treklife.vercel.app/api/upload/files",
         {
           headers: {
             "auth-token": token,
@@ -30,14 +30,13 @@ export default function TableFileUpload() {
     if (token) {
       getFiles();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token]);
 
   const handleCopy = (event) => {
     const fileUrl = event.target.innerText;
     navigator.clipboard.writeText(fileUrl);
   };
-
-  console.log(files);
 
   return (
     <div className="table-file-upload">

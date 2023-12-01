@@ -49,7 +49,7 @@ export const getReviews = (page = 1, limit = 5) => {
     });
     try {
       const res = await axios.get(
-        `${URL_API}/api/productsReviews?page=${page}&limit=${limit}`
+        `https://bj-treklife.vercel.app/api/productsReviews?page=${page}&limit=${limit}`
       );
       dispatch({
         type: "GET_ALL_REVIEWS",
@@ -73,7 +73,7 @@ export const getLatestReview = () => {
     });
     try {
       const res = await axios.get(
-        `${URL_API}/api/productsReviews/latest-reviews`
+        `https://bj-treklife.vercel.app/api/productsReviews/latest-reviews`
       );
       const review = res.data;
       dispatch({
@@ -96,7 +96,9 @@ export const getSpecificReview = (id) => {
       type: "GET_REVIEWS_REQUEST",
     });
     try {
-      const res = await axios.get(`${URL_API}/api/productsReviews/${id}`);
+      const res = await axios.get(
+        `https://bj-treklife.vercel.app/api/productsReviews/${id}`
+      );
       dispatch({
         type: "GET_SPECIFIC_REVIEW",
         payload: res.data,
@@ -132,14 +134,17 @@ export const getFilteredReviews = (
       type: "GET_REVIEWS_REQUEST",
     });
     try {
-      const res = await axios.get(`${URL_API}/api/productsReviews`, {
-        params: {
-          category: category,
-          subCategory: subCategory,
-          page,
-          limit,
-        },
-      });
+      const res = await axios.get(
+        `https://bj-treklife.vercel.app/api/productsReviews`,
+        {
+          params: {
+            category: category,
+            subCategory: subCategory,
+            page,
+            limit,
+          },
+        }
+      );
 
       dispatch({
         type: "GET_FILTERED_REVIEWS",
@@ -164,7 +169,7 @@ export const createReview = (review, token) => {
   return async (dispatch) => {
     try {
       const res = await axios.post(
-        `${URL_API}/api/productsReviews`,
+        `https://bj-treklife.vercel.app/api/productsReviews`,
         {
           ...review,
         },
@@ -203,11 +208,14 @@ export const createReview = (review, token) => {
 export const deleteReview = (id, token) => {
   return async (dispatch) => {
     try {
-      const res = await axios.delete(`${URL_API}/api/productsReviews/${id}`, {
-        headers: {
-          "auth-token": token,
-        },
-      });
+      const res = await axios.delete(
+        `https://bj-treklife.vercel.app/api/productsReviews/${id}`,
+        {
+          headers: {
+            "auth-token": token,
+          },
+        }
+      );
       dispatch({
         type: "DELETE_REVIEW",
         payload: res.data,
@@ -238,7 +246,7 @@ export const updateReview = (id, review, token) => {
   return async (dispatch) => {
     try {
       const res = await axios.patch(
-        `${URL_API}/api/productsReviews/${id}`,
+        `https://bj-treklife.vercel.app/api/productsReviews/${id}`,
         {
           ...review,
         },

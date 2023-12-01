@@ -40,7 +40,7 @@ function checkFileType(file, cb) {
 
 router.post("/", upload, (req, res) => {
   if (req.file) {
-    const filePath = `http://localhost:5000/uploads/${req.file.filename}`;
+    const filePath = `https://bj-treklife.vercel.app/uploads/${req.file.filename}`;
     res.json({
       success: true,
       message: "Fichier téléchargé avec succès !",
@@ -71,7 +71,7 @@ router.get("/files", (req, res) => {
     files.forEach((file) => {
       fileInfos.push({
         name: file,
-        url: `http://localhost:5000/uploads/${file}`,
+        url: `https://bj-treklife.vercel.app/uploads/${file}`,
       });
     });
 

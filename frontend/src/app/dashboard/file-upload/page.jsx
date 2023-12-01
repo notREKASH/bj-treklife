@@ -19,7 +19,7 @@ export function FileUploadPage() {
     formData.append("file", file);
 
     const response = await axios.post(
-      "http://localhost:5000/api/upload",
+      "https://bj-treklife.vercel.app/api/upload",
       formData,
       {
         headers: {
