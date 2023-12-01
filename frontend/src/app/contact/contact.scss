@@ -1,25 +1,42 @@
 @import "../../styles/variables.scss";
 
 .contact-page {
-  height: calc(100vh - 68px - 16px);
-  background-color: white;
-  padding: 1em 0 0 0;
+  position: relative;
+  height: calc(100vh - 4em);
   display: flex;
   flex-direction: column;
   gap: 2em;
+  color: white;
+
+  &__backgroundImage {
+    height: 100%;
+    width: 100%;
+    background-image: url("../../images/contactPage.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0.4;
+  }
 
   &__container {
     display: flex;
     flex-direction: column;
-    gap: 1em;
+    gap: 2em;
     align-items: center;
     justify-content: center;
     height: 100%;
+    width: 90%;
+    margin: 0 auto;
 
     h1 {
       font-size: 1.2em;
       text-align: center;
       font-weight: 700;
+      margin-bottom: 0.5em;
 
       @media (min-width: $md) {
         font-size: 1.5em;
@@ -41,8 +58,14 @@
 
     &__buttons {
       display: flex;
-      flex-direction: row;
-      gap: 1em;
+      flex-direction: column;
+      gap: 1.5em;
+
+      @media (min-width: $sm) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+
       a {
         height: 60px;
         width: 60px;
@@ -53,6 +76,27 @@
         border-radius: 50%;
         background-color: #1a1a1a;
         color: white;
+      }
+
+      &__particulier,
+      &__professionnel {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+        align-items: center;
+
+        h2 {
+          font-size: 1em;
+          font-weight: 700;
+          text-align: center;
+          text-decoration: underline;
+        }
+
+        p {
+          font-size: 0.8em;
+          font-weight: 400;
+          text-align: center;
+        }
       }
     }
   }

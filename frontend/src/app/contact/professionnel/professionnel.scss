@@ -1,0 +1,150 @@
+@import "../../../styles/variables.scss";
+
+@mixin input {
+  width: calc(100% - 5px);
+  padding: 0.5em 0;
+  border: 1px solid #1a1a1a;
+  border-radius: 5px;
+  font-weight: 400;
+  padding-left: 5px;
+}
+
+.professionnel {
+  padding-top: 1em;
+  height: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+
+  &--ico {
+    height: 60px;
+    width: 60px;
+    font-size: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #1a1a1a;
+    color: white;
+  }
+
+  &__backgroundImage {
+    height: 100%;
+    width: 100%;
+    background-image: url("../../../images/contactPage.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0.4;
+  }
+
+  h1 {
+    font-size: 1.2em;
+    text-align: center;
+    font-weight: 700;
+
+    @media (min-width: $md) {
+      font-size: 1.5em;
+    }
+  }
+
+  &__container {
+    height: calc(100vh - 12em);
+    width: 90%;
+    margin: 1em auto;
+
+    &__form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
+
+      &__name {
+        display: flex;
+        flex-direction: row;
+        gap: 1em;
+
+        div {
+          display: flex;
+          flex-direction: column;
+          gap: 0.2em;
+
+          input {
+            @include input;
+          }
+        }
+      }
+
+      &__email {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+
+        input {
+          @include input;
+        }
+      }
+
+      &__contact {
+        display: flex;
+        flex-direction: row;
+        gap: 1em;
+
+        div {
+          display: flex;
+          flex-direction: column;
+          gap: 0.2em;
+
+          input {
+            @include input;
+          }
+        }
+      }
+
+      &__subject {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+
+        select {
+          @include input;
+          text-align: center;
+        }
+      }
+
+      &__message {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5em;
+
+        textarea {
+          @include input;
+          resize: vertical;
+          font-size: 1em;
+          height: 120px;
+        }
+      }
+
+      &__submit {
+        display: flex;
+        justify-content: flex-start;
+
+        button {
+          padding: 0.5em 1em;
+          background-color: white;
+          color: #1a1a1a;
+          border: none;
+          border-radius: 5px;
+          font-weight: 700;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
