@@ -38,6 +38,12 @@ function checkFileType(file, cb) {
   }
 }
 
+// Verify existing api/upload route
+
+router.get("/", (req, res) => {
+  res.send("Hello from upload route");
+});
+
 // @route POST api/upload
 
 router.post("/", upload, (req, res) => {
