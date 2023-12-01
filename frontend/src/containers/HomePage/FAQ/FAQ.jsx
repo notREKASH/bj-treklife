@@ -74,6 +74,8 @@ function FAQ() {
         </div>
         <div className="faq__img">
           <Image
+            placeholder="blur"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPUzZpfDwADuQG3zGD5JgAAAABJRU5ErkJggg=="
             src={FaqImage.src}
             alt="Photo de moi sur un Pic des Aiguilles de Baulmes en suisse, avec vu sur le Lac de Neuchatel"
             width={1000}

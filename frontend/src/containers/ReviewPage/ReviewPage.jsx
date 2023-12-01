@@ -50,6 +50,8 @@ export default function ReviewPage({ id }) {
           <span className=""></span>
           {review?.coverImageUrl && (
             <Image
+              placeholder="blur"
+              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPUzZpfDwADuQG3zGD5JgAAAABJRU5ErkJggg=="
               src={review.coverImageUrl}
               alt={review.coverImageAlt}
               width={1920}
@@ -69,6 +71,8 @@ export default function ReviewPage({ id }) {
               <div className="review__container__content__leftContent__introduction--image">
                 {review.introduction?.imageUrl && (
                   <Image
+                    placeholder="blur"
+                    blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPUzZpfDwADuQG3zGD5JgAAAABJRU5ErkJggg=="
                     className="review__container__content__leftContent__introduction--image--img"
                     src={review.introduction?.imageUrl}
                     alt={review.introduction?.altImage}
@@ -79,6 +83,8 @@ export default function ReviewPage({ id }) {
                 )}
                 {review.introduction?.imageUrl && (
                   <Image
+                    placeholder="blur"
+                    blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPUzZpfDwADuQG3zGD5JgAAAABJRU5ErkJggg=="
                     className="backgroundImage"
                     src={review.introduction?.imageUrl}
                     alt={review.introduction?.altImage}
@@ -122,6 +128,8 @@ export default function ReviewPage({ id }) {
               <div className="review__container__content__leftContent__personalExperience--image">
                 {review.personalExperience?.imageUrl && (
                   <Image
+                    placeholder="blur"
+                    blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPUzZpfDwADuQG3zGD5JgAAAABJRU5ErkJggg=="
                     className="review__container__content__leftContent__personalExperience--image--img"
                     src={review.personalExperience?.imageUrl}
                     alt={review.personalExperience?.altImage}
@@ -132,6 +140,8 @@ export default function ReviewPage({ id }) {
                 )}
                 {review.personalExperience?.imageUrl && (
                   <Image
+                    placeholder="blur"
+                    blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPUzZpfDwADuQG3zGD5JgAAAABJRU5ErkJggg=="
                     className="backgroundImage"
                     src={review.personalExperience?.imageUrl}
                     alt={review.personalExperience?.altImage}

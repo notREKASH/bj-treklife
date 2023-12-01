@@ -17,6 +17,8 @@ function HeroBanner() {
         </div>
         <div className="home__background__img">
           <Image
+            placeholder="blur"
+            blurDataURL={HomeBackground.src}
             src={HomeBackground.src}
             width={1920}
             height={1080}

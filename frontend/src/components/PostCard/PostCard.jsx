@@ -102,13 +102,17 @@ export default function PostCard({
   return (
     <div className="post-card" onMouseDown={handleClick}>
       <div className="post-card__img">
-        <Image
-          src={postImage}
-          alt={postTitle}
-          width={500}
-          height={500}
-          quality={100}
-        />
+        {postImage && (
+          <Image
+            placeholder="blur"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPUzZpfDwADuQG3zGD5JgAAAABJRU5ErkJggg=="
+            src={postImage}
+            alt={postTitle}
+            width={500}
+            height={500}
+            quality={100}
+          />
+        )}
       </div>
       <div className="post-card__content">
         <h3>{postTitle}</h3>

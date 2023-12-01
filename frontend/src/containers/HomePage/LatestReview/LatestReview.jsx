@@ -32,13 +32,17 @@ function LatestReview() {
       </div>
       <div className="latestReview__card">
         <div key={latestReview?._id} className="expedition-item">
-          <Image
-            src={latestReview?.coverImageUrl}
-            alt={latestReview?.title}
-            width={1920}
-            height={1080}
-            quality={100}
-          />
+          {latestReview?.coverImageUrl && (
+            <Image
+              placeholder="blur"
+              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPUzZpfDwADuQG3zGD5JgAAAABJRU5ErkJggg=="
+              src={latestReview?.coverImageUrl}
+              alt={latestReview?.title}
+              width={1920}
+              height={1080}
+              quality={100}
+            />
+          )}
           <div className="expedition-item__content">
             <h4>{latestReview?.title}</h4>
             <p className="date">

@@ -38,7 +38,15 @@ function ImageFullscreen({ src, alt }) {
           />
         </div>
         <div className="full-screen">
-          <Image src={src} alt={alt} width={1920} height={1080} quality={100} />
+          <Image
+            placeholder="blur"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPUzZpfDwADuQG3zGD5JgAAAABJRU5ErkJggg=="
+            src={src}
+            alt={alt}
+            width={1920}
+            height={1080}
+            quality={100}
+          />
         </div>
       </div>
     </>

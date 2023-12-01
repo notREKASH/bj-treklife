@@ -155,8 +155,6 @@ export default function PostPage({ id }) {
                 )}
                 {post.introduction?.imageUrl && (
                   <ImageFullscreen
-                    placeholder="blur"
-                    blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPUzZpfDwADuQG3zGD5JgAAAABJRU5ErkJggg=="
                     src={post.introduction?.imageUrl}
                     alt={post.introduction?.altImage}
                   />

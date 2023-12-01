@@ -26,6 +26,8 @@ function SubSection({ title, content, imageUrl, altImage }) {
         )}
         {imageUrl && (
           <Image
+            placeholder="blur"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPUzZpfDwADuQG3zGD5JgAAAABJRU5ErkJggg=="
             className="backgroundImage"
             src={imageUrl}
             alt={altImage}
