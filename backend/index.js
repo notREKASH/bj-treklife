@@ -6,6 +6,7 @@ const postsRoute = require("./api/posts");
 const authRoute = require("./api/auth");
 const productsReviewsRoute = require("./api/productsReviews");
 const newsLetterRoute = require("./api/newsLetter");
+const sendmail = require("./api/sendmail");
 
 const app = express();
 
@@ -21,6 +22,7 @@ app.use("/api/newsLetter", newsLetterRoute);
 app.use("/api/posts", postsRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/productsReviews", productsReviewsRoute);
+app.use("/api/sendmail", sendmail);
 
 const PORT = process.env.PORT;
 

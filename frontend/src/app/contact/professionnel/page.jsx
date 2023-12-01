@@ -3,11 +3,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./professionnel.scss";
 import { faUserTie } from "@fortawesome/free-solid-svg-icons";
 import { useRef } from "react";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 export default function Professionnel() {
   const form = useRef(null);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.target);
     console.log({
@@ -19,18 +21,35 @@ export default function Professionnel() {
       subject: data.get("subject"),
       message: data.get("message"),
     });
+    try {
+      const res = await axios.post(
+        "http://localhost:5000/api/sendmail/contact",
+        {
+          firstName: data.get("firstName"),
+          lastName: data.get("lastName"),
+          email: data.get("email"),
+          company: data.get("company"),
+          phone: data.get("phone"),
+          subject: data.get("subject"),
+          message: data.get("message"),
+        }
+      );
+      toast.success(res.data.message);
+    } catch (error) {
+      toast.error(error.response.data.message);
+    }
 
     form.current.reset();
   };
 
   return (
     <div className="professionnel">
-      <div className="professionnel--ico">
-        <FontAwesomeIcon icon={faUserTie} />
-      </div>
-      <h1>Contact</h1>
       <div className="professionnel__backgroundImage"></div>
       <div className="professionnel__container">
+        <div className="professionnel__container--ico">
+          <FontAwesomeIcon icon={faUserTie} />
+        </div>
+        <h1>Contact</h1>
         <form
           ref={form}
           onSubmit={handleSubmit}
