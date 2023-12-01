@@ -242,7 +242,7 @@ function Footer() {
                   <Link href="/a-propos">A propos</Link>
                   <Link href="/randonnee-trekking">Randonnée & Trekking</Link>
                   <Link href="/reviews-materiel">Tests & Avis Matériel</Link>
-                  <Link href="/">Contact</Link>
+                  <Link href="/contact">Contact</Link>
                 </div>
               </div>
               <div className="footer__container__menu--support">

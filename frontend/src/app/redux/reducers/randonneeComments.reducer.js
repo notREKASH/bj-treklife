@@ -23,7 +23,6 @@ const randonneeCommentsReducer = (state = initialState, action) => {
         randonneeLoading: true,
       };
     case "GET_RANDONNEE_ALL_COMMENTS":
-      console.log(action.payload);
       return {
         ...state,
         randonneeComments: action.payload,

@@ -5,18 +5,17 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel as CarouselLib } from "react-responsive-carousel";
 
 function Carousel({ images }) {
-  console.log(images);
   return (
     <CarouselLib
       showArrows={true}
       infiniteLoop={true}
       showThumbs={false}
       useKeyboardArrows={true}
-      swipeable={true}
       dynamicHeight={true}
       autoPlay={true}
-      interval={5000}
+      interval={3000}
       className="carousel"
+      swipeable={false}
     >
       {images.map((image) => (
         <div key={image._id} className="carousel__container">

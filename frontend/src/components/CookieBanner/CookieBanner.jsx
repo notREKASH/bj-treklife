@@ -15,7 +15,6 @@ const GA_TRACKING_ID = `${gtag.GA_TRACKING_ID}`;
 
 function CookieBanner() {
   const [showBanner, setShowBanner] = useState(false);
-
   const disableGoogleAnalytics = () => {
     resetCookieConsentValue("cookieConsent");
     window[`ga-disable-${GA_TRACKING_ID}`] = true;
@@ -25,7 +24,6 @@ function CookieBanner() {
   };
 
   const initializeGoogleAnalytics = () => {
-    console.log("Google Analytics Initialized");
     window[`ga-disable-${GA_TRACKING_ID}`] = false;
     window.dataLayer = window.dataLayer || [];
     function gtag() {
@@ -39,6 +37,8 @@ function CookieBanner() {
 
   useEffect(() => {
     const consent = getCookieConsentValue("cookieConsent");
+    setShowBanner(consent !== "true");
+
     if (consent === "true") {
       initializeGoogleAnalytics();
     } else {
@@ -48,7 +48,7 @@ function CookieBanner() {
 
   return (
     <>
-      {showBanner && (
+      {showBanner ? (
         <CookieConsent
           location="bottom"
           buttonText="J'accepte"
@@ -79,22 +79,21 @@ function CookieBanner() {
           invite à consulter ma Politique de Confidentialité. En utilisant mon
           site, vous acceptez l&rsquo;utilisation de ces cookies.
         </CookieConsent>
-      )}
-      {!showBanner && (
+      ) : (
         <>
-          <button
-            className="cancelCookies"
-            onClick={() => {
-              disableGoogleAnalytics();
-              setShowBanner(true);
-            }}
-          >
-            Réinitialiser mon choix pour les cookies 🍪
-          </button>
-        </>
-      )}
-      {!showBanner && (
-        <>
+          <section>
+            <div>
+              <button
+                className="cancelCookies"
+                onClick={() => {
+                  disableGoogleAnalytics();
+                  setShowBanner(true);
+                }}
+              >
+                Réinitialiser mon choix pour les cookies 🍪
+              </button>
+            </div>
+          </section>
           <Script
             strategy="afterInteractive"
             src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}

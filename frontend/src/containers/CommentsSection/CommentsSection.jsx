@@ -13,10 +13,8 @@ export default function CommentsSection({ contentType, articleId }) {
 
   useEffect(() => {
     if (contentType === "randonneeTrekking") {
-      console.log("randonneeTrekking");
       dispatch(getRandonneeComments(articleId));
     } else if (contentType === "productReview") {
-      console.log("productReview");
       dispatch(getProductsRComments(articleId));
     }
   }, [dispatch, articleId, contentType]);

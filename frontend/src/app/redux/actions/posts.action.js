@@ -2,7 +2,6 @@ import axios from "axios";
 import { setRandonneeTrekkingFilterName } from "./filter.actions";
 import { toast } from "react-toastify";
 const URL_API = process.env.NEXT_PUBLIC_API_URL;
-console.log("URL_API", URL_API);
 
 // Current Pages
 
@@ -65,7 +64,6 @@ export const getPosts = (page = 1, limit = 5) => {
 
 export const getLatestPosts = () => {
   return async (dispatch) => {
-    console.log(URL_API);
     dispatch({
       type: "GET_POSTS_REQUEST",
     });
@@ -170,7 +168,6 @@ export const createPost = (post, token) => {
         draggable: true,
       });
     } catch (error) {
-      console.log(error);
       const errors = error.response.data;
       toast.error(`${errors}`, {
         position: "top-center",
@@ -221,7 +218,6 @@ export const deletePost = (id, token) => {
 // Update a post
 
 export const updatePost = (id, post, token) => {
-  console.log("update post", post);
   return async (dispatch) => {
     try {
       const res = await axios.patch(
