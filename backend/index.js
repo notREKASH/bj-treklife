@@ -7,6 +7,7 @@ const authRoute = require("./api/auth");
 const productsReviewsRoute = require("./api/productsReviews");
 const newsLetterRoute = require("./api/newsLetter");
 const sendmail = require("./api/sendmail");
+const upload = require("./api/upload");
 
 const app = express();
 
@@ -18,11 +19,13 @@ const app = express();
 // );
 app.use(cors());
 app.use(express.json());
+app.use("/uploads", express.static("uploads"));
 app.use("/api/newsLetter", newsLetterRoute);
 app.use("/api/posts", postsRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/productsReviews", productsReviewsRoute);
 app.use("/api/sendmail", sendmail);
+app.use("/api/upload", upload);
 
 const PORT = process.env.PORT;
 

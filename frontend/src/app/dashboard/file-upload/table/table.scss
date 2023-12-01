@@ -1,0 +1,57 @@
+.table-file-upload {
+  background-color: white;
+  padding: 2em 0;
+
+  table {
+    max-width: 90%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid #ddd;
+
+    thead {
+      background-color: #f2f2f2;
+      color: black;
+    }
+
+    th,
+    td {
+      text-align: left;
+      padding: 16px;
+    }
+
+    tbody {
+      tr {
+        border-bottom: 1px solid #ddd;
+
+        td {
+          img {
+            width: 120px;
+            height: auto;
+            object-fit: contain;
+          }
+
+          button {
+            background-color: #4caf50;
+            border: none;
+            color: white;
+            padding: 8px 16px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+    tr:hover {
+      background-color: #ddd;
+    }
+  }
+}

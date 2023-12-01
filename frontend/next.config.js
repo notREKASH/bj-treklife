@@ -7,8 +7,8 @@ const nextConfig = {
         hostname: "live.staticflickr.com",
       },
       {
-        protocol: "https",
-        hostname: "i.imgur.com",
+        protocol: "http",
+        hostname: "localhost",
       },
     ],
   },
