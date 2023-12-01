@@ -87,20 +87,6 @@ function NewPost() {
       <h2>Quel type d&rsquo;article écrire ?</h2>
       <div className="dashboard__container">
         <div className="dashboard__container__card">
-          <div>
-            <h3>Upload des images</h3>
-            <Link href="/dashboard/file-upload">
-              <button>Upload des images</button>
-            </Link>
-          </div>
-          <div>
-            <h3>Voir toutes les images</h3>
-            <Link href="/dashboard/file-upload/table">
-              <button>Toutes les images</button>
-            </Link>
-          </div>
-        </div>
-        <div className="dashboard__container__card">
           <h3>Article de randonnée</h3>
           <Link href="/dashboard/randonnee-trekking">
             <button>Créer un article de randonnée</button>
