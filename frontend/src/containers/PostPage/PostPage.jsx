@@ -52,7 +52,7 @@ export default function PostPage({ id }) {
   const descriptionUtils = [
     { name: "Localisation", value: post.details?.location },
     { name: "Activité", value: post.details?.activityType },
-    { name: "Durée", value: post.details?.duration },
+    { name: "Durée", value: post.details?.duration + " heures" },
     { name: "Distance", value: post.details?.distance + " km" },
     {
       name: "Dénivelé",

@@ -2,10 +2,18 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./particulier.scss";
 import { faHiking } from "@fortawesome/free-solid-svg-icons";
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import axios from "axios";
+import { toast } from "react-toastify";
+import Link from "next/link";
 
 export default function Particulier() {
+  const [selectValue, setSelectValue] = useState("");
   const form = useRef(null);
+
+  const handleChange = (event) => {
+    setSelectValue(event.target.value);
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -16,6 +24,10 @@ export default function Particulier() {
       email: data.get("email"),
       subject: data.get("subject"),
       message: data.get("message"),
+      privacyPolicy: data.get("privacyPolicy") === "accepted" ? true : false,
+      cgu: data.get("cgu") === "accepted" ? true : false,
+      mentionsLegales:
+        data.get("mentionsLegales") === "accepted" ? true : false,
     });
 
     try {
@@ -27,6 +39,11 @@ export default function Particulier() {
           email: data.get("email"),
           subject: data.get("subject"),
           message: data.get("message"),
+          privacyPolicy:
+            data.get("privacyPolicy") === "accepted" ? true : false,
+          cgu: data.get("cgu") === "accepted" ? true : false,
+          mentionsLegales:
+            data.get("mentionsLegales") === "accepted" ? true : false,
         }
       );
       toast.success(res.data.message);
@@ -74,11 +91,20 @@ export default function Particulier() {
             <label htmlFor="subject">
               Objet de contact: <span style={{ color: "red" }}>*</span>
             </label>
-            <select id="subject" name="subject">
-              <option value={null}>-- Choissiez une objet de contact --</option>
-              <option value={1}>Sujet 1</option>
-              <option value={2}>Sujet 2</option>
-              <option value={3}>Sujet 3</option>
+            <select
+              id="subject"
+              name="subject"
+              value={selectValue}
+              onChange={handleChange}
+            >
+              <option value="" selected disabled>
+                -- Choissiez une objet de contact --
+              </option>
+              <option value="trekking-advice">Conseils de trekking</option>
+              <option value="equipment">Équipement et matériel</option>
+              <option value="gpx-tracks">Tracés GPX</option>
+              <option value="gdpr-newsletter">RGPD et newsletter</option>
+              <option value="other-questions">Autres questions</option>
             </select>
           </div>
           <div className="particulier__container__form__message">
@@ -86,6 +112,45 @@ export default function Particulier() {
               Message: <span style={{ color: "red" }}>*</span>
             </label>
             <textarea id="message" name="message" />
+          </div>
+          <div className="particulier__container__form__rgpd">
+            <div>
+              <input
+                type="checkbox"
+                id="privacyPolicy"
+                name="privacyPolicy"
+                value="accepted"
+              />
+              <label htmlFor="privacyPolicy">
+                J&rsquo;accepte la{" "}
+                <Link href="/politique-de-confidentialite" target="_blank">
+                  politique de confidentialité
+                </Link>
+              </label>
+            </div>
+            <div>
+              <input type="checkbox" id="cgu" name="cgu" value="accepted" />
+              <label htmlFor="cgu">
+                J&rsquo;accepte les{" "}
+                <Link href="/conditions-generales-utilisation" target="_blank">
+                  conditions générales d&rsquo;utilisation
+                </Link>
+              </label>
+            </div>
+            <div>
+              <input
+                type="checkbox"
+                id="mentionsLegales"
+                name="mentionsLegales"
+                value="accepted"
+              />
+              <label htmlFor="mentionsLegales">
+                J&rsquo;accepte les{" "}
+                <Link href="/mentions-legales" target="_blank">
+                  mentions légales
+                </Link>
+              </label>
+            </div>
           </div>
           <div className="particulier__container__form__submit">
             <button type="submit">Envoyer</button>

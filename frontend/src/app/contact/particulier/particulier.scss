@@ -20,6 +20,10 @@
   justify-content: center;
   gap: 0.5em;
 
+  a {
+    color: white;
+  }
+
   @media (min-height: 630px) {
     gap: 1em;
   }
@@ -87,6 +91,10 @@
       gap: 0.5em;
       width: 100%;
 
+      @media (min-width: $xs) {
+        gap: 1em;
+      }
+
       &__name {
         display: flex;
         flex-direction: row;
@@ -107,7 +115,7 @@
       &__email {
         display: flex;
         flex-direction: column;
-        gap: 0.5em;
+        gap: 0.2em;
 
         input {
           @include input;
@@ -117,7 +125,7 @@
       &__subject {
         display: flex;
         flex-direction: column;
-        gap: 0.5em;
+        gap: 0.2em;
 
         select {
           @include input;
@@ -128,13 +136,17 @@
       &__message {
         display: flex;
         flex-direction: column;
-        gap: 0.5em;
+        gap: 0.2em;
 
         textarea {
           @include input;
           resize: vertical;
           font-size: 1em;
-          height: 150px;
+          height: 120px;
+
+          @media (min-width: $xs) {
+            height: 150px;
+          }
         }
       }
 
