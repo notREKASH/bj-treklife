@@ -24,10 +24,10 @@ export default function Contact() {
             <h2>Particulier</h2>
             <p>
               Curieux à propos de mes randonnées ou vous vous demandez quel
-              équipement j'utilise ? N'hésitez pas à m'envoyer un message. Je
-              suis toujours ravi de partager mes conseils, mes tracés GPX, et
-              mes expériences de trek pour vous aider dans vos propres
-              aventures.
+              équipement j&rsquo;utilise ? N&rsquo;hésitez pas à m&rsquo;envoyer
+              un message. Je suis toujours ravi de partager mes conseils, mes
+              tracés GPX, et mes expériences de trek pour vous aider dans vos
+              propres aventures.
             </p>
           </div>
           <div className="contact-page__container__buttons__professionnel">
