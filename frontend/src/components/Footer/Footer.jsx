@@ -7,6 +7,7 @@ import Image from "next/image";
 import { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
+const URL_API = process.env.NEXT_PUBLIC_API_URL;
 
 function Footer() {
   const [firstName, setFirstName] = useState("");
@@ -33,7 +34,7 @@ function Footer() {
     };
 
     axios
-      .post("https://bj-treklife.vercel.app/api/newsLetter", newsletterData)
+      .post(`${URL_API}/api/newsLetter`, newsletterData)
       .then((res) => {
         toast.success(`${res.data.message}`, {
           position: "top-center",

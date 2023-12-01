@@ -5,6 +5,7 @@ import "./newsletter.scss";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
+const URL_API = process.env.NEXT_PUBLIC_API_URL;
 
 export default function Newsletter() {
   const [newsletter, setNewsletter] = useState([]);
@@ -12,14 +13,11 @@ export default function Newsletter() {
 
   const getNewsletter = async () => {
     try {
-      const res = await axios.get(
-        "https://bj-treklife.vercel.app/api/newsLetter",
-        {
-          headers: {
-            "auth-token": token,
-          },
-        }
-      );
+      const res = await axios.get(`${URL_API}/api/newsLetter`, {
+        headers: {
+          "auth-token": token,
+        },
+      });
       setNewsletter(res.data);
     } catch (err) {
       const errors = err.response.data;
