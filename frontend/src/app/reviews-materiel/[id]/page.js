@@ -1,11 +1,10 @@
 import ReviewPage from "@/containers/ReviewPage/ReviewPage";
-const URL_API = process.env.NEXT_PUBLIC_API_URL;
 
 export async function generateMetadata({ params, searchParams }, parent) {
   const id = params.id;
 
   const post = await fetch(
-    `https://bj-treklife.vercel.app/api/productsReviews/${id}`
+    `${process.env.NEXT_PUBLIC_API_URL}/api/productsReviews/${id}`
   ).then((res) => res.json());
 
   return {

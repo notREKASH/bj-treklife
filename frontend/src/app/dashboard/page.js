@@ -5,7 +5,6 @@ import "./dashboard.scss";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-const URL_API = process.env.NEXT_PUBLIC_API_URL;
 
 function NewPost() {
   const { push } = useRouter();
@@ -21,7 +20,7 @@ function NewPost() {
 
     try {
       const res = await axios.get(
-        `https://bj-treklife.vercel.app/api/posts/${id}`
+        `${process.env.NEXT_PUBLIC_API_URL}/api/posts/${id}`
       );
       const data = res.data;
 
@@ -58,7 +57,7 @@ function NewPost() {
 
     try {
       const res = await axios.get(
-        `https://bj-treklife.vercel.app/api/productsReviews/${id}`
+        `${process.env.NEXT_PUBLIC_API_URL}/api/productsReviews/${id}`
       );
 
       const data = res.data;

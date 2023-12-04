@@ -12,7 +12,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://www.bj-treklife.fr",
+    origin: process.env.CLIENT_URL,
     credentials: true,
   })
 );

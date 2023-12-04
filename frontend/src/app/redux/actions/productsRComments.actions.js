@@ -1,6 +1,5 @@
 import axios from "axios";
 import { toast } from "react-toastify";
-const URL_API = process.env.NEXT_PUBLIC_API_URL;
 
 // Current Comments (for pagination)
 
@@ -43,7 +42,7 @@ export const getProductsRComments = (id, page = 1, limit = 20) => {
     dispatch({ type: "GET_PRODUCTR_COMMENTS_REQUEST" });
     try {
       const res = await axios.get(
-        `https://bj-treklife.vercel.app/api/productsReviews/${id}/comments-with-replies?page=${page}&limit=${limit}`
+        `${process.env.NEXT_PUBLIC_API_URL}/api/productsReviews/${id}/comments-with-replies?page=${page}&limit=${limit}`
       );
 
       const commentsClone = [...res.data.comments];
@@ -66,7 +65,7 @@ export const addProductsRComment = (id, comment) => {
   return async (dispatch) => {
     try {
       const res = await axios.post(
-        `https://bj-treklife.vercel.app/api/productsReviews/${id}/comments`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/productsReviews/${id}/comments`,
         comment
       );
       dispatch({
@@ -100,7 +99,7 @@ export const deleteProductsRComment = (id, commentId, token) => {
   return async (dispatch) => {
     try {
       const res = await axios.delete(
-        `https://bj-treklife.vercel.app/api/productsReviews/${id}/comments/${commentId}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/productsReviews/${id}/comments/${commentId}`,
         {
           headers: {
             "auth-token": token,
@@ -137,7 +136,7 @@ export const addProductsRReply = (id, commentId, reply) => {
   return async (dispatch) => {
     try {
       const res = await axios.post(
-        `https://bj-treklife.vercel.app/api/productsReviews/${id}/comments/${commentId}/replies`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/productsReviews/${id}/comments/${commentId}/replies`,
         reply
       );
       dispatch({
@@ -171,7 +170,7 @@ export const deleteProductsRReply = (id, commentId, replyId, token) => {
   return async (dispatch) => {
     try {
       const res = await axios.delete(
-        `https://bj-treklife.vercel.app/api/productsReviews/${id}/comments/${commentId}/replies/${replyId}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/productsReviews/${id}/comments/${commentId}/replies/${replyId}`,
         {
           headers: {
             "auth-token": token,

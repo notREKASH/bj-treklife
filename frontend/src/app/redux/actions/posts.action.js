@@ -1,7 +1,6 @@
 import axios from "axios";
 import { setRandonneeTrekkingFilterName } from "./filter.actions";
 import { toast } from "react-toastify";
-const URL_API = process.env.NEXT_PUBLIC_API_URL;
 
 // Current Pages
 
@@ -44,7 +43,7 @@ export const getPosts = (page = 1, limit = 5) => {
     dispatch({ type: "GET_POSTS_REQUEST" });
     try {
       const res = await axios.get(
-        `https://bj-treklife.vercel.app/api/posts?page=${page}&limit=${limit}`
+        `${process.env.NEXT_PUBLIC_API_URL}/api/posts?page=${page}&limit=${limit}`
       );
       const postsClone = [...res.data.posts];
       dispatch({
@@ -69,7 +68,7 @@ export const getLatestPosts = () => {
     });
     try {
       const res = await axios.get(
-        `https://bj-treklife.vercel.app/api/posts/latest-posts`
+        `${process.env.NEXT_PUBLIC_API_URL}/api/posts/latest-posts`
       );
       const postsClone = [...res.data];
       dispatch({
@@ -93,7 +92,7 @@ export const getSpecificPost = (id) => {
     });
     try {
       const res = await axios.get(
-        `https://bj-treklife.vercel.app/api/posts/${id}`
+        `${process.env.NEXT_PUBLIC_API_URL}/api/posts/${id}`
       );
       dispatch({
         type: "GET_SPECIFIC_POST",
@@ -119,7 +118,7 @@ export const getFilteredPosts = (filterName, page = 1, limit = 5) => {
     dispatch({ type: "GET_POSTS_REQUEST" });
     try {
       const response = await axios.get(
-        `https://bj-treklife.vercel.app/api/posts`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/posts`,
         {
           params: {
             activityType: filterName,
@@ -153,7 +152,7 @@ export const createPost = (post, token) => {
   return async (dispatch) => {
     try {
       const res = await axios.post(
-        `https://bj-treklife.vercel.app/api/posts`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/posts`,
         {
           ...post,
         },
@@ -193,7 +192,7 @@ export const deletePost = (id, token) => {
   return async (dispatch) => {
     try {
       const res = await axios.delete(
-        `https://bj-treklife.vercel.app/api/posts/${id}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/posts/${id}`,
         {
           headers: {
             "auth-token": token,
@@ -231,7 +230,7 @@ export const updatePost = (id, post, token) => {
   return async (dispatch) => {
     try {
       const res = await axios.patch(
-        `https://bj-treklife.vercel.app/api/posts/${id}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/posts/${id}`,
         {
           ...post,
         },

@@ -4,7 +4,6 @@ import { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-const URL_API = process.env.NEXT_PUBLIC_API_URL;
 
 function Newsletter() {
   const [firstName, setFirstName] = useState("");
@@ -31,7 +30,7 @@ function Newsletter() {
     };
 
     axios
-      .post(`https://bj-treklife.vercel.app/api/newsLetter`, newsletterData)
+      .post(`${process.env.NEXT_PUBLIC_API_URL}/api/newsLetter`, newsletterData)
       .then((res) => {
         toast.success(`${res.data.message}`, {
           position: "top-center",

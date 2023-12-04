@@ -4,7 +4,6 @@ import {
   setReviewsProductSubCategory,
 } from "./filter.actions";
 import { toast } from "react-toastify";
-const URL_API = process.env.NEXT_PUBLIC_API_URL;
 
 // Current Pages
 
@@ -49,7 +48,7 @@ export const getReviews = (page = 1, limit = 5) => {
     });
     try {
       const res = await axios.get(
-        `https://bj-treklife.vercel.app/api/productsReviews?page=${page}&limit=${limit}`
+        `${process.env.NEXT_PUBLIC_API_URL}/api/productsReviews?page=${page}&limit=${limit}`
       );
       dispatch({
         type: "GET_ALL_REVIEWS",
@@ -73,7 +72,7 @@ export const getLatestReview = () => {
     });
     try {
       const res = await axios.get(
-        `https://bj-treklife.vercel.app/api/productsReviews/latest-reviews`
+        `${process.env.NEXT_PUBLIC_API_URL}/api/productsReviews/latest-reviews`
       );
       const review = res.data;
       dispatch({
@@ -97,7 +96,7 @@ export const getSpecificReview = (id) => {
     });
     try {
       const res = await axios.get(
-        `https://bj-treklife.vercel.app/api/productsReviews/${id}`
+        `${process.env.NEXT_PUBLIC_API_URL}/api/productsReviews/${id}`
       );
       dispatch({
         type: "GET_SPECIFIC_REVIEW",
@@ -135,7 +134,7 @@ export const getFilteredReviews = (
     });
     try {
       const res = await axios.get(
-        `https://bj-treklife.vercel.app/api/productsReviews`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/productsReviews`,
         {
           params: {
             category: category,
@@ -169,7 +168,7 @@ export const createReview = (review, token) => {
   return async (dispatch) => {
     try {
       const res = await axios.post(
-        `https://bj-treklife.vercel.app/api/productsReviews`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/productsReviews`,
         {
           ...review,
         },
@@ -209,7 +208,7 @@ export const deleteReview = (id, token) => {
   return async (dispatch) => {
     try {
       const res = await axios.delete(
-        `https://bj-treklife.vercel.app/api/productsReviews/${id}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/productsReviews/${id}`,
         {
           headers: {
             "auth-token": token,
@@ -246,7 +245,7 @@ export const updateReview = (id, review, token) => {
   return async (dispatch) => {
     try {
       const res = await axios.patch(
-        `https://bj-treklife.vercel.app/api/productsReviews/${id}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/productsReviews/${id}`,
         {
           ...review,
         },
