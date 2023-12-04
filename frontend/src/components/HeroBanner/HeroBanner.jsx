@@ -20,8 +20,8 @@ function HeroBanner() {
             placeholder="blur"
             blurDataURL={HomeBackground.src}
             src={HomeBackground.src}
-            width={1920}
-            height={1080}
+            width={1440}
+            height={400}
             quality={100}
             alt="Photo d'un couché de soleil sur le point de vue de Mouthier Haut Pierre dans le Doubs 25"
           />

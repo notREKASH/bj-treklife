@@ -38,9 +38,9 @@ function LatestReview() {
               blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPUzZpfDwADuQG3zGD5JgAAAABJRU5ErkJggg=="
               src={latestReview?.homeImageUrl}
               alt={latestReview?.title}
-              width={1920}
-              height={1080}
-              quality={100}
+              width={1440}
+              height={600}
+              quality={90}
             />
           )}
           <div className="expedition-item__content">

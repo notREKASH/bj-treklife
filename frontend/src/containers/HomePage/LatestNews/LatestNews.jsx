@@ -43,9 +43,9 @@ function LatestNews() {
                   blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPUzZpfDwADuQG3zGD5JgAAAABJRU5ErkJggg=="
                   src={post.homeImageUrl}
                   alt={post.title}
-                  width={340}
-                  height={500}
-                  quality={100}
+                  width={1080}
+                  height={1920}
+                  quality={90}
                 />
               )}
               <div className="news-item__content">

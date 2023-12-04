@@ -105,6 +105,8 @@ export default function ArticlesRandonneeTrek() {
     });
   };
 
+  console.log(posts);
+
   return (
     <>
       <div className="articles-layout">
