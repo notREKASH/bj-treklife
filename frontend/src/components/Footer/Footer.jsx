@@ -4,17 +4,22 @@ import "./Footer.scss";
 import Logo from "../../images/logo.png";
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 
 function Footer() {
+  const [year, setYear] = useState(new Date().getFullYear());
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [privacyPolicy, setPrivacyPolicy] = useState(false);
   const [cgu, setCgu] = useState(false);
   const [mentionsLegales, setMentionsLegales] = useState(false);
+
+  useEffect(() => {
+    setYear(new Date().getFullYear());
+  }, []);
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -76,10 +81,9 @@ function Footer() {
                 quality={100}
               />
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                a enim lacus. Donec ultricies volutpat tellus, sit amet blandit
-                nisi. Curabitur volutpat ullamcorper tellus, imperdiet
-                scelerisque lorem faucibus lobortis.
+                Rejoignez BJ-Treklife pour explorer des récits captivants de
+                randonnées et trekkings, bénéficiez de conseils sur le matériel
+                et découvrez des avis authentiques.
               </p>
               <div className="footer__container--information--socialMedia">
                 <Link
@@ -245,7 +249,7 @@ function Footer() {
                 </div>
               </div>
               <div className="footer__container__menu--support">
-                <h4>Supportez-nous</h4>
+                <h4>Informations Légales</h4>
                 <div className="footer__container__menu--support--link">
                   <Link href="/conditions-generales-utilisation">
                     Conditions Generales Utilisation
@@ -257,6 +261,12 @@ function Footer() {
                 </div>
               </div>
             </div>
+          </div>
+          <div className="footer__bottom">
+            <p>
+              © {year} BJ-Treklife - Tous droits réservés -{" "}
+              <Link href="/mentions-legales">Mentions Légales</Link>
+            </p>
           </div>
         </footer>
       </div>

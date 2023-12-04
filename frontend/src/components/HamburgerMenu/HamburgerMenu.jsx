@@ -1,16 +1,24 @@
 "use client";
+
 import "./HamburgerMenu.scss";
 import Logo from "../../images/logo.png";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 function HamburgerMenu() {
   const [isOpen, setIsOpen] = useState(false);
-  const token = useSelector((state) => state.auth.token);
+
+  const [token, setToken] = useState("");
+
+  useEffect(() => {
+    const storedToken = sessionStorage.getItem("token");
+    if (storedToken) {
+      setToken(storedToken);
+    }
+  }, []);
 
   return (
     <>
