@@ -18,7 +18,15 @@ export default function CommentList({ contentType, articleId }) {
   const [reply, setReply] = useState(false);
   const [replyTo, setReplyTo] = useState("");
 
-  const token = useSelector((state) => state.auth?.token);
+  const [token, setToken] = useState("");
+
+  useEffect(() => {
+    const storedToken = sessionStorage.getItem("token");
+    if (storedToken) {
+      setToken(storedToken);
+    }
+  }, []);
+
   const comments = useSelector((state) =>
     contentType === "randonneeTrekking"
       ? state.randonneeComments?.randonneeComments

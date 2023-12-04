@@ -37,15 +37,15 @@ function LatestNews() {
                 index % 2 === 0 ? "text-bottom" : "text-top"
               }`}
             >
-              {post.homeImageUrl && (
+              {post?.coverImageUrl && (
                 <Image
                   placeholder="blur"
                   blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPUzZpfDwADuQG3zGD5JgAAAABJRU5ErkJggg=="
-                  src={post.homeImageUrl}
+                  src={post.coverImageUrl}
                   alt={post.title}
-                  width={1080}
-                  height={1920}
-                  quality={90}
+                  width={6240}
+                  height={4160}
+                  quality={95}
                 />
               )}
               <div className="news-item__content">

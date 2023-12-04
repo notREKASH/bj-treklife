@@ -31,10 +31,6 @@ const linkShopsSchema = new mongoose.Schema({
 
 const ProductReviewSchema = new mongoose.Schema({
   title: { type: String, required: true },
-  homeImageUrl: { type: String, required: true },
-  altImageHome: { type: String, required: true },
-  cardImageUrl: { type: String, required: true },
-  altImageCard: { type: String, required: true },
   metaDescription: { type: String, required: true },
   coverImageUrl: { type: String, required: true },
   altImageCover: { type: String, required: true },

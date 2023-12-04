@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import ReactMarkdown from "react-markdown";
 import "./randonnee-trekking.scss";
 import Link from "next/link";
@@ -9,7 +9,15 @@ import { createPost } from "@/app/redux/actions/posts.action";
 
 function NewPostRandonneeTrekking() {
   const dispatch = useDispatch();
-  const token = useSelector((state) => state.auth.token);
+
+  const [token, setToken] = useState("");
+
+  useEffect(() => {
+    const storedToken = sessionStorage.getItem("token");
+    if (storedToken) {
+      setToken(storedToken);
+    }
+  }, []);
 
   const [carousel, setCarousel] = useState([]);
   const [sections, setSections] = useState([]);
@@ -17,10 +25,6 @@ function NewPostRandonneeTrekking() {
   const [introduction, setIntroduction] = useState("");
 
   const titleRef = useRef(null);
-  const homeImageUrlRef = useRef(null);
-  const altImageHomeRef = useRef(null);
-  const cardImageUrlRef = useRef(null);
-  const altImageCardRef = useRef(null);
   const metaDescriptionRef = useRef(null);
   const coverImageUrlRef = useRef(null);
   const altImageCoverRef = useRef(null);
@@ -47,7 +51,6 @@ function NewPostRandonneeTrekking() {
     const newCarousel = [...carousel];
     newCarousel[carouselIndex].slides.push({ caption: "", imageUrl: "" });
     setCarousel(newCarousel);
-    console.log(carousel);
   }
 
   function addSection() {
@@ -75,17 +78,11 @@ function NewPostRandonneeTrekking() {
     setSections(newSections);
   }
 
-  console.log(titleRef.current?.value);
-
   function sendPost(e) {
     e.preventDefault();
 
     const newPost = {
       title: titleRef.current?.value,
-      homeImageUrl: homeImageUrlRef.current?.value,
-      altImageHome: altImageHomeRef.current?.value,
-      cardImageUrl: cardImageUrlRef.current?.value,
-      altImageCard: altImageCardRef.current?.value,
       metaDescription: metaDescriptionRef.current?.value,
       coverImageUrl: coverImageUrlRef.current?.value,
       altImageCover: altImageCoverRef.current?.value,
@@ -125,44 +122,6 @@ function NewPostRandonneeTrekking() {
               <label>
                 Titre:
                 <input type="text" name="title" required ref={titleRef} />
-              </label>
-              <label>
-                Image d&rsquo;accueil:
-                <input
-                  type="text"
-                  name="homeImageUrl"
-                  required
-                  ref={homeImageUrlRef}
-                />
-              </label>
-              <label>
-                Légende de l&rsquo;image:
-                <input
-                  type="text"
-                  name="altImageHome"
-                  required
-                  ref={altImageHomeRef}
-                  maxLength={140}
-                />
-              </label>
-              <label>
-                Image de la carte:
-                <input
-                  type="text"
-                  name="cardImageUrl"
-                  required
-                  ref={cardImageUrlRef}
-                />
-              </label>
-              <label>
-                Légende de l&rsquo;image:
-                <input
-                  type="text"
-                  name="altImageCard"
-                  required
-                  ref={altImageCardRef}
-                  maxLength={140}
-                />
               </label>
               <label>
                 Meta description:

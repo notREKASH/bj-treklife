@@ -28,7 +28,7 @@ function SuggestReviewPanel({ reviewId }) {
 
   return (
     <div className="suggestionPanel">
-      <h2>Découvrez les dernières reviews de matériel</h2>
+      <h3>Découvrez les dernières reviews de matériel</h3>
       <div className="suggestionPanel__container">
         {reviews
           .filter((review) => review._id !== reviewId)
@@ -42,14 +42,14 @@ function SuggestReviewPanel({ reviewId }) {
                 {review?.coverImageUrl && (
                   <Image
                     src={review.coverImageUrl}
-                    alt={review.coverImageAlt}
+                    alt={review.altImageCover}
                     width={200}
                     height={200}
                     quality={100}
                   />
                 )}
                 <div className="suggestionPanel__container__card--text">
-                  <h3>{review.title}</h3>
+                  <h4>{review.title}</h4>
                   <p>{truncateText(review.introduction.content, 120)}</p>
                 </div>
               </Link>

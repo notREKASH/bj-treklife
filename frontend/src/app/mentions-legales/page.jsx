@@ -1,6 +1,12 @@
 import "../../styles/legalPage.scss";
 import Link from "next/link";
 
+export const metadata = {
+  title: "Mentions Légales - BJ-Treklife",
+  description:
+    "Trouvez des informations légales importantes concernant notre site BJ-Treklife, incluant nos coordonnées et les détails réglementaires.",
+};
+
 export default function Page() {
   return (
     <main className="legal-page">

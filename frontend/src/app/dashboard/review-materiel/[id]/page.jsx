@@ -18,13 +18,17 @@ function Page({ params, searchParams }) {
 
   const review = useSelector((state) => state.reviews.review);
   const loading = useSelector((state) => state.reviews.loading);
-  const token = useSelector((state) => state.auth.token);
+
+  const [token, setToken] = useState("");
+
+  useEffect(() => {
+    const storedToken = sessionStorage.getItem("token");
+    if (storedToken) {
+      setToken(storedToken);
+    }
+  }, []);
 
   const [title, setTitle] = useState("");
-  const [homeImageUrl, setHomeImageUrl] = useState("");
-  const [altImageHome, setAltImageHome] = useState("");
-  const [cardImageUrl, setCardImageUrl] = useState("");
-  const [altImageCard, setAltImageCard] = useState("");
   const [metaDescription, setMetaDescription] = useState("");
   const [coverImageUrl, setCoverImageUrl] = useState("");
   const [altImageCover, setAltImageCover] = useState("");
@@ -86,18 +90,6 @@ function Page({ params, searchParams }) {
   useEffect(() => {
     if (review?.title) {
       setTitle(review.title);
-    }
-    if (review?.homeImageUrl) {
-      setHomeImageUrl(review.homeImageUrl);
-    }
-    if (review?.altImageHome) {
-      setAltImageHome(review.altImageHome);
-    }
-    if (review?.cardImageUrl) {
-      setCardImageUrl(review.cardImageUrl);
-    }
-    if (review?.altImageCard) {
-      setAltImageCard(review.altImageCard);
     }
     if (review?.metaDescription) {
       setMetaDescription(review.metaDescription);
@@ -256,10 +248,6 @@ function Page({ params, searchParams }) {
     e.preventDefault();
     const review = {
       title,
-      homeImageUrl,
-      altImageHome,
-      cardImageUrl,
-      altImageCard,
       metaDescription,
       coverImageUrl,
       altImageCover,
@@ -282,10 +270,6 @@ function Page({ params, searchParams }) {
     dispatch(updateReview(params.id, review, token));
 
     setTitle("");
-    setHomeImageUrl("");
-    setAltImageHome("");
-    setCardImageUrl("");
-    setAltImageCard("");
     setMetaDescription("");
     setCoverImageUrl("");
     setAltImageCover("");
@@ -352,38 +336,6 @@ function Page({ params, searchParams }) {
             value={title}
             onChange={(e) => {
               setTitle(e.target.value);
-            }}
-          />
-          <label>Home Image URL</label>
-          <input
-            type="text"
-            value={homeImageUrl}
-            onChange={(e) => {
-              setHomeImageUrl(e.target.value);
-            }}
-          />
-          <label>Alt Image Home</label>
-          <input
-            type="text"
-            value={altImageHome}
-            onChange={(e) => {
-              setAltImageHome(e.target.value);
-            }}
-          />
-          <label>Card Image URL</label>
-          <input
-            type="text"
-            value={cardImageUrl}
-            onChange={(e) => {
-              setCardImageUrl(e.target.value);
-            }}
-          />
-          <label>Alt Image Card</label>
-          <input
-            type="text"
-            value={altImageCard}
-            onChange={(e) => {
-              setAltImageCard(e.target.value);
             }}
           />
           <label>Meta Description</label>

@@ -14,18 +14,6 @@ const PostJoiSchema = Joi.object({
     "string.empty": `Le champ titre est obligatoire.`,
     "string.min": `Le titre doit contenir au moins 3 caractères.`,
   }),
-  homeImageUrl: Joi.string().required().messages({
-    "string.empty": `Le champ image d'accueil est obligatoire.`,
-  }),
-  altImageHome: Joi.string().required().messages({
-    "string.empty": `Le champ texte alternatif de l'image d'accueil est obligatoire.`,
-  }),
-  cardImageUrl: Joi.string().required().messages({
-    "string.empty": `Le champ image de carte est obligatoire.`,
-  }),
-  altImageCard: Joi.string().required().messages({
-    "string.empty": `Le champ texte alternatif de l'image de carte est obligatoire.`,
-  }),
   metaDescription: Joi.string().required().messages({
     "string.empty": `Le champ meta description est obligatoire.`,
   }),
@@ -192,8 +180,8 @@ router.get("/", async (req, res) => {
   try {
     const posts = await Post.find(query).skip(skip).limit(limit).select({
       title: 1,
-      cardImageUrl: 1,
-      altImageCard: 1,
+      coverImageUrl: 1,
+      altImageCover: 1,
       details: 1,
       introduction: 1,
     });
@@ -218,8 +206,8 @@ router.get("/latest-posts", async (req, res) => {
   try {
     const latestPosts = await Post.find().sort({ date: +1 }).limit(4).select({
       title: 1,
-      homeImageUrl: 1,
-      altImageHome: 1,
+      coverImageUrl: 1,
+      altImageCover: 1,
       date: 1,
       details: 1,
       introduction: 1,
@@ -242,10 +230,6 @@ router.post("/", verifyToken, async (req, res) => {
 
     const post = new Post({
       title: req.body.title,
-      homeImageUrl: req.body.homeImageUrl,
-      altImageHome: req.body.altImageHome,
-      cardImageUrl: req.body.cardImageUrl,
-      altImageCard: req.body.altImageCard,
       metaDescription: req.body.metaDescription,
       coverImageUrl: req.body.coverImageUrl,
       altImageCover: req.body.altImageCover,
@@ -333,10 +317,6 @@ router.patch("/:postId", verifyToken, async (req, res) => {
       {
         $set: {
           title: req.body.title,
-          homeImageUrl: req.body.homeImageUrl,
-          altImageHome: req.body.altImageHome,
-          cardImageUrl: req.body.cardImageUrl,
-          altImageCard: req.body.altImageCard,
           metaDescription: req.body.metaDescription,
           coverImageUrl: req.body.coverImageUrl,
           altImageCover: req.body.altImageCover,

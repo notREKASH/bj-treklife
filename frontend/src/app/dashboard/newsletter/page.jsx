@@ -8,7 +8,15 @@ import { toast } from "react-toastify";
 
 export default function Newsletter() {
   const [newsletter, setNewsletter] = useState([]);
-  const token = useSelector((state) => state.auth?.token);
+
+  const [token, setToken] = useState("");
+
+  useEffect(() => {
+    const storedToken = sessionStorage.getItem("token");
+    if (storedToken) {
+      setToken(storedToken);
+    }
+  }, []);
 
   const getNewsletter = async () => {
     try {

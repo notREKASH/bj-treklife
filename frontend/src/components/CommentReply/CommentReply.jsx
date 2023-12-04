@@ -55,7 +55,7 @@ export default function CommentReply({
 
   return (
     <form className="comment-form" onSubmit={handleSubmit}>
-      <h2>Répondre à {replyToName}</h2>
+      <h4>Répondre à {replyToName}</h4>
       {token && (
         <div className="comment-form__input-container admin">
           <label htmlFor="icon">Icon BJ-Treklife</label>
@@ -80,10 +80,10 @@ export default function CommentReply({
         />
       </div>
       <div className="comment-form__input-container">
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email-reply">Email</label>
         <input
           type="email"
-          id="email"
+          id="email-reply"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
@@ -100,12 +100,12 @@ export default function CommentReply({
         <div className="comment-form__consent">
           <input
             type="checkbox"
-            id="privacyPolicy"
+            id="privacyPolicy-reply"
             checked={privacyPolicy}
             required
             onChange={(e) => setPrivacyPolicy(e.target.checked)}
           />
-          <label htmlFor="privacyPolicy">
+          <label htmlFor="privacyPolicy-reply">
             J&rsquo;accepte la{" "}
             <Link href="/politique-de-confidentialite" target="_blank">
               politique de confidentialité
@@ -115,12 +115,12 @@ export default function CommentReply({
         <div className="comment-form__consent">
           <input
             type="checkbox"
-            id="cgu"
+            id="cgu-reply"
             checked={cgu}
             required
             onChange={(e) => setCgu(e.target.checked)}
           />
-          <label htmlFor="cgu">
+          <label htmlFor="cgu-reply">
             J&rsquo;accepte les{" "}
             <Link href="/conditions-generales-utilisation" target="_blank">
               CGU
@@ -130,12 +130,12 @@ export default function CommentReply({
         <div className="comment-form__consent">
           <input
             type="checkbox"
-            id="mentionsLegales"
+            id="mentionsLegales-reply"
             checked={mentionsLegales}
             required
             onChange={(e) => setMentionsLegales(e.target.checked)}
           />
-          <label htmlFor="mentionsLegales">
+          <label htmlFor="mentionsLegales-reply">
             J&rsquo;accepte les{" "}
             <Link href="/mentions-legales" target="_blank">
               mentions légales

@@ -4,6 +4,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserTie } from "@fortawesome/free-solid-svg-icons";
 import { faHiking } from "@fortawesome/free-solid-svg-icons";
 
+export const metadata = {
+  title: "Contact - BJ-Treklife",
+  description:
+    "Contactez-nous pour toute question sur nos randonnées, équipements ou collaborations professionnelles. Je suis là pour répondre à vos interrogations.",
+};
+
 export default function Contact() {
   return (
     <div className="contact-page">

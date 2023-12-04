@@ -1,4 +1,5 @@
 "use client";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./professionnel.scss";
 import { faUserTie } from "@fortawesome/free-solid-svg-icons";

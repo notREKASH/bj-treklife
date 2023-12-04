@@ -45,12 +45,13 @@ export default function CommentForm({ contentType, articleId }) {
 
   return (
     <form className="comment-form" onSubmit={handleSubmit}>
-      <h2>Laissez un commentaire</h2>
+      <h4>Laissez un commentaire</h4>
       <div className="comment-form__input-container">
         <label htmlFor="name">Nom</label>
         <input
           type="text"
           id="name"
+          name="name"
           value={name}
           autoComplete="off"
           required
@@ -58,10 +59,10 @@ export default function CommentForm({ contentType, articleId }) {
         />
       </div>
       <div className="comment-form__input-container">
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email-form">Email</label>
         <input
           type="email"
-          id="email"
+          id="email-form"
           value={email}
           autoComplete="email"
           required
@@ -81,12 +82,12 @@ export default function CommentForm({ contentType, articleId }) {
         <div className="comment-form__consent">
           <input
             type="checkbox"
-            id="privacyPolicy"
+            id="privacyPolicy-form"
             checked={privacyPolicy}
             required
             onChange={(e) => setPrivacyPolicy(e.target.checked)}
           />
-          <label htmlFor="privacyPolicy">
+          <label htmlFor="privacyPolicy-form">
             J&rsquo;accepte la{" "}
             <Link href="/politique-de-confidentialite" target="_blank">
               politique de confidentialité
@@ -96,12 +97,12 @@ export default function CommentForm({ contentType, articleId }) {
         <div className="comment-form__consent">
           <input
             type="checkbox"
-            id="cgu"
+            id="cgu-form"
             checked={cgu}
             required
             onChange={(e) => setCgu(e.target.checked)}
           />
-          <label htmlFor="cgu">
+          <label htmlFor="cgu-form">
             J&rsquo;accepte les{" "}
             <Link href="/conditions-generales-utilisation" target="_blank">
               CGU
@@ -111,12 +112,12 @@ export default function CommentForm({ contentType, articleId }) {
         <div className="comment-form__consent">
           <input
             type="checkbox"
-            id="mentionsLegales"
+            id="mentionsLegales-form"
             checked={mentionsLegales}
             required
             onChange={(e) => setMentionsLegales(e.target.checked)}
           />
-          <label htmlFor="mentionsLegales">
+          <label htmlFor="mentionsLegales-form">
             J&rsquo;accepte les{" "}
             <Link href="/mentions-legales" target="_blank">
               mentions légales

@@ -32,9 +32,9 @@ function SuggestionPanel({ articleCategory, articleId }) {
 
   return (
     <div className="suggestionPanel">
-      <h2>
+      <h3>
         Retrouvez les articles similaires sur {categoryNames[articleCategory]}
-      </h2>
+      </h3>
       <div className="suggestionPanel__container">
         {posts
           .filter(
@@ -57,7 +57,7 @@ function SuggestionPanel({ articleCategory, articleId }) {
                   quality={100}
                 />
                 <div className="suggestionPanel__container__card--text">
-                  <h3>{post.title}</h3>
+                  <h4>{post.title}</h4>
                   <p>{truncateText(post.introduction.content, 120)}</p>
                 </div>
               </Link>

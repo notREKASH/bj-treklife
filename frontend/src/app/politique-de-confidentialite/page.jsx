@@ -3,7 +3,8 @@ import Link from "next/link";
 
 export const metadata = {
   title: "Politique de confidentialité - BJ-Treklife",
-  description: "...",
+  description:
+    "Apprenez comment BJ-Treklife protège vos informations personnelles et respecte votre vie privée sur notre site de trek et randonnée.",
 };
 
 export default function Page() {

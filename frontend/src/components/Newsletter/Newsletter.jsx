@@ -60,7 +60,7 @@ function Newsletter() {
 
   return (
     <div className="newsletter">
-      <h2>Newsletter</h2>
+      <h3>Newsletter</h3>
       <p>
         Abonnez-vous à notre newsletter pour recevoir les dernières actualités
         et les mises à jour directement dans votre boîte de réception.
@@ -68,29 +68,32 @@ function Newsletter() {
       <form className="newsletter__form" onSubmit={handleSubmit}>
         <div className="newsletter__form__field">
           <div className="newsletter__form__field__name">
-            <label htmlFor="firstName"></label>
+            <label htmlFor="firstName-newsletter">Prénom</label>
             <input
               type="text"
-              id="firstName"
+              id="firstName-newsletter"
+              name="firstName-newsletter"
               placeholder="Votre prénom"
               value={firstName}
               required
               onChange={(e) => setFirstName(e.target.value)}
             />
-            <label htmlFor="lastName"></label>
+            <label htmlFor="lastName-newsletter">Nom</label>
             <input
               type="text"
-              id="lastName"
+              id="lastName-newsletter"
+              name="lastName-newsletter"
               placeholder="Votre nom"
               value={lastName}
               required
               onChange={(e) => setLastName(e.target.value)}
             />
           </div>
-          <label htmlFor="email"></label>
+          <label htmlFor="email-newsletter">Email</label>
           <input
             type="email"
-            id="email"
+            id="email-newsletter"
+            name="email-newsletter"
             placeholder="Votre email"
             value={email}
             autoComplete="email"
@@ -102,12 +105,12 @@ function Newsletter() {
           <div>
             <input
               type="checkbox"
-              id="privacyPolicy"
+              id="privacyPolicy-newsletter"
               required
               value={privacyPolicy}
               onChange={(e) => setPrivacyPolicy(e.target.checked)}
             />
-            <label htmlFor="privacyPolicy">
+            <label htmlFor="privacyPolicy-newsletter">
               J&rsquo;accepte la{" "}
               <Link href="/politique-de-confidentialite" target="_blank">
                 politique de confidentialité
@@ -117,12 +120,12 @@ function Newsletter() {
           <div>
             <input
               type="checkbox"
-              id="cgu"
+              id="cgu-newsletter"
               required
               value={cgu}
               onChange={(e) => setCgu(e.target.checked)}
             />
-            <label htmlFor="cgu">
+            <label htmlFor="cgu-newsletter">
               J&rsquo;accepte les{" "}
               <Link href="/conditions-generales-utilisation" target="_blank">
                 conditions générales d&rsquo;utilisation
@@ -132,12 +135,12 @@ function Newsletter() {
           <div>
             <input
               type="checkbox"
-              id="mentionsLegales"
+              id="mentionsLegales-newsletter"
               required
               value={mentionsLegales}
               onChange={(e) => setMentionsLegales(e.target.checked)}
             />
-            <label htmlFor="mentionsLegales">
+            <label htmlFor="mentionsLegales-newsletter">
               J&rsquo;accepte les{" "}
               <Link href="/mentions-legales" target="_blank">
                 mentions légales

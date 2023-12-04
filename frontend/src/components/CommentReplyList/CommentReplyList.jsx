@@ -23,7 +23,14 @@ export default function CommentReplyList({
   );
 
   const comment = comments?.find((comment) => comment?._id === commentId);
-  const token = useSelector((state) => state.auth?.token);
+  const [token, setToken] = useState("");
+
+  useEffect(() => {
+    const storedToken = sessionStorage.getItem("token");
+    if (storedToken) {
+      setToken(storedToken);
+    }
+  }, []);
 
   const [replyIsDefined, setReplyIsDefined] = useState(false);
 

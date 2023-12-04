@@ -231,13 +231,13 @@ function Footer() {
                 <h4>Liens utiles</h4>
                 <div className="footer__container__menu--navigation--link">
                   <Link href="/">Accueil</Link>
-                  <Link href="#dernieres-nouveautees">
+                  <Link href="/#dernieres-nouveautes">
                     Dernières nouveautées
                   </Link>
-                  <Link href="#dernier-test-materiel">
+                  <Link href="/#dernier-test-materiel">
                     Dernier test matériel
                   </Link>
-                  <Link href="#FAQ">FAQ</Link>
+                  <Link href="/#FAQ">FAQ</Link>
                   <Link href="/a-propos">A propos</Link>
                   <Link href="/randonnee-trekking">Randonnée & Trekking</Link>
                   <Link href="/reviews-materiel">Tests & Avis Matériel</Link>

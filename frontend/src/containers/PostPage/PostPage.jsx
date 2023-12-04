@@ -109,7 +109,7 @@ export default function PostPage({ id }) {
               {descriptionUtils.map((descriptionUtil, descriptionIndex) => (
                 <div key={`description${descriptionIndex}`}>
                   <p>
-                    {descriptionUtil.name} :<span>{descriptionUtil.value}</span>
+                    {descriptionUtil.name}:<span>{descriptionUtil.value}</span>
                   </p>
                 </div>
               ))}
@@ -147,7 +147,7 @@ export default function PostPage({ id }) {
                   <Image
                     className="backgroundImage"
                     src={post.introduction?.imageUrl}
-                    alt={post.introduction?.altImage}
+                    alt={post.title}
                     width={1920}
                     height={10}
                     quality={10}
@@ -201,12 +201,12 @@ export default function PostPage({ id }) {
           <h3>{carouselTitle(post.details?.activityType)}</h3>
           <Carousel images={allImages} />
         </div>
-        <div className="article--author">
+        <div className="post--author">
           <p>Posté par {post.author}</p>
           <p>Le {new Date(post.date).toLocaleDateString()}</p>
           <Link href="/randonnee-trekking">Retour</Link>
         </div>
-        <div>
+        <div className="post--rating">
           <RatingArticle articleId={id} />
         </div>
         <div className="post__container__commentsSection">

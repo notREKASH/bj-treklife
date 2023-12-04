@@ -92,6 +92,8 @@ const PaginationComponent = ({ contentType }) => {
           key="prev"
           className="pagination__pages--page"
           onClick={handlePreviousPage}
+          role="button"
+          aria-label="page précédente"
         >
           <FontAwesomeIcon icon={faChevronLeft} />
         </span>
@@ -106,6 +108,8 @@ const PaginationComponent = ({ contentType }) => {
             className={`pagination__pages--page ${
               currentPage === i ? "current-page" : ""
             }`}
+            role="button"
+            aria-label={`page ${i}`}
             onClick={() => handlePageChange(i)}
           >
             {i}
@@ -126,6 +130,8 @@ const PaginationComponent = ({ contentType }) => {
           key="next"
           className="pagination__pages--page"
           onClick={handleNextPage}
+          role="button"
+          aria-label="page suivante"
         >
           <FontAwesomeIcon icon={faChevronRight} />
         </span>

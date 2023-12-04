@@ -1,10 +1,10 @@
-import Link from "next/link";
 import "./a-propos.scss";
 import Image from "next/image";
 
 export const metadata = {
   title: "A Propos - BJ-Treklife",
-  description: "...",
+  description:
+    "Rencontrez Joris Benmehal, un développeur web passionné de montagne, de trekking et de photographie, partageant son amour pour l'aventure et la nature.",
 };
 
 export default function Page() {

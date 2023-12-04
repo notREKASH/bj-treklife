@@ -1,5 +1,10 @@
 import "../../styles/legalPage.scss";
-import Link from "next/link";
+
+export const metadata = {
+  title: "Conditions Générales d'Utilisation (CGU) - BJ-Treklife",
+  description:
+    "Consultez les CGU de BJ-Treklife pour connaître les termes régissant l'utilisation de notre plateforme dédiée à la randonnée et au trekking.",
+};
 
 export default function Page() {
   return (

@@ -32,14 +32,14 @@ function LatestReview() {
       </div>
       <div className="latestReview__card">
         <div key={latestReview?._id} className="expedition-item">
-          {latestReview?.homeImageUrl && (
+          {latestReview?.coverImageUrl && (
             <Image
               placeholder="blur"
               blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPUzZpfDwADuQG3zGD5JgAAAABJRU5ErkJggg=="
-              src={latestReview?.homeImageUrl}
+              src={latestReview?.coverImageUrl}
               alt={latestReview?.title}
-              width={1440}
-              height={600}
+              width={6240}
+              height={4160}
               quality={90}
             />
           )}

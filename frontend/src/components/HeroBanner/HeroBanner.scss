@@ -108,7 +108,7 @@
         z-index: -1;
         width: 100%;
         object-fit: cover;
-        height: 90vh;
+        height: calc(100vh - 68px);
 
         @media (min-width: $sm) {
           width: 90%;

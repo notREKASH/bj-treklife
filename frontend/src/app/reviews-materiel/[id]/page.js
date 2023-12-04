@@ -8,14 +8,15 @@ export async function generateMetadata({ params, searchParams }, parent) {
   ).then((res) => res.json());
 
   return {
-    title: post.title,
+    title: `${post.title} - BJ-Treklife`,
+    description: post.metaDescription,
   };
 }
 
 export default function Page({ params, searchParams }) {
   return (
-    <>
+    <div style={{ backgroundColor: "white" }}>
       <ReviewPage id={params.id} />
-    </>
+    </div>
   );
 }

@@ -24,7 +24,7 @@ function SocialMediaPanel() {
 
   return (
     <div className="socialMediaPanel">
-      <h2>Suivez-moi sur les réseaux sociaux</h2>
+      <h3>Suivez-moi sur les réseaux sociaux</h3>
       <div className="socialMediaPanel__container">
         {socialMedias.map((socialMedia) => (
           <div

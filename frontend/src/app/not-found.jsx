@@ -20,7 +20,7 @@ export default function NotFound() {
             disponible. Vous pouvez retourner à la page d&rsquo;accueil en
             cliquant sur le bouton ci-dessous.
           </p>
-          <Link href="/">Go back home</Link>
+          <Link href="/">Retour à la page d&rsquo;accueil</Link>
         </div>
       </div>
     </>

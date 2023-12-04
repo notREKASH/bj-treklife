@@ -30,7 +30,7 @@ function SubSection({ title, content, imageUrl, altImage }) {
             blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPUzZpfDwADuQG3zGD5JgAAAABJRU5ErkJggg=="
             className="backgroundImage"
             src={imageUrl}
-            alt={altImage}
+            alt={title}
             width={1920}
             height={1080}
             quality={10}

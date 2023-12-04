@@ -36,24 +36,34 @@ export default function PostCard({
   const { push } = useRouter();
   const dispatch = useDispatch();
   const id = postId;
-  const token = useSelector((state) => state.auth.token);
+
+  const token = sessionStorage.getItem("token");
 
   const truncateText = (text, length) => {
     return text.length > length ? text.substring(0, length) + "..." : text;
   };
 
   const handleClick = (e) => {
-    e.stopPropagation();
+    const target = e.target;
 
-    if (e.button === 1) {
-      window.open(`/${postUrl}/${id}`, "_blank").focus();
+    if (target.tagName === "BUTTON") {
+      return;
     } else {
-      push(`/${postUrl}/${id}`);
+      e.preventDefault();
+      e.stopPropagation();
+
+      if (e.button === 1) {
+        window.open(`/${postUrl}/${id}`, "_blank").focus();
+      } else {
+        push(`/${postUrl}/${id}`);
+      }
     }
   };
 
   const handleChangeFilter = (e) => {
+    e.preventDefault();
     e.stopPropagation();
+
     const filterName = e.target.textContent;
 
     if (contentType === "randonneeTrekking") {
@@ -66,6 +76,7 @@ export default function PostCard({
   };
 
   const handleTryToDelete = (e) => {
+    e.preventDefault();
     e.stopPropagation();
     const result = confirm("Voulez-vous vraiment supprimer cet article ?");
     if (result === true) {
@@ -110,7 +121,7 @@ export default function PostCard({
             alt={postTitle}
             width={500}
             height={500}
-            quality={100}
+            quality={90}
           />
         )}
       </div>
