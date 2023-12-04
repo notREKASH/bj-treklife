@@ -22,7 +22,7 @@ function LatestNews() {
         </div>
         <p>
           Retrouvez ici mes dernières randonnées et mes derniers treks, chaque
-          articles est accompagné de photos, de détails et d&rsquo;informations
+          article est accompagné de photos, de détails et d&rsquo;informations
           sur le parcours, de tracé GPX et aussi d&rsquo;une touche personnelle
           raconté avec passion pour vous faire vivre l&rsquo;expérience comme si
           vous y étiez.
@@ -37,14 +37,14 @@ function LatestNews() {
                 index % 2 === 0 ? "text-bottom" : "text-top"
               }`}
             >
-              {post.coverImageUrl && (
+              {post.homeImageUrl && (
                 <Image
                   placeholder="blur"
                   blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPUzZpfDwADuQG3zGD5JgAAAABJRU5ErkJggg=="
-                  src={post.coverImageUrl}
+                  src={post.homeImageUrl}
                   alt={post.title}
-                  width={1080}
-                  height={1920}
+                  width={340}
+                  height={500}
                   quality={100}
                 />
               )}

@@ -19,9 +19,12 @@ function NewPostReviewMateriel() {
   const [linksShops, setLinksShops] = useState([]);
   const [introduction, setIntroduction] = useState("");
   const [conclusion, setConclusion] = useState("");
-  console.log(techspecs);
 
   const titleRef = useRef(null);
+  const homeImageUrlRef = useRef(null);
+  const altImageHomeRef = useRef(null);
+  const cardImageUrlRef = useRef(null);
+  const altImageCardRef = useRef(null);
   const metaDescriptionRef = useRef(null);
   const coverImageUrlRef = useRef(null);
   const altImageCoverRef = useRef(null);
@@ -62,7 +65,6 @@ function NewPostReviewMateriel() {
     const newCarousels = [...carousels];
     newCarousels[index].slides.push({});
     setCarousels(newCarousels);
-    console.log(carousels);
   }
 
   function handleLinksShopsAdd() {
@@ -82,6 +84,10 @@ function NewPostReviewMateriel() {
 
     const newReview = {
       title: titleRef.current?.value,
+      homeImageUrlRef: homeImageUrlRef.current?.value,
+      altImageHomeRef: altImageHomeRef.current?.value,
+      cardImageUrlRef: cardImageUrlRef.current?.value,
+      altImageCardRef: altImageCardRef.current?.value,
       metaDescription: metaDescriptionRef.current?.value,
       coverImageUrl: coverImageUrlRef.current?.value,
       altImageCover: altImageCoverRef.current?.value,
@@ -113,6 +119,10 @@ function NewPostReviewMateriel() {
     dispatch(createReview(newReview, token));
 
     titleRef.current.value = "";
+    homeImageUrlRef.current.value = "";
+    altImageHomeRef.current.value = "";
+    cardImageUrlRef.current.value = "";
+    altImageCardRef.current.value = "";
     metaDescriptionRef.current.value = "";
     coverImageUrlRef.current.value = "";
     altImageCoverRef.current.value = "";
@@ -139,6 +149,44 @@ function NewPostReviewMateriel() {
               <label>
                 Titre:
                 <input type="text" name="title" required ref={titleRef} />
+              </label>
+              <label>
+                Image d&rsquo;accueil:
+                <input
+                  type="text"
+                  name="homeImageUrl"
+                  required
+                  ref={homeImageUrlRef}
+                />
+              </label>
+              <label>
+                Alt image d&rsquo;accueil:
+                <input
+                  type="text"
+                  name="altImageHome"
+                  required
+                  ref={altImageHomeRef}
+                  maxLength={140}
+                />
+              </label>
+              <label>
+                Image de carte:
+                <input
+                  type="text"
+                  name="cardImageUrl"
+                  required
+                  ref={cardImageUrlRef}
+                />
+              </label>
+              <label>
+                Alt image de carte:
+                <input
+                  type="text"
+                  name="altImageCard"
+                  required
+                  ref={altImageCardRef}
+                  maxLength={140}
+                />
               </label>
               <label>
                 Meta description:

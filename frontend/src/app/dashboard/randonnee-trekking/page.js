@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useState, useRef } from "react";
 import ReactMarkdown from "react-markdown";
 import "./randonnee-trekking.scss";
 import Link from "next/link";
@@ -17,6 +17,10 @@ function NewPostRandonneeTrekking() {
   const [introduction, setIntroduction] = useState("");
 
   const titleRef = useRef(null);
+  const homeImageUrlRef = useRef(null);
+  const altImageHomeRef = useRef(null);
+  const cardImageUrlRef = useRef(null);
+  const altImageCardRef = useRef(null);
   const metaDescriptionRef = useRef(null);
   const coverImageUrlRef = useRef(null);
   const altImageCoverRef = useRef(null);
@@ -78,6 +82,10 @@ function NewPostRandonneeTrekking() {
 
     const newPost = {
       title: titleRef.current?.value,
+      homeImageUrl: homeImageUrlRef.current?.value,
+      altImageHome: altImageHomeRef.current?.value,
+      cardImageUrl: cardImageUrlRef.current?.value,
+      altImageCard: altImageCardRef.current?.value,
       metaDescription: metaDescriptionRef.current?.value,
       coverImageUrl: coverImageUrlRef.current?.value,
       altImageCover: altImageCoverRef.current?.value,
@@ -117,6 +125,44 @@ function NewPostRandonneeTrekking() {
               <label>
                 Titre:
                 <input type="text" name="title" required ref={titleRef} />
+              </label>
+              <label>
+                Image d&rsquo;accueil:
+                <input
+                  type="text"
+                  name="homeImageUrl"
+                  required
+                  ref={homeImageUrlRef}
+                />
+              </label>
+              <label>
+                Légende de l&rsquo;image:
+                <input
+                  type="text"
+                  name="altImageHome"
+                  required
+                  ref={altImageHomeRef}
+                  maxLength={140}
+                />
+              </label>
+              <label>
+                Image de la carte:
+                <input
+                  type="text"
+                  name="cardImageUrl"
+                  required
+                  ref={cardImageUrlRef}
+                />
+              </label>
+              <label>
+                Légende de l&rsquo;image:
+                <input
+                  type="text"
+                  name="altImageCard"
+                  required
+                  ref={altImageCardRef}
+                  maxLength={140}
+                />
               </label>
               <label>
                 Meta description:

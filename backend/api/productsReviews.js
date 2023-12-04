@@ -14,6 +14,18 @@ const ProductReviewJoiSchema = Joi.object({
     "string.empty": `Le champ titre est obligatoire.`,
     "string.min": `Le titre doit contenir au moins 3 caractères.`,
   }),
+  homeImageUrl: Joi.string().required().messages({
+    "string.empty": `Le champ image d'accueil est obligatoire.`,
+  }),
+  altImageHome: Joi.string().required().messages({
+    "string.empty": `Le champ texte alternatif de l'image d'accueil est obligatoire.`,
+  }),
+  cardImageUrl: Joi.string().required().messages({
+    "string.empty": `Le champ image de carte est obligatoire.`,
+  }),
+  altImageCard: Joi.string().required().messages({
+    "string.empty": `Le champ texte alternatif de l'image de carte est obligatoire.`,
+  }),
   metaDescription: Joi.string().required().messages({
     "string.empty": `Le champ meta description est obligatoire.`,
   }),
@@ -220,8 +232,8 @@ router.get("/", async (req, res) => {
       .limit(limit)
       .select({
         title: 1,
-        coverImageUrl: 1,
-        altImageCover: 1,
+        cardImageUrl: 1,
+        altImageCard: 1,
         category: 1,
         subCategory: 1,
         introduction: 1,
@@ -249,8 +261,8 @@ router.get("/latest-reviews", async (req, res) => {
       .sort({ createdAt: -1 })
       .select({
         title: 1,
-        coverImageUrl: 1,
-        altImageCover: 1,
+        homeImageUrl: 1,
+        altImageHome: 1,
         introduction: 1,
         createdAt: 1,
       });
@@ -272,6 +284,10 @@ router.post("/", verifyToken, async (req, res) => {
 
     const post = new ProductReview({
       title: req.body.title,
+      homeImageUrl: req.body.homeImageUrl,
+      altImageHome: req.body.altImageHome,
+      cardImageUrl: req.body.cardImageUrl,
+      altImageCard: req.body.altImageCard,
       metaDescription: req.body.metaDescription,
       coverImageUrl: req.body.coverImageUrl,
       altImageCover: req.body.altImageCover,
@@ -366,6 +382,10 @@ router.patch("/:productReviewId", verifyToken, async (req, res) => {
       {
         $set: {
           title: req.body.title,
+          homeImageUrl: req.body.homeImageUrl,
+          altImageHome: req.body.altImageHome,
+          cardImageUrl: req.body.cardImageUrl,
+          altImageCard: req.body.altImageCard,
           metaDescription: req.body.metaDescription,
           coverImageUrl: req.body.coverImageUrl,
           altImageCover: req.body.altImageCover,
