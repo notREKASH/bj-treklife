@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import "./newsletter.scss";
 import axios from "axios";
-import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
 export default function Newsletter() {

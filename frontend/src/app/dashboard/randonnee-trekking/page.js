@@ -4,7 +4,7 @@ import { useEffect, useState, useRef } from "react";
 import ReactMarkdown from "react-markdown";
 import "./randonnee-trekking.scss";
 import Link from "next/link";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { createPost } from "@/app/redux/actions/posts.action";
 
 function NewPostRandonneeTrekking() {

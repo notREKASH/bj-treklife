@@ -2,10 +2,10 @@
 
 import { useRef } from "react";
 import ReactMarkdown from "react-markdown";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import "./review-materiel.scss";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { createReview } from "@/app/redux/actions/reviews.action";
 
 function NewPostReviewMateriel() {

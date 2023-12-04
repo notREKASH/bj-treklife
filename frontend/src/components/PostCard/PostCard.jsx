@@ -9,7 +9,7 @@ import {
   getPosts,
   setCurrentRandonneeTrekkingPage,
 } from "@/app/redux/actions/posts.action";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import {
   deleteReview,
   getFilteredReviews,
@@ -22,6 +22,7 @@ import {
 } from "@/app/redux/actions/filter.actions";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export default function PostCard({
   postTitle,
@@ -37,7 +38,14 @@ export default function PostCard({
   const dispatch = useDispatch();
   const id = postId;
 
-  const token = sessionStorage.getItem("token");
+  const [token, setToken] = useState("");
+
+  useEffect(() => {
+    const storedToken = sessionStorage.getItem("token");
+    if (storedToken) {
+      setToken(storedToken);
+    }
+  }, []);
 
   const truncateText = (text, length) => {
     return text.length > length ? text.substring(0, length) + "..." : text;

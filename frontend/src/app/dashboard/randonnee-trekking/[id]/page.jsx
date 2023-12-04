@@ -1,6 +1,6 @@
 "use client";
 
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./patch.scss";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "@/components/Loader/Loader";
