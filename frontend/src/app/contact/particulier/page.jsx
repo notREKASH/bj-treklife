@@ -21,7 +21,7 @@ export default function Particulier() {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/sendmail/contact",
+        `${NEXT_PUBLIC_API_URL}/api/sendmail/contact`,
         {
           firstName: data.get("firstName"),
           lastName: data.get("lastName"),
