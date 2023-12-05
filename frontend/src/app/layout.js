@@ -16,14 +16,16 @@ import "../styles/globals.scss";
 import Footer from "@/components/Footer/Footer";
 import ReduxProvider from "./redux/provider";
 import CookieBanner from "@/components/CookieBanner/CookieBanner";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import NavigationLoader from "@/components/NavigationLoader/NavigationLoader";
 
 export default function RootLayout({ children }) {
   return (
     <html lang="fr">
       <body className={lato.className}>
         <ReduxProvider>
+          <NavigationLoader />
           <Header />
           <main>
             {children}

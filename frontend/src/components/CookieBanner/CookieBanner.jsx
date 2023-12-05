@@ -51,6 +51,8 @@ function CookieBanner() {
       {showBanner ? (
         <CookieConsent
           location="bottom"
+          overlay
+          overlayStyle={{ background: "rgba(0,0,0,0.8)" }}
           buttonText="J'accepte"
           declineButtonText="Je refuse"
           cookieName="cookieConsent"
