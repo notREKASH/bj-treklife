@@ -42,7 +42,7 @@ export default function Newsletter() {
 
   useEffect(() => {
     getNewsletter();
-  }, []);
+  }, [token]);
 
   const handleDeleteSubscriber = async (id) => {
     try {

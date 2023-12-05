@@ -31,14 +31,30 @@ function Newsletter() {
 
     axios
       .post(`${process.env.NEXT_PUBLIC_API_URL}/api/newsLetter`, newsletterData)
-      .then((res) => {
-        toast.success(`${res.data.message}`, {
-          position: "top-center",
-          autoClose: 3000,
-          hideProgressBar: true,
-          closeOnClick: true,
-          draggable: true,
-        });
+      .then(() => {
+        axios
+          .post(
+            `${process.env.NEXT_PUBLIC_API_URL}/api/sendmail/newsletter`,
+            newsletterData
+          )
+          .then((res) => {
+            toast.success(`${res.data.message}`, {
+              position: "top-center",
+              autoClose: 3000,
+              hideProgressBar: true,
+              closeOnClick: true,
+              draggable: true,
+            });
+          })
+          .catch((err) =>
+            toast.error(`${err.response.data}`, {
+              position: "top-center",
+              autoClose: 3000,
+              hideProgressBar: true,
+              closeOnClick: true,
+              draggable: true,
+            })
+          );
       })
       .catch((err) =>
         toast.error(`${err.response.data}`, {
