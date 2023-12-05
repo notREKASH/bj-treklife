@@ -45,7 +45,10 @@ function LatestNews() {
                   alt={post.title}
                   width={6240}
                   height={4160}
-                  quality={95}
+                  quality={80}
+                  style={{
+                    width: "100%",
+                  }}
                 />
               )}
               <div className="news-item__content">

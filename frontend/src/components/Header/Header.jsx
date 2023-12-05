@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Logo from "../../images/logo.png";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 import "./Header.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -26,7 +25,7 @@ function Header() {
           <div>
             <Link href="/">
               <Image
-                src={Logo.src}
+                src="/images/logo.webp"
                 alt="Logo du Blog BJ-Treklife"
                 className="logo"
                 width={50}

@@ -1,7 +1,6 @@
 "use client";
 
 import "./HamburgerMenu.scss";
-import Logo from "../../images/logo.png";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -26,7 +25,7 @@ function HamburgerMenu() {
         <div className="hamburgerMenu__container">
           <Link href="/">
             <Image
-              src={Logo.src}
+              src="/images/logo.webp"
               alt="Logo du Blog BJ-Treklife"
               className="logo"
               width={50}

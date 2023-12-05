@@ -140,7 +140,7 @@ export default function PostPage({ id }) {
                     alt={post.introduction?.altImage}
                     width={1920}
                     height={1080}
-                    quality={100}
+                    quality={80}
                   />
                 )}
                 {post.introduction?.imageUrl && (
@@ -149,8 +149,8 @@ export default function PostPage({ id }) {
                     src={post.introduction?.imageUrl}
                     alt={post.title}
                     width={1920}
-                    height={10}
-                    quality={10}
+                    height={1080}
+                    quality={1}
                   />
                 )}
                 {post.introduction?.imageUrl && (

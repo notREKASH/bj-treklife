@@ -26,6 +26,7 @@
       margin: 0 auto;
       top: 15%;
       width: 80%;
+      max-height: 1100px;
 
       @media (min-width: $sm) {
         gap: 2em;
@@ -109,6 +110,7 @@
         width: 100%;
         object-fit: cover;
         height: calc(100vh - 68px);
+        max-height: 900px;
 
         @media (min-width: $sm) {
           width: 90%;

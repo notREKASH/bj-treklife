@@ -83,6 +83,7 @@ function Page({ params, searchParams }) {
       ],
     },
   ]);
+
   const [carouselsTitle, setCarouselsTitle] = useState("");
   const [conclusion, setConclusion] = useState("");
   const [author, setAuthor] = useState("");
@@ -242,6 +243,11 @@ function Page({ params, searchParams }) {
         tech: "",
       },
     ]);
+  };
+
+  const handleDeleteNote = (e, index) => {
+    e.preventDefault();
+    setRatings(ratings.filter((rating, i) => i !== index));
   };
 
   const handleSendModification = (e) => {
@@ -564,6 +570,9 @@ function Page({ params, searchParams }) {
           <button onClick={handleAddRating}>Ajouter une note</button>
           {ratings.map((rating, index) => (
             <div key={index}>
+              <button onClick={(e) => handleDeleteNote(e, index)}>
+                Supprimer la note
+              </button>
               <label>Nom</label>
               <input
                 type="text"
@@ -660,22 +669,22 @@ function Page({ params, searchParams }) {
             }}
           />
           <button onClick={handleAddSlide}>Ajouter une slide</button>
-          {carousels.map((carousel, index) => (
-            <div key={index}>
-              {carousel.slides.map((slide, index) => (
-                <div key={index}>
-                  <label>Caption</label>
+          {carousels.map((carousel, carouselIndex) => (
+            <div key={carouselIndex}>
+              {carousel.slides.map((slide, slideIndex) => (
+                <div key={slideIndex}>
+                  <label>Caption {slideIndex}</label>
                   <input
                     type="text"
                     value={slide.caption}
                     onChange={(e) => {
                       setCarousels(
                         carousels.map((carousel, i) => {
-                          if (i === index) {
+                          if (i === carouselIndex) {
                             return {
                               ...carousel,
-                              slides: carousel.slides.map((slide, i) => {
-                                if (i === index) {
+                              slides: carousel.slides.map((slide, j) => {
+                                if (j === slideIndex) {
                                   return {
                                     ...slide,
                                     caption: e.target.value,
@@ -697,11 +706,11 @@ function Page({ params, searchParams }) {
                     onChange={(e) => {
                       setCarousels(
                         carousels.map((carousel, i) => {
-                          if (i === index) {
+                          if (i === carouselIndex) {
                             return {
                               ...carousel,
-                              slides: carousel.slides.map((slide, i) => {
-                                if (i === index) {
+                              slides: carousel.slides.map((slide, j) => {
+                                if (j === slideIndex) {
                                   return {
                                     ...slide,
                                     imageUrl: e.target.value,

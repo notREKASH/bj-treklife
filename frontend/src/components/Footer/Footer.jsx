@@ -1,7 +1,6 @@
 "use client";
 
 import "./Footer.scss";
-import Logo from "../../images/logo.png";
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -73,7 +72,7 @@ function Footer() {
           <div className="footer__container">
             <div className="footer__container--information">
               <Image
-                src={Logo.src}
+                src="/images/logo.webp"
                 alt="Logo BJ-Treklife"
                 className="logo"
                 width={50}

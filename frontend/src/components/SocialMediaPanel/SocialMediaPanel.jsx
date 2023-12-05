@@ -1,24 +1,22 @@
+import Image from "next/image";
 import "./SocialMediaPanel.scss";
-import FacebookLogo from "../../images/logo-facebook-panel.png";
-import InstagramLogo from "../../images/logo-instagram-panel.png";
-import YoutubeLogo from "../../images/logo-youtube-panel.png";
 
 function SocialMediaPanel() {
   const socialMedias = [
     {
       name: "facebook",
       url: "https://www.facebook.com/",
-      logo: FacebookLogo.src,
+      logo: "/images/logo-facebook-panel.webp",
     },
     {
       name: "instagram",
       url: "https://www.instagram.com/",
-      logo: InstagramLogo.src,
+      logo: "/images/logo-instagram-panel.webp",
     },
     {
       name: "youtube",
       url: "https://www.youtube.com/",
-      logo: YoutubeLogo.src,
+      logo: "/images/logo-youtube-panel.webp",
     },
   ];
 
@@ -32,7 +30,13 @@ function SocialMediaPanel() {
             key={socialMedia.name}
           >
             <a href={socialMedia.url} target="_blank" rel="noopener noreferrer">
-              <img src={socialMedia.logo} alt={socialMedia.name} />
+              <Image
+                src={socialMedia.logo}
+                alt={socialMedia.name}
+                width={40}
+                height={40}
+                quality={100}
+              />
             </a>
           </div>
         ))}

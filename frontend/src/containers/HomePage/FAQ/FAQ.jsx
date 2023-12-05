@@ -1,7 +1,6 @@
 "use client";
 import "./FAQ.scss";
 import { useState } from "react";
-import FaqImage from "../../../images/faq.jpg";
 import Image from "next/image";
 
 const faqQuestion = [
@@ -76,11 +75,11 @@ function FAQ() {
           <Image
             placeholder="blur"
             blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPUzZpfDwADuQG3zGD5JgAAAABJRU5ErkJggg=="
-            src={FaqImage.src}
+            src="/images/faq.webp"
             alt="Photo de moi sur un Pic des Aiguilles de Baulmes en suisse, avec vu sur le Lac de Neuchatel"
-            width={1000}
-            height={1000}
-            quality={100}
+            quality={90}
+            width={6240}
+            height={4160}
           />
         </div>
       </section>

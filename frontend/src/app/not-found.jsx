@@ -1,7 +1,6 @@
 import Link from "next/link";
 import "../styles/not-found.scss";
 import Image from "next/image";
-import Logo from "../images/logo.png";
 
 export default function NotFound() {
   return (
@@ -9,7 +8,7 @@ export default function NotFound() {
       <div className="not-found">
         <div className="not-found__container">
           <Image
-            src={Logo.src}
+            src="/images/logo.webp"
             alt="Logo BJ-Treklife"
             width={500}
             height={500}

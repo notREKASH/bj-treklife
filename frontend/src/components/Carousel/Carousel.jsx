@@ -13,7 +13,7 @@ function Carousel({ images }) {
       useKeyboardArrows={true}
       dynamicHeight={true}
       autoPlay={true}
-      interval={3000}
+      interval={8000}
       className="carousel"
       swipeable={false}
     >
@@ -28,15 +28,15 @@ function Carousel({ images }) {
             alt={image.caption}
             width={1920}
             height={1080}
-            quality={100}
+            quality={80}
           />
           <Image
             className="carousel__container--backgroundImage"
             src={image.imageUrl}
             alt={image.caption}
             width={1920}
-            height={10}
-            quality={10}
+            height={1080}
+            quality={1}
           />
           <p className="legend">{image.caption}</p>
         </div>
