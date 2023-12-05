@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 
 export const login = (username, password) => {
   return async (dispatch) => {
@@ -15,8 +16,11 @@ export const login = (username, password) => {
         payload: res.data,
       });
       sessionStorage.setItem("token", res.data);
+      window.location.href = "/dashboard";
     } catch (error) {
-      console.error("An error occurred while logging in");
+      setTimeout(() => {
+        toast.error("Mot de passe ou nom d'utilisateur incorrect");
+      }, 750);
     }
   };
 };
