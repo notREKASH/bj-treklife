@@ -5,11 +5,12 @@ const Joi = require("joi");
 
 // Création du transporteur avec Send Email testing - Pense à changer les identifiants pour la production
 const transporter = nodemailer.createTransport({
-  host: "sandbox.smtp.mailtrap.io",
-  port: 2525,
+  host: "live.smtp.mailtrap.io",
+  port: 587 || 2525 || 25,
+  secure: false,
   auth: {
-    user: "74aa94a3dab7b9",
-    pass: "2642be50f981ce",
+    user: "api",
+    pass: "5ea5f6184a4e38d5f65aa6a1d7c8e747",
   },
 });
 
