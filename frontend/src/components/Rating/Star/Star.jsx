@@ -5,7 +5,6 @@ import { faStar, faStarHalfAlt } from "@fortawesome/free-solid-svg-icons";
 function Star({ filled, halfFilled }) {
   const starStyle = {
     color: filled ? "gold" : "black",
-    cursor: "pointer",
   };
 
   const halfStarStyle = {
@@ -23,7 +22,6 @@ function Star({ filled, halfFilled }) {
 
   const halfStarFillStyle = {
     color: halfFilled ? "gold" : "gray",
-    cursor: "pointer",
   };
 
   return (

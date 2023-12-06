@@ -5,6 +5,24 @@ export const metadata = {
   title: "A Propos - BJ-Treklife",
   description:
     "Rencontrez Joris Benmehal, un développeur web passionné de montagne, de trekking et de photographie, partageant son amour pour l'aventure et la nature.",
+
+  openGraph: {
+    title: "A Propos - BJ-Treklife",
+    description:
+      "Rencontrez Joris Benmehal, un développeur web passionné de montagne, de trekking et de photographie, partageant son amour pour l'aventure et la nature.",
+    type: "website",
+    locale: "fr_FR",
+    url: "https://bj-treklife.com/a-propos",
+    site_name: "BJ-Treklife",
+    images: [
+      {
+        url: "https://bj-treklife.fr/images/opengraph/bj-treklife-about.png",
+        width: 1200,
+        height: 630,
+        alt: "Benmehal Joris avec une capuche sur la tête, avec en surimpression le logo BJ-Treklife accompagné du texte 'A Propos'.",
+      },
+    ],
+  },
 };
 
 export default function Page() {

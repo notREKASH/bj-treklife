@@ -1,11 +1,13 @@
 import PostPage from "@/containers/PostPage/PostPage";
+import axios from "axios";
 
 export async function generateMetadata({ params, searchParams }, parent) {
   const id = params.id;
 
-  const post = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/posts/${id}`
-  ).then((res) => res.json());
+  const response = await axios.get(
+    `https://bj-treklife.vercel.app/api/posts/${id}`
+  );
+  const post = response.data;
 
   return {
     title: `${post.title} - BJ-Treklife`,
@@ -16,11 +18,11 @@ export async function generateMetadata({ params, searchParams }, parent) {
       description: post.metaDescription,
       type: "website",
       locale: "fr_FR",
-      url: `https://bj-treklife.fr/articles/${post.id}`,
+      url: `https://bj-treklife.fr/randonnee-trekking/${post._id}`,
       site_name: "BJ-Treklife",
       images: [
         {
-          url: `https://bj-treklife.fr/${post.coverImageUrl}`,
+          url: `https://bj-treklife.fr${post.coverImageUrl}`,
           width: 1200,
           height: 630,
           alt: `${post.altImageCover}`,

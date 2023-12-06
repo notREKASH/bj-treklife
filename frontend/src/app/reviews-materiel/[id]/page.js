@@ -1,11 +1,13 @@
 import ReviewPage from "@/containers/ReviewPage/ReviewPage";
+import axios from "axios";
 
 export async function generateMetadata({ params, searchParams }, parent) {
   const id = params.id;
 
-  const post = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/productsReviews/${id}`
-  ).then((res) => res.json());
+  const response = await axios.get(
+    `https://bj-treklife.vercel.app/api/productsReviews/${id}`
+  );
+  const post = response.data;
 
   return {
     title: `${post.title} - BJ-Treklife`,
