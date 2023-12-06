@@ -21,7 +21,8 @@ function SubSection({ title, content, imageUrl, altImage }) {
             alt={altImage}
             width={1920}
             height={1080}
-            quality={100}
+            quality={90}
+            sizes="(max-width: 1024px) 100vw, 70vw"
           />
         )}
         {imageUrl && (
@@ -33,7 +34,7 @@ function SubSection({ title, content, imageUrl, altImage }) {
             alt={title}
             width={1920}
             height={1080}
-            quality={10}
+            quality={1}
           />
         )}
         <ImageFullscreen src={imageUrl} alt={altImage} />

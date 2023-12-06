@@ -482,6 +482,8 @@
             grid-template-columns: repeat(3, 1fr);
 
             a {
+              color: blue;
+              text-decoration: underline;
               font-size: 1rem;
 
               @media (min-width: $sm) {

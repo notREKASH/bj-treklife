@@ -40,11 +40,14 @@ export default function Page() {
             création numérique.
           </p>
           <Image
-            src="https://live.staticflickr.com/65535/53320518690_b50061d641_b.jpg"
+            src="/images/a-propos/joris-benmehal.webp"
             alt="Benmehal Joris avec une capuche sur la tête"
             width={1000}
             height={1000}
-            quality={100}
+            quality={90}
+            placeholder="blur"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPUzZpfDwADuQG3zGD5JgAAAABJRU5ErkJggg=="
+            sizes="100vw"
           />
           <p>
             Les pistes de ski alpin de mon enfance, et un accident en mars 2018,
@@ -66,11 +69,14 @@ export default function Page() {
             résilience.
           </p>
           <Image
-            src="https://live.staticflickr.com/65535/53334058083_5dd884f035_b.jpg"
+            src="/images/a-propos/joris-benmehal-ski.webp"
             alt="Benmehal Joris dans les airs en ski avec une trainée de poudreuse derrière lui avec les skis en parallèle"
             width={1000}
             height={1000}
-            quality={100}
+            quality={90}
+            placeholder="blur"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPUzZpfDwADuQG3zGD5JgAAAABJRU5ErkJggg=="
+            sizes="100vw"
           />
           <p>
             Ce blog est une invitation à vous joindre à mon voyage, à découvrir
@@ -84,11 +90,14 @@ export default function Page() {
         <div className="a-propos__container__desktop">
           <div className="a-propos__container__desktop__content1">
             <Image
-              src="https://live.staticflickr.com/65535/53320518690_b50061d641_b.jpg"
+              src="/images/a-propos/joris-benmehal.webp"
               alt="Benmehal Joris avec une capuche sur la tête"
               width={1000}
               height={1000}
-              quality={100}
+              quality={90}
+              placeholder="blur"
+              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPUzZpfDwADuQG3zGD5JgAAAABJRU5ErkJggg=="
+              sizes="(max-width: 1054px) 25vw, 40vw"
             />
             <div className="a-propos__container__desktop__content1--text">
               <p>
@@ -133,11 +142,14 @@ export default function Page() {
               </p>
             </div>
             <Image
-              src="https://live.staticflickr.com/65535/53334058083_5dd884f035_b.jpg"
+              src="/images/a-propos/joris-benmehal-ski.webp"
               alt="Benmehal Joris dans les airs en ski avec une trainée de poudreuse derrière lui avec les skis en parallèle"
               width={1000}
               height={1000}
-              quality={100}
+              quality={90}
+              placeholder="blur"
+              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPUzZpfDwADuQG3zGD5JgAAAABJRU5ErkJggg=="
+              sizes="(max-width: 1054px) 25vw, 40vw"
             />
           </div>
         </div>

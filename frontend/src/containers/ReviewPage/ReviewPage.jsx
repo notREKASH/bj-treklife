@@ -57,7 +57,8 @@ export default function ReviewPage({ id }) {
                 alt={review.altImageCover}
                 width={1920}
                 height={1080}
-                quality={100}
+                quality={90}
+                sizes="100vw"
               />
             )}
             <h2>{review.title}</h2>
@@ -79,7 +80,8 @@ export default function ReviewPage({ id }) {
                       alt={review.introduction?.altImage}
                       width={1920}
                       height={1080}
-                      quality={100}
+                      quality={90}
+                      sizes="(max-width: 1024px) 100vw, 70vw"
                     />
                   )}
                   {review.introduction?.imageUrl && (
@@ -91,7 +93,8 @@ export default function ReviewPage({ id }) {
                       alt={review.introduction?.altImage}
                       width={1920}
                       height={1080}
-                      quality={10}
+                      quality={1}
+                      sizes="(max-width: 1024px) 100vw, 70vw"
                     />
                   )}
                   {review.introduction?.imageUrl && (
@@ -139,7 +142,8 @@ export default function ReviewPage({ id }) {
                       alt={review.personalExperience?.altImage}
                       width={1920}
                       height={1080}
-                      quality={100}
+                      quality={90}
+                      sizes="(max-width: 1024px) 100vw, 70vw"
                     />
                   )}
                   {review.personalExperience?.imageUrl && (
@@ -151,7 +155,8 @@ export default function ReviewPage({ id }) {
                       alt={review.personalExperience?.altImage}
                       width={1920}
                       height={1080}
-                      quality={10}
+                      quality={1}
+                      sizes="(max-width: 1024px) 100vw, 70vw"
                     />
                   )}
                   {review.personalExperience?.imageUrl && (

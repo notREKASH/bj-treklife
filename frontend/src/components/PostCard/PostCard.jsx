@@ -1,4 +1,5 @@
 "use client";
+
 import Link from "next/link";
 import "./PostCard.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -127,9 +128,10 @@ export default function PostCard({
             blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPUzZpfDwADuQG3zGD5JgAAAABJRU5ErkJggg=="
             src={postImage}
             alt={postTitle}
-            width={500}
-            height={500}
+            width={6240}
+            height={4160}
             quality={90}
+            sizes="(max-width: 768px) 95vw, (max-width: 1024px) 40vw, 40vw"
           />
         )}
       </div>

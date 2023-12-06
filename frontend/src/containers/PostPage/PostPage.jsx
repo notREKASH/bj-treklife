@@ -89,7 +89,8 @@ export default function PostPage({ id }) {
               alt={post.altImageCover}
               width={1920}
               height={1080}
-              quality={100}
+              quality={90}
+              sizes="100vw"
             />
           )}
           <h2>{post.title}</h2>
@@ -140,7 +141,8 @@ export default function PostPage({ id }) {
                     alt={post.introduction?.altImage}
                     width={1920}
                     height={1080}
-                    quality={80}
+                    quality={90}
+                    sizes="(max-width: 1024px) 100vw, 70vw"
                   />
                 )}
                 {post.introduction?.imageUrl && (
@@ -151,6 +153,7 @@ export default function PostPage({ id }) {
                     width={1920}
                     height={1080}
                     quality={1}
+                    sizes="(max-width: 1024px) 100vw, 70vw"
                   />
                 )}
                 {post.introduction?.imageUrl && (

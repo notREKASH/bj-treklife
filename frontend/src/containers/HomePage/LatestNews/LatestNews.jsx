@@ -46,6 +46,7 @@ function LatestNews() {
                   width={6240}
                   height={4160}
                   quality={80}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 40vw"
                   style={{
                     width: "100%",
                   }}

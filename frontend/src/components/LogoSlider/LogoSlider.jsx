@@ -12,6 +12,7 @@ function LogoSlider() {
             height={70}
             width={200}
             quality={100}
+            sizes="25vw"
           />
           <Image
             src="/images/logo-msr.webp"
@@ -19,6 +20,7 @@ function LogoSlider() {
             height={70}
             width={200}
             quality={100}
+            sizes="25vw"
           />
           <Image
             src="/images/logo-nemo.webp"
@@ -26,6 +28,7 @@ function LogoSlider() {
             height={70}
             width={200}
             quality={100}
+            sizes="25vw"
           />
           <Image
             src="/images/logo-osprey.webp"
@@ -33,6 +36,7 @@ function LogoSlider() {
             height={70}
             width={200}
             quality={100}
+            sizes="25vw"
           />
           <Image
             src="/images/logo-petzl.webp"
@@ -40,6 +44,7 @@ function LogoSlider() {
             height={70}
             width={200}
             quality={100}
+            sizes="25vw"
           />
           <Image
             src="/images/logo-salewa.webp"
@@ -47,6 +52,7 @@ function LogoSlider() {
             height={70}
             width={200}
             quality={100}
+            sizes="25vw"
           />
           <Image
             src="/images/logo-seatosummit.webp"
@@ -54,6 +60,7 @@ function LogoSlider() {
             height={70}
             width={200}
             quality={100}
+            sizes="25vw"
           />
         </div>
         <div className="logos-slide">
@@ -63,6 +70,7 @@ function LogoSlider() {
             height={70}
             width={200}
             quality={100}
+            sizes="25vw"
           />
           <Image
             src="/images/logo-msr.webp"
@@ -70,6 +78,7 @@ function LogoSlider() {
             height={70}
             width={200}
             quality={100}
+            sizes="25vw"
           />
           <Image
             src="/images/logo-nemo.webp"
@@ -77,6 +86,7 @@ function LogoSlider() {
             height={70}
             width={200}
             quality={100}
+            sizes="25vw"
           />
           <Image
             src="/images/logo-osprey.webp"
@@ -84,6 +94,7 @@ function LogoSlider() {
             height={70}
             width={200}
             quality={100}
+            sizes="25vw"
           />
           <Image
             src="/images/logo-petzl.webp"
@@ -91,6 +102,7 @@ function LogoSlider() {
             height={70}
             width={200}
             quality={100}
+            sizes="25vw"
           />
           <Image
             src="/images/logo-salewa.webp"
@@ -98,6 +110,7 @@ function LogoSlider() {
             height={70}
             width={200}
             quality={100}
+            sizes="25vw"
           />
           <Image
             src="/images/logo-seatosummit.webp"
@@ -105,6 +118,7 @@ function LogoSlider() {
             height={70}
             width={200}
             quality={100}
+            sizes="25vw"
           />
         </div>
       </div>

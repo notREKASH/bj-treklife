@@ -29,6 +29,7 @@ function Carousel({ images }) {
             width={1920}
             height={1080}
             quality={80}
+            sizes="100vw"
           />
           <Image
             className="carousel__container--backgroundImage"
@@ -37,6 +38,7 @@ function Carousel({ images }) {
             width={1920}
             height={1080}
             quality={1}
+            sizes="100vw"
           />
           <p className="legend">{image.caption}</p>
         </div>

@@ -80,6 +80,7 @@ function FAQ() {
             quality={90}
             width={6240}
             height={4160}
+            sizes="(max-width: 1024px) 100vw, 50vw"
           />
         </div>
       </section>

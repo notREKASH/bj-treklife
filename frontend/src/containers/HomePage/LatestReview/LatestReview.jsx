@@ -41,6 +41,7 @@ function LatestReview() {
               width={6240}
               height={4160}
               quality={90}
+              sizes="95vw"
             />
           )}
           <div className="expedition-item__content">
