@@ -91,58 +91,15 @@ router.post("/contact", async (req, res) => {
         <title>BJ-Treklife Newsletter</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <style>
-          body {
-            font-family: "Open Sans", sans-serif;
-            background: #e5e5e5;
-            margin: 0;
-            padding: 0;
-          }
-    
-          .container {
-            width: 80%;
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: #ffffff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-          }
-    
-          h1 {
-            color: #4c83ee;
-            text-align: center;
-          }
-    
-          p,
-          ul {
-            font-size: 14px;
-            line-height: 1.5;
-            color: #000000;
-          }
-    
-          ul {
-            list-style-type: none;
-            padding: 0;
-          }
-    
-          ul li {
-            margin-bottom: 10px;
-          }
-    
-          a {
-            color: #4c83ee;
-            text-decoration: none;
-          }
-    
-          .signature {
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid #8b949f;
-            text-align: center;
-          }
-        </style>
       </head>
-      <body>
+      <body
+        style="
+          font-family: 'Open Sans', sans-serif;
+          background: #e5e5e5;
+          margin: 0;
+          padding: 0;
+        "
+      >
         <table
           width="100%"
           border="0"
@@ -154,82 +111,111 @@ router.post("/contact", async (req, res) => {
             <td align="center">
               <table
                 class="container"
-                width="80%"
+                width="600px"
                 border="0"
                 cellspacing="0"
                 cellpadding="20"
                 bgcolor="#ffffff"
+                style="margin: 0 auto; background-color: #ffffff; padding: 20px"
               >
                 <tr>
-                  <td>
-                    <h1>BJ-Treklife.fr</h1>
+                  <td style="text-align: center">
+                    <h1 style="color: #4c83ee">BJ-Treklife.fr</h1>
                   </td>
                 </tr>
-                  <tr style="background-color: #4c83ee; color: #ffffff">
-                    <td>
-                      <strong>📬 Coordonnées</strong>
-                      <table border="0" cellspacing="0" cellpadding="0" style="font-size: 0.9em; margin-top: 1em;">
-                        <tr>
-                          <td>
-                            <strong
-                          style="text-decoration: underline; margin-right: 0.5em"
-                          >Nom :</strong
-                        >
-                        ${lastName}
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <strong style="text-decoration: underline; margin-right: 0.5em"">Prénom :</strong>
-                        ${firstName}
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <strong style="text-decoration: underline; margin-right: 0.5em"">Email :</strong>
-                        ${email}
-                          </td>
-                        </tr>
-                        ${
-                          phone
-                            ? `<tr>
-                          <td>
-                            <strong style="text-decoration: underline; margin-right: 0.5em"">Téléphone :</strong>
-                       ${phone}
-                          </td>
-                        </tr>
-                        `
-                            : ""
-                        }
-                        ${
-                          company
-                            ? `<tr>
-                          <td>
-                            <strong style="text-decoration: underline; margin-right: 0.5em"">Société :</strong>
-                        ${company}
-                          </td>
-                        </tr>
-                        `
-                            : ""
-                        }
-                      </table>
-                    </td>
-                  </tr>
-                </tr>
-                <tr>
+                <tr style="background-color: #4c83ee; color: #ffffff">
                   <td>
-                    <strong>📃 Raison du contact</strong>
-                    <table border="0" cellspacing="0" cellpadding="0" style="font-size: 0.9em; margin-top: 1em;">
-                      <tr >
+                    <strong>📬 Coordonnées</strong>
+                    <table
+                      border="0"
+                      cellspacing="0"
+                      cellpadding="0"
+                      style="font-size: 0.9em; margin-top: 1em"
+                    >
+                      <tr>
                         <td>
-                          <strong style="text-decoration: underline; margin-right: 0.5em;">Objet :</strong>
-                        ${subject}
+                          <strong
+                            style="text-decoration: underline; margin-right: 0.5em"
+                            >Nom :</strong
+                          >
+                          ${lastName}
                         </td>
                       </tr>
                       <tr>
                         <td>
-                          <strong style="text-decoration: underline; margin-right: 0.5em">Message :</strong>
-                        ${message}
+                          <strong
+                            style="text-decoration: underline; margin-right: 0.5em"
+                            >Prénom :</strong
+                          >
+                          ${firstName}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <strong
+                            style="text-decoration: underline; margin-right: 0.5em"
+                            >Email :</strong
+                          >
+                          ${email}
+                        </td>
+                      </tr>
+                      ${
+                        phone
+                          ? `
+                      <tr>
+                        <td>
+                          <strong
+                            style="text-decoration: underline; margin-right: 0.5em"
+                            >Téléphone :</strong
+                          >
+                          ${phone}
+                        </td>
+                      </tr>
+                      `
+                          : ""
+                      } ${
+      company
+        ? `
+                      <tr>
+                        <td>
+                          <strong
+                            style="text-decoration: underline; margin-right: 0.5em"
+                            >Société :</strong
+                          >
+                          ${company}
+                        </td>
+                      </tr>
+                      `
+        : ""
+    }
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>📃 Raison du contact</strong>
+                    <table
+                      border="0"
+                      cellspacing="0"
+                      cellpadding="0"
+                      style="font-size: 0.9em; margin-top: 1em"
+                    >
+                      <tr>
+                        <td>
+                          <strong
+                            style="text-decoration: underline; margin-right: 0.5em"
+                            >Objet :</strong
+                          >
+                          ${subject}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <strong
+                            style="text-decoration: underline; margin-right: 0.5em"
+                            >Message :</strong
+                          >
+                          ${message}
                         </td>
                       </tr>
                     </table>
@@ -238,30 +224,51 @@ router.post("/contact", async (req, res) => {
                 <tr>
                   <td>
                     <strong>🔒 Consentement</strong>
-                    <table border="0" cellspacing="0" cellpadding="0" style="font-size: 0.9em; margin-top: 1em;">
-                      <tr >
+                    <table
+                      border="0"
+                      cellspacing="0"
+                      cellpadding="0"
+                      style="font-size: 0.9em; margin-top: 1em"
+                    >
+                      <tr>
                         <td>
-                          <strong style="text-decoration: underline; margin-right: 0.5em;">Politique de Confidentialité :</strong>
-                        ${privacyPolicy}
+                          <strong
+                            style="text-decoration: underline; margin-right: 0.5em"
+                            >Politique de Confidentialité :</strong
+                          >
+                          ${privacyPolicy}
                         </td>
                       </tr>
                       <tr>
                         <td>
-                          <strong style="text-decoration: underline; margin-right: 0.5em">Conditions Générales d'Utilisation :</strong>
-                        ${cgu}
+                          <strong
+                            style="text-decoration: underline; margin-right: 0.5em"
+                            >Conditions Générales d'Utilisation :</strong
+                          >
+                          ${cgu}
                         </td>
                       </tr>
                       <tr>
                         <td>
-                          <strong style="text-decoration: underline; margin-right: 0.5em">Mentions Légales :</strong>
-                        ${mentionsLegales}
+                          <strong
+                            style="text-decoration: underline; margin-right: 0.5em"
+                            >Mentions Légales :</strong
+                          >
+                          ${mentionsLegales}
                         </td>
                       </tr>
                     </table>
                   </td>
                 </tr>
                 <tr>
-                  <td class="signature">
+                  <td
+                    class="signature"
+                    style="
+                      text-align: center;
+                      border-top: 1px solid #8b949f;
+                      padding-top: 20px;
+                    "
+                  >
                     Formulaire de contact du site www.bj-treklife.fr<br />
                     <strong
                       >Benmehal Joris<br /><i
@@ -275,37 +282,36 @@ router.post("/contact", async (req, res) => {
           </tr>
         </table>
       </body>
-    </html>
-    `;
+    </html>`;
 
     const emailText = `
-                        BJ-Treklife.fr
-                        =================
-                        Formulaire de contact du site www.bj-treklife.fr
+      BJ-Treklife.fr
+      =================
+      Formulaire de contact du site www.bj-treklife.fr
 
-                        📬 Coordonnées
-                        --------------
-                        Nom : ${lastName}
-                        Prénom : ${firstName}
-                        Email : ${email}
-                        ${phone ? `Téléphone : ${phone}` : ""}
-                        ${company ? `Société : ${company}` : ""}
+      📬 Coordonnées
+      --------------
+      Nom : ${lastName}
+      Prénom : ${firstName}
+      Email : ${email}
+      ${phone ? `Téléphone : ${phone}` : ""}
+      ${company ? `Société : ${company}` : ""}
 
-                        📃 Raison du contact
-                        --------------------
-                        Objet : ${subject}
-                        Message : ${message}
+      📃 Raison du contact
+      --------------------
+      Objet : ${subject}
+      Message : ${message}
 
-                        🔒 Consentement
-                        ---------------
-                        Politique de Confidentialité : ${privacyPolicy}
-                        Conditions Générales d'Utilisation : ${cgu}
-                        Mentions Légales : ${mentionsLegales}
+      🔒 Consentement
+      ---------------
+      Politique de Confidentialité : ${privacyPolicy}
+      Conditions Générales d'Utilisation : ${cgu}
+      Mentions Légales : ${mentionsLegales}
 
-                        Formulaire de contact du site www.bj-treklife.fr
-                        Benmehal Joris
-                        Fondateur de BJ-Treklife.fr
-                        `;
+      Formulaire de contact du site www.bj-treklife.fr
+      Benmehal Joris
+      Fondateur de BJ-Treklife.fr
+      `;
 
     await sendMail({
       from: "mailtrap@bj-treklife.fr",
@@ -346,58 +352,15 @@ router.post("/newsletter", async (req, res) => {
         <title>BJ-Treklife Newsletter</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <style>
-          body {
-            font-family: "Open Sans", sans-serif;
-            background: #e5e5e5;
-            margin: 0;
-            padding: 0;
-          }
-    
-          .container {
-            width: 80%;
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: #ffffff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-          }
-    
-          h1 {
-            color: #4c83ee;
-            text-align: center;
-          }
-    
-          p,
-          ul {
-            font-size: 14px;
-            line-height: 1.5;
-            color: #000000;
-          }
-    
-          ul {
-            list-style-type: none;
-            padding: 0;
-          }
-    
-          ul li {
-            margin-bottom: 10px;
-          }
-    
-          a {
-            color: #4c83ee;
-            text-decoration: none;
-          }
-    
-          .signature {
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid #8b949f;
-            text-align: center;
-          }
-        </style>
       </head>
-      <body>
+      <body
+        style="
+          font-family: 'Open Sans', sans-serif;
+          background: #e5e5e5;
+          margin: 0;
+          padding: 0;
+        "
+      >
         <table
           width="100%"
           border="0"
@@ -408,16 +371,16 @@ router.post("/newsletter", async (req, res) => {
           <tr>
             <td align="center">
               <table
-                class="container"
-                width="80%"
+                width="600px"
                 border="0"
                 cellspacing="0"
                 cellpadding="20"
                 bgcolor="#ffffff"
+                style="margin: 0 auto; background-color: #ffffff; padding: 20px"
               >
                 <tr>
-                  <td>
-                    <h1>BJ-Treklife.fr</h1>
+                  <td style="text-align: center">
+                    <h1 style="color: #4c83ee">BJ-Treklife.fr</h1>
                   </td>
                 </tr>
                 <tr>
@@ -484,10 +447,10 @@ router.post("/newsletter", async (req, res) => {
                 </tr>
                 <tr>
                   <td>
-                    Si tu souhaites ne plus recevoir nos newsletters, tu peux te
+                    Si tu souhaites ne plus recevoir mes newsletters, tu peux te
                     désabonner à tout moment en cliquant
                     <a href="https://www.bj-treklife.fr/contact">ici</a>. En prenant
-                    soin de sélectionner l'objet de contact "Se désabonner".
+                    soin de sélectionner l'objet de contact "Se désabonner". Ou alors en cliquant sur le bouton "unsubscribe" situé en bas de cet email.
                   </td>
                 </tr>
                 <tr>
@@ -501,7 +464,13 @@ router.post("/newsletter", async (req, res) => {
                   <td>Au plaisir de te retrouver sur BJ-Treklife.fr !</td>
                 </tr>
                 <tr>
-                  <td class="signature">
+                  <td
+                    style="
+                      text-align: center;
+                      border-top: 1px solid #8b949f;
+                      padding-top: 20px;
+                    "
+                  >
                     Meilleures salutations, <br />
                     <strong
                       >Benmehal Joris<br /><i

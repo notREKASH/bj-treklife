@@ -61,20 +61,30 @@ export default function Particulier() {
               <label htmlFor="lastName">
                 Nom: <span style={{ color: "red" }}>*</span>
               </label>
-              <input id="lastName" name="lastName" type="text" />
+              <input
+                id="lastName"
+                name="lastName"
+                type="text"
+                autoComplete="on"
+              />
             </div>
             <div>
               <label htmlFor="firstName">
                 Prénom: <span style={{ color: "red" }}>*</span>
               </label>
-              <input id="firstName" name="firstName" type="text" />
+              <input
+                id="firstName"
+                name="firstName"
+                type="text"
+                autoComplete="on"
+              />
             </div>
           </div>
           <div className="particulier__container__form__email">
             <label htmlFor="email">
               Email: <span style={{ color: "red" }}>*</span>
             </label>
-            <input id="email" name="email" type="email" />
+            <input id="email" name="email" type="email" autoComplete="off" />
           </div>
           <div className="particulier__container__form__subject">
             <label htmlFor="subject">
@@ -86,14 +96,16 @@ export default function Particulier() {
               value={selectValue}
               onChange={handleChange}
             >
-              <option value="" selected disabled>
+              <option value="" disabled>
                 -- Choissiez une objet de contact --
               </option>
-              <option value="trekking-advice">Conseils de trekking</option>
-              <option value="equipment">Équipement et matériel</option>
-              <option value="gpx-tracks">Tracés GPX</option>
-              <option value="gdpr-newsletter">RGPD et newsletter</option>
-              <option value="other-questions">Autres questions</option>
+              <option value="Conseil de Trekking">Conseils de trekking</option>
+              <option value="Equipement et materiel">
+                Équipement et matériel
+              </option>
+              <option value="Traces GPX">Tracés GPX</option>
+              <option value="RGPD et newsletter">RGPD et newsletter</option>
+              <option value="Autres questions">Autres questions</option>
             </select>
           </div>
           <div className="particulier__container__form__message">

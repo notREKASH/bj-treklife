@@ -64,31 +64,46 @@ export default function Professionnel() {
               <label htmlFor="lastName">
                 Nom: <span style={{ color: "red" }}>*</span>
               </label>
-              <input id="lastName" name="lastName" type="text" />
+              <input
+                id="lastName"
+                name="lastName"
+                type="text"
+                autoComplete="on"
+              />
             </div>
             <div>
               <label htmlFor="firstName">
                 Prénom: <span style={{ color: "red" }}>*</span>
               </label>
-              <input id="firstName" name="firstName" type="text" />
+              <input
+                id="firstName"
+                name="firstName"
+                type="text"
+                autoComplete="on"
+              />
             </div>
           </div>
           <div className="professionnel__container__form__email">
             <label htmlFor="email">
               Email: <span style={{ color: "red" }}>*</span>
             </label>
-            <input id="email" name="email" type="email" />
+            <input id="email" name="email" type="email" autoComplete="off" />
           </div>
           <div className="professionnel__container__form__contact">
             <div>
               <label htmlFor="company">
                 Société: <span style={{ color: "red" }}>*</span>
               </label>
-              <input id="company" name="company" type="text" />
+              <input
+                id="company"
+                name="company"
+                type="text"
+                autoComplete="on"
+              />
             </div>
             <div>
               <label htmlFor="phone">Téléphone:</label>
-              <input id="phone" name="phone" type="tel" />
+              <input id="phone" name="phone" type="tel" autoComplete="off" />
             </div>
           </div>
           <div className="professionnel__container__form__subject">
@@ -101,17 +116,19 @@ export default function Professionnel() {
               value={selectValue}
               onChange={handleChange}
             >
-              <option value="" selected disabled>
+              <option value="" disabled>
                 -- Choissiez une objet de contact --
               </option>
-              <option value="collaborations">
+              <option value="Collaborations et partenariats">
                 Collaborations et partenariats
               </option>
-              <option value="product-promotion">Promotion de produits</option>
-              <option value="advertising-sponsorship">
+              <option value="Promotion de produits">
+                Promotion de produits
+              </option>
+              <option value=" Publicite et sponsorisation">
                 Publicité et sponsorisation
               </option>
-              <option value="professional-inquiries">
+              <option value="Autres demandes professionnelles">
                 Autres demandes professionnelles
               </option>
             </select>

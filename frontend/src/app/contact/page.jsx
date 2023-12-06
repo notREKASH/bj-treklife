@@ -42,7 +42,7 @@ export default function Contact() {
         </div>
         <div className="contact-page__container__buttons">
           <div className="contact-page__container__buttons__particulier">
-            <Link href="/contact/particulier">
+            <Link href="/contact/particulier" aria-label="Contact particulier">
               <FontAwesomeIcon icon={faHiking} />
             </Link>
             <h2>Particulier</h2>
@@ -55,7 +55,10 @@ export default function Contact() {
             </p>
           </div>
           <div className="contact-page__container__buttons__professionnel">
-            <Link href="/contact/professionnel">
+            <Link
+              href="/contact/professionnel"
+              aria-label="Contact professionnel"
+            >
               <FontAwesomeIcon icon={faUserTie} />
             </Link>
             <h2>Professionnel</h2>
