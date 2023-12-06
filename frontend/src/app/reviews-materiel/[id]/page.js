@@ -22,7 +22,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
       site_name: "BJ-Treklife",
       images: [
         {
-          url: `https://bj-treklife.fr/${post.coverImageUrl}`,
+          url: `https://bj-treklife.fr${post.coverImageUrl}`,
           width: 1200,
           height: 630,
           alt: `${post.altImageCover}`,
