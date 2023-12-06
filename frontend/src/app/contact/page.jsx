@@ -8,6 +8,24 @@ export const metadata = {
   title: "Contact - BJ-Treklife",
   description:
     "Contactez-nous pour toute question sur nos randonnées, équipements ou collaborations professionnelles. Je suis là pour répondre à vos interrogations.",
+
+  openGraph: {
+    title: "Contact - BJ-Treklife",
+    description:
+      "Contactez-nous pour toute question sur nos randonnées, équipements ou collaborations professionnelles. Je suis là pour répondre à vos interrogations.",
+    type: "website",
+    locale: "fr_FR",
+    url: "https://bj-treklife.fr/contact",
+    site_name: "BJ-Treklife",
+    images: [
+      {
+        url: "https://bj-treklife.fr/images/opengraph/bj-treklife-contact.png",
+        width: 1200,
+        height: 630,
+        alt: "Paysage hivernal de montagne, avec en surimpression le logo BJ-Treklife accompagné du texte 'Contact'.",
+      },
+    ],
+  },
 };
 
 export default function Contact() {

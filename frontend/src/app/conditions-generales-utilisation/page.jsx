@@ -4,6 +4,24 @@ export const metadata = {
   title: "Conditions Générales d'Utilisation (CGU) - BJ-Treklife",
   description:
     "Consultez les CGU de BJ-Treklife pour connaître les termes régissant l'utilisation de notre plateforme dédiée à la randonnée et au trekking.",
+
+  openGraph: {
+    title: "Conditions Générales d'Utilisation (CGU) - BJ-Treklife",
+    description:
+      "Consultez les CGU de BJ-Treklife pour connaître les termes régissant l'utilisation de notre plateforme dédiée à la randonnée et au trekking.",
+    type: "website",
+    locale: "fr_FR",
+    url: "https://bj-treklife.fr/conditions-generales-utilisation",
+    site_name: "BJ-Treklife",
+    images: [
+      {
+        url: "https://bj-treklife.fr/images/opengraph/bj-treklife-cgu.png",
+        width: 1200,
+        height: 630,
+        alt: "Fond grisé avec en surimpression le logo BJ-Treklife accompagné du texte 'Conditions Générales d'Utilisation'.",
+      },
+    ],
+  },
 };
 
 export default function Page() {

@@ -5,6 +5,24 @@ export const metadata = {
   title: "Mentions Légales - BJ-Treklife",
   description:
     "Trouvez des informations légales importantes concernant notre site BJ-Treklife, incluant nos coordonnées et les détails réglementaires.",
+
+  openGraph: {
+    title: "Mentions Légales - BJ-Treklife",
+    description:
+      "Trouvez des informations légales importantes concernant notre site BJ-Treklife, incluant nos coordonnées et les détails réglementaires.",
+    type: "website",
+    locale: "fr_FR",
+    url: "https://bj-treklife.fr/mentions-legales",
+    site_name: "BJ-Treklife",
+    images: [
+      {
+        url: "https://bj-treklife.fr/images/opengraph/bj-treklife-mentions-legales.png",
+        width: 1200,
+        height: 630,
+        alt: "Fond grisé avec en surimpression le logo BJ-Treklife accompagné du texte 'Mentions Légales'.",
+      },
+    ],
+  },
 };
 
 export default function Page() {

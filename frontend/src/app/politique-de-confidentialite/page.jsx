@@ -5,6 +5,24 @@ export const metadata = {
   title: "Politique de confidentialité - BJ-Treklife",
   description:
     "Apprenez comment BJ-Treklife protège vos informations personnelles et respecte votre vie privée sur notre site de trek et randonnée.",
+
+  openGraph: {
+    title: "Politique de confidentialité - BJ-Treklife",
+    description:
+      "Apprenez comment BJ-Treklife protège vos informations personnelles et respecte votre vie privée sur notre site de trek et randonnée.",
+    type: "website",
+    locale: "fr_FR",
+    url: "https://bj-treklife.fr/politique-de-confidentialite",
+    site_name: "BJ-Treklife",
+    images: [
+      {
+        url: "https://bj-treklife.fr/images/opengraph/bj-treklife-politique-confidentialite.png",
+        width: 1200,
+        height: 630,
+        alt: "Fond grisé avec en surimpression le logo BJ-Treklife accompagné du texte 'Politique de confidentialité'.",
+      },
+    ],
+  },
 };
 
 export default function Page() {
