@@ -195,7 +195,7 @@ router.post("/contact", async (req, res) => {
                             ? `<tr>
                           <td>
                             <strong style="text-decoration: underline; margin-right: 0.5em"">Téléphone :</strong>
-                        06 00 00 00 00
+                       ${phone}
                           </td>
                         </tr>
                         `
@@ -206,7 +206,7 @@ router.post("/contact", async (req, res) => {
                             ? `<tr>
                           <td>
                             <strong style="text-decoration: underline; margin-right: 0.5em"">Société :</strong>
-                        BJ-Treklife
+                        ${company}
                           </td>
                         </tr>
                         `
