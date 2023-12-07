@@ -54,8 +54,11 @@ export default function PostCard({
 
   const handleClick = (e) => {
     const target = e.target;
-
-    if (target.tagName === "BUTTON") {
+    if (
+      target.tagName === "BUTTON" ||
+      target.tagName === "svg" ||
+      target.tagName === "path"
+    ) {
       return;
     } else {
       e.preventDefault();
@@ -87,6 +90,7 @@ export default function PostCard({
   const handleTryToDelete = (e) => {
     e.preventDefault();
     e.stopPropagation();
+
     const result = confirm("Voulez-vous vraiment supprimer cet article ?");
     if (result === true) {
       handleDeletePost();
