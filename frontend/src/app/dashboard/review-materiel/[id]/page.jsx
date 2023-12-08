@@ -8,6 +8,7 @@ import {
   updateReview,
 } from "@/app/redux/actions/reviews.action";
 import Loader from "@/components/Loader/Loader";
+import ReactMarkdown from "react-markdown";
 
 function Page({ params, searchParams }) {
   const dispatch = useDispatch();
@@ -45,7 +46,9 @@ function Page({ params, searchParams }) {
       tech: "",
     },
   ]);
-  const [techSpecsExplanation, setTechSpecsExplanation] = useState("");
+  const [techSpecsExplanation, setTechSpecsExplanation] = useState(
+    "Approfondissons les détails : voici un examen précis des caractéristiques techniques clés de ce produit, conçu pour vous offrir une compréhension complète de ses atouts et de ses capacités."
+  );
   const [personalExperience, setPersonalExperience] = useState({
     content: "",
     imageUrl: "",
@@ -398,6 +401,10 @@ function Page({ params, searchParams }) {
               });
             }}
           />
+          <div className="markdown">
+            <h5>Résultat</h5>
+            <ReactMarkdown>{introduction.content}</ReactMarkdown>
+          </div>
           <label>Image introduction</label>
           <input
             type="text"
@@ -488,6 +495,10 @@ function Page({ params, searchParams }) {
               });
             }}
           />
+          <div className="markdown">
+            <h5>Résultat</h5>
+            <ReactMarkdown>{personalExperience.content}</ReactMarkdown>
+          </div>
           <label>Image Personnel</label>
           <input
             type="text"
@@ -564,6 +575,10 @@ function Page({ params, searchParams }) {
               setAdvantagesDisadvantagesExplanation(e.target.value);
             }}
           />
+          <div className="markdown">
+            <h5>Résultat</h5>
+            <ReactMarkdown>{advantagesDisadvantagesExplanation}</ReactMarkdown>
+          </div>
         </div>
         <div className="patch-page__container">
           <h3>Notes</h3>
@@ -739,6 +754,10 @@ function Page({ params, searchParams }) {
               setConclusion(e.target.value);
             }}
           />
+          <div className="markdown">
+            <h5>Résultat</h5>
+            <ReactMarkdown>{conclusion}</ReactMarkdown>
+          </div>
         </div>
         <button type="submit" className="patch-page__buttons">
           Submit

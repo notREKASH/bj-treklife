@@ -64,3 +64,19 @@
     border: none;
   }
 }
+
+.markdown {
+  display: flex;
+  flex-direction: column;
+  background-color: gray;
+  color: white;
+  gap: 1em;
+  padding: 1em 0.15em;
+
+  h5 {
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+}

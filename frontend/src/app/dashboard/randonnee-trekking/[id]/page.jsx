@@ -5,6 +5,7 @@ import "./patch.scss";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "@/components/Loader/Loader";
 import { getSpecificPost, updatePost } from "@/app/redux/actions/posts.action";
+import ReactMarkdown from "react-markdown";
 
 function Page({ params, searchParams }) {
   const dispatch = useDispatch();
@@ -407,6 +408,10 @@ function Page({ params, searchParams }) {
               setIntroduction({ ...introduction, content: e.target.value });
             }}
           />
+          <div className="markdown">
+            <h5>Résultat</h5>
+            <ReactMarkdown>{introduction.content}</ReactMarkdown>
+          </div>
           <label>Image introduction</label>
           <input
             type="text"
@@ -540,6 +545,10 @@ function Page({ params, searchParams }) {
                       );
                     }}
                   />
+                  <div className="markdown">
+                    <h5>Résultat</h5>
+                    <ReactMarkdown>{subSection.content}</ReactMarkdown>
+                  </div>
                   <label>Image</label>
                   <input
                     type="text"
@@ -686,6 +695,10 @@ function Page({ params, searchParams }) {
               setConclusion(e.target.value);
             }}
           />
+          <div className="markdown">
+            <h5>Résultat</h5>
+            <ReactMarkdown>{conclusion}</ReactMarkdown>
+          </div>
         </div>
         <div className="patch-page__container">
           <button type="submit">Enregistrer les modifications</button>
