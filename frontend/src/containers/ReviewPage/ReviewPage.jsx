@@ -16,6 +16,7 @@ import RatingArticle from "@/components/RatingArticle/RatingArticle";
 import CommentsSection from "../CommentsSection/CommentsSection";
 import { useRouter } from "next/navigation";
 import Loader from "@/components/Loader/Loader";
+import ReactMarkdown from "react-markdown";
 
 export default function ReviewPage({ id }) {
   const dispatch = useDispatch();
@@ -68,7 +69,9 @@ export default function ReviewPage({ id }) {
               <div className="review__container__content__leftContent__introduction">
                 <div className="review__container__content__leftContent__introduction--text">
                   <h3>Introduction</h3>
-                  <p>{review.introduction?.content}</p>
+                  <ReactMarkdown components={{ p: "p" }}>
+                    {review.introduction?.content}
+                  </ReactMarkdown>
                 </div>
                 <div className="review__container__content__leftContent__introduction--image">
                   {review.introduction?.imageUrl && (
@@ -130,7 +133,9 @@ export default function ReviewPage({ id }) {
               <div className="review__container__content__leftContent__personalExperience">
                 <div className="review__container__content__leftContent__personalExperience--text">
                   <h3>Expérience personnelle</h3>
-                  <p>{review.personalExperience?.content}</p>
+                  <ReactMarkdown components={{ p: "p" }}>
+                    {review.personalExperience?.content}
+                  </ReactMarkdown>
                 </div>
                 <div className="review__container__content__leftContent__personalExperience--image">
                   {review.personalExperience?.imageUrl && (
@@ -198,7 +203,9 @@ export default function ReviewPage({ id }) {
               <div className="review__container__content__leftContent__conclusion">
                 <div className="review__container__content__leftContent__conclusion--text">
                   <h3>Conclusion</h3>
-                  <p>{review.conclusion}</p>
+                  <ReactMarkdown components={{ p: "p" }}>
+                    {review?.conclusion}
+                  </ReactMarkdown>
                 </div>
               </div>
               <div className="review__container__content__leftContent__ratings">
