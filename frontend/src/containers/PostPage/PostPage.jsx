@@ -21,6 +21,7 @@ import Image from "next/image";
 import CommentsSection from "../CommentsSection/CommentsSection";
 import RatingArticle from "@/components/RatingArticle/RatingArticle";
 import { useRouter } from "next/navigation";
+import ReactMarkdown from "react-markdown";
 
 export default function PostPage({ id }) {
   const dispatch = useDispatch();
@@ -129,7 +130,9 @@ export default function PostPage({ id }) {
             <div className="post__container__content__leftContent__introduction">
               <div className="post__container__content__leftContent__introduction--text">
                 <h3>Introduction</h3>
-                <p>{post.introduction?.content}</p>
+                <ReactMarkdown components={{ p: "p" }}>
+                  {post.introduction?.content}
+                </ReactMarkdown>
               </div>
               <div className="post__container__content__leftContent__introduction--image">
                 {post.introduction?.imageUrl && (
@@ -187,7 +190,9 @@ export default function PostPage({ id }) {
             <div className="post__container__content__leftContent__conclusion">
               <div className="post__container__content__leftContent__conclusion--text">
                 <h3>Conclusion</h3>
-                <p>{post.conclusion}</p>
+                <ReactMarkdown components={{ p: "p" }}>
+                  {post?.conclusion}
+                </ReactMarkdown>
               </div>
             </div>
           </div>
