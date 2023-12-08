@@ -15,7 +15,7 @@ function SuggestReviewPanel({ reviewId }) {
   const reviews = useSelector((state) => state.reviews.reviews);
 
   useEffect(() => {
-    if (reviews.length === 0) {
+    if (reviews.length < 4) {
       dispatch(getReviews());
     } else {
       return;
