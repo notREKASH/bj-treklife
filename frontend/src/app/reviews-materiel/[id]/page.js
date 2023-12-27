@@ -5,7 +5,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
   const id = params.id;
 
   const response = await axios.get(
-    `https://bj-treklife.vercel.app/api/productsReviews/${id}`
+    `https://bj-treklife.vercel.app/productsReviews/${id}`
   );
   const post = response.data;
 
