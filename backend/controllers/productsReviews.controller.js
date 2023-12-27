@@ -1,18 +1,17 @@
-const productReviewService = require("../services/productsReviews.service");
+const productsReviewsService = require("../services/productsReviews.service");
 
 // GET ALL PRODUCTS REVIEWS WITH PAGINATION AND FILTER
 
 exports.getAllProductsReviews = async (req, res) => {
   try {
     const { page = 1, limit = 20, category, subCategory } = req.query;
-
-    const paginationOptions = { page, limit, category, subCategory };
-
-    const result = await productReviewService.findAllProductsReviews(
-      paginationOptions
+    const response = await productsReviewsService.findAllProductsReviews(
+      parseInt(page),
+      parseInt(limit),
+      category || undefined,
+      subCategory || undefined
     );
-
-    res.json(result);
+    res.json(response);
   } catch (err) {
     res.status(500).json({
       message:
@@ -25,7 +24,8 @@ exports.getAllProductsReviews = async (req, res) => {
 
 exports.getLatestProductReview = async (req, res) => {
   try {
-    const productReview = await productReviewService.findLatestProductReview();
+    const productReview =
+      await productsReviewsService.findLatestProductReview();
 
     res.json(productReview);
   } catch (err) {
@@ -43,7 +43,7 @@ exports.getProductReviewById = async (req, res) => {
   try {
     const { productReviewId } = req.params;
 
-    const productReview = await productReviewService.findProductReviewById(
+    const productReview = await productsReviewsService.findProductReviewById(
       productReviewId
     );
 
@@ -66,7 +66,7 @@ exports.getProductReviewWithCommentsAndReplies = async (req, res) => {
     const paginationOptions = { productReviewId, page, limit };
 
     const result =
-      await productReviewService.findProductReviewWithCommentsAndReplies(
+      await productsReviewsService.findProductReviewWithCommentsAndReplies(
         paginationOptions
       );
 
@@ -85,7 +85,7 @@ exports.getAllRatingOfAProductReview = async (req, res) => {
   try {
     const { productReviewId } = req.params;
 
-    const ratings = await productReviewService.findAllRatingOfAProductReview(
+    const ratings = await productsReviewsService.findAllRatingOfAProductReview(
       productReviewId
     );
 
@@ -105,7 +105,7 @@ exports.getAverageRatingOfAProductReview = async (req, res) => {
     const { productReviewId } = req.params;
 
     const averageRating =
-      await productReviewService.findAverageRatingOfAProductReview(
+      await productsReviewsService.findAverageRatingOfAProductReview(
         productReviewId
       );
 
@@ -122,7 +122,7 @@ exports.getAverageRatingOfAProductReview = async (req, res) => {
 
 exports.createProductReview = async (req, res) => {
   try {
-    await productReviewService.createProductReview(req.body);
+    await productsReviewsService.createProductReview(req.body);
 
     res.status(200).send({
       message: "L'article " + req.body.title + " a bien été créé.",
@@ -141,7 +141,7 @@ exports.createComment = async (req, res) => {
   try {
     const productReviewId = req.params.productReviewId;
 
-    await productReviewService.createComment({
+    await productsReviewsService.createComment({
       comment: req.body,
       productReviewId,
     });
@@ -161,7 +161,7 @@ exports.createReply = async (req, res) => {
   try {
     const commentId = req.params.commentId;
 
-    await productReviewService.createReply({
+    await productsReviewsService.createReply({
       reply: req.body,
       commentId,
     });
@@ -179,7 +179,7 @@ exports.createReply = async (req, res) => {
 
 exports.createRating = async (req, res) => {
   try {
-    await productReviewService.createRating(req.body);
+    await productsReviewsService.createRating(req.body);
 
     res.status(200).json({ message: "Votre note à bien été enregistrée !" });
   } catch (err) {
@@ -196,7 +196,7 @@ exports.updateProductReview = async (req, res) => {
   try {
     const productReviewId = req.params.productReviewId;
 
-    await productReviewService.updateProductReview(productReviewId, req.body);
+    await productsReviewsService.updateProductReview(productReviewId, req.body);
 
     res.status(200).send({
       message: "L'article " + req.body.title + " a bien été modifié.",
@@ -215,9 +215,8 @@ exports.deleteProductReview = async (req, res) => {
   try {
     const productReviewId = req.params.productReviewId;
 
-    const deletedProductReview = await productReviewService.deleteProductReview(
-      productReviewId
-    );
+    const deletedProductReview =
+      await productsReviewsService.deleteProductReview(productReviewId);
 
     if (deletedProductReview.deletedCount > 0) {
       res.status(200).json({
@@ -242,7 +241,9 @@ exports.deleteComment = async (req, res) => {
   try {
     const commentId = req.params.commentId;
 
-    const deletedComment = await productReviewService.deleteComment(commentId);
+    const deletedComment = await productsReviewsService.deleteComment(
+      commentId
+    );
 
     if (deletedComment.deletedCount > 0) {
       res.status(200).json({ message: "Commentaire supprimé avec succès" });
@@ -263,7 +264,7 @@ exports.deleteReply = async (req, res) => {
   try {
     const replyId = req.params.replyId;
 
-    const deletedReply = await productReviewService.deleteReply(replyId);
+    const deletedReply = await productsReviewsService.deleteReply(replyId);
 
     if (deletedReply.deletedCount > 0) {
       res.status(200).json({ message: "Réponse supprimée avec succès" });

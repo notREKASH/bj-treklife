@@ -145,6 +145,9 @@ export default function PostsReviewsMateriel() {
 
   useEffect(() => {
     if (!reviews.length) {
+      setEquipementToggle(false);
+      setClothingToggle(false);
+      setAccessoriesToggle(false);
       dispatch(getReviews());
     }
   }, [dispatch, reviews]);
@@ -178,8 +181,6 @@ export default function PostsReviewsMateriel() {
   // Filter by category and subcategory for mobile
 
   const handleClickFilter = (filter) => {
-    console.log(filter);
-
     if (filter === "Tous") {
       dispatch(setReviewsProductCategory(""));
       dispatch(setReviewsProductSubCategory(""));
@@ -196,6 +197,9 @@ export default function PostsReviewsMateriel() {
     const filterName = e.target.textContent;
 
     if (filterName === "Tous") {
+      setEquipementToggle(false);
+      setClothingToggle(false);
+      setAccessoriesToggle(false);
       dispatch(setReviewsProductCategory(""));
       dispatch(setReviewsProductSubCategory(""));
       dispatch(getReviews());

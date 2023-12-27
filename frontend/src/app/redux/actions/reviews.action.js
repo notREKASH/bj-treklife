@@ -52,7 +52,7 @@ export const getReviews = (page = 1, limit = 5) => {
       );
       dispatch({
         type: "GET_ALL_REVIEWS",
-        payload: res.data.productsReviews,
+        payload: res.data.reviews,
       });
       dispatch(setTotalPages(res.data.totalPages));
     } catch (error) {

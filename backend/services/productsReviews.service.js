@@ -4,16 +4,18 @@ const ReplyComment = require("../models/ReplyComment");
 
 // GET ALL PRODUCTS REVIEWS WITH PAGINATION AND FILTER
 
-exports.findAllProductsReviews = async ({
-  page,
-  limit,
+exports.findAllProductsReviews = async (
+  page = 1,
+  limit = 20,
   category,
-  subCategory,
-}) => {
-  const query = category ? { category } : subCategory ? { subCategory } : {};
-  const skip = (page - 1) * limit;
+  subCategory
+) => {
+  const query = {};
+  if (category) query.category = category;
+  if (subCategory) query.subCategory = subCategory;
 
-  const productsReviews = await ProductReview.find(query)
+  const skip = (page - 1) * limit;
+  const reviews = await ProductReview.find(query)
     .skip(skip)
     .limit(limit)
     .select({
@@ -24,13 +26,12 @@ exports.findAllProductsReviews = async ({
       subCategory: 1,
       introduction: 1,
     });
-
-  const totalProductsReviews = await ProductReview.countDocuments(query);
+  const totalReviews = await ProductReview.countDocuments(query);
 
   return {
-    productsReviews,
-    totalProductsReviews,
-    totalPages: Math.ceil(totalProductsReviews / limit),
+    reviews,
+    totalReviews,
+    totalPages: Math.ceil(totalReviews / limit),
   };
 };
 
