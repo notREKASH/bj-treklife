@@ -27,8 +27,6 @@ export default function CommentForm({ contentType, articleId }) {
       mentionsLegales,
     };
 
-    console.log(commentData);
-
     if (contentType === "randonneeTrekking") {
       dispatch(addRandonneeComment(articleId, commentData));
     } else if (contentType === "productReview") {
@@ -44,7 +42,7 @@ export default function CommentForm({ contentType, articleId }) {
   };
 
   return (
-    <form className="comment-form" onSubmit={handleSubmit}>
+    <form className="comment-form" onSubmit={handleSubmit} >
       <h4>Laissez un commentaire</h4>
       <div className="comment-form__input-container">
         <label htmlFor="name">Nom</label>

@@ -435,7 +435,7 @@ router.post("/:postId/comments", async (req, res) => {
       cgu: req.body.cgu,
       mentionsLegales: req.body.mentionsLegales,
     });
-    const savedComment = await comment.save();
+    await comment.save();
     res.status(200).json({ message: "Votre commentaire à bien été posté !" });
   } catch (err) {
     res.status(500).json({

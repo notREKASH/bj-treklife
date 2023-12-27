@@ -2,11 +2,11 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 require("dotenv").config();
-const postsRoute = require("./api/posts");
-const authRoute = require("./api/auth");
-const productsReviewsRoute = require("./api/productsReviews");
-const newsLetterRoute = require("./api/newsLetter");
-const sendmail = require("./api/sendmail");
+const postsRoute = require("./routes/posts.router");
+const productsReviewsRoute = require("./routes/productsReviews.router");
+const sendmail = require("./routes/sendmail.router");
+const newsLetterRoute = require("./routes/newsLetter.router");
+const authRoute = require("./routes/auth.router");
 
 const app = express();
 
@@ -16,13 +16,12 @@ app.use(
     credentials: true,
   })
 );
-// app.use(cors());
 app.use(express.json());
-app.use("/api/newsLetter", newsLetterRoute);
-app.use("/api/posts", postsRoute);
-app.use("/api/auth", authRoute);
-app.use("/api/productsReviews", productsReviewsRoute);
-app.use("/api/sendmail", sendmail);
+app.use("/posts", postsRoute);
+app.use("/productsReviews", productsReviewsRoute);
+app.use("/sendmail", sendmail);
+app.use("/newsLetter", newsLetterRoute);
+app.use("/auth", authRoute);
 
 const PORT = process.env.PORT;
 

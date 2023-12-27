@@ -17,4 +17,9 @@ const RandonneeCommentSchema = new mongoose.Schema({
   createdAt: { type: Date, default: Date.now },
 });
 
-module.exports = mongoose.model("RandonneeComment", RandonneeCommentSchema);
+const RandonneeComment = mongoose.model(
+  "RandonneeComment",
+  RandonneeCommentSchema
+);
+
+module.exports = RandonneeComment;

@@ -11,7 +11,7 @@ export const metadata = {
       "Consultez les CGU de BJ-Treklife pour connaître les termes régissant l'utilisation de notre plateforme dédiée à la randonnée et au trekking.",
     type: "website",
     locale: "fr_FR",
-    url: "https://bj-treklife.fr/conditions-generales-utilisation",
+    url: `https://bj-treklife.fr/conditions-generales-utilisation`,
     site_name: "BJ-Treklife",
     images: [
       {

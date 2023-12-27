@@ -286,16 +286,14 @@ export default function PostsReviewsMateriel() {
                 <div className="articles__filterPanel__desktop__container--categoryBtn">
                   <button
                     className="articles__filterPanel__desktop__container--categoryBtn--btn"
-                    onClick={onClickFilterChange}
-                  >
+                    onClick={onClickFilterChange}>
                     Tous
                   </button>
                 </div>
                 <div className="articles__filterPanel__desktop__container--categoryBtn">
                   <button
                     className="articles__filterPanel__desktop__container--categoryBtn--btn"
-                    onClick={toggleEquipment}
-                  >
+                    onClick={toggleEquipment}>
                     Equipements
                   </button>
                   <ul className="subCategory">
@@ -308,15 +306,13 @@ export default function PostsReviewsMateriel() {
                               ? "selected"
                               : ""
                           }`}
-                          onClick={() => onSubCategoryClick(button.filter)}
-                        >
+                          onClick={() => onSubCategoryClick(button.filter)}>
                           <button
                             className={
                               selectedSubCategory === button.filter
                                 ? "selected"
                                 : ""
-                            }
-                          >
+                            }>
                             {button.name}
                           </button>
                         </li>
@@ -326,8 +322,7 @@ export default function PostsReviewsMateriel() {
                 <div className="articles__filterPanel__desktop__container--categoryBtn">
                   <button
                     className="articles__filterPanel__desktop__container--categoryBtn--btn"
-                    onClick={toggleClothing}
-                  >
+                    onClick={toggleClothing}>
                     Vêtements
                   </button>
                   <ul className="subCategory">
@@ -340,15 +335,13 @@ export default function PostsReviewsMateriel() {
                               ? "selected"
                               : ""
                           }`}
-                          onClick={() => onSubCategoryClick(button.filter)}
-                        >
+                          onClick={() => onSubCategoryClick(button.filter)}>
                           <button
                             className={
                               selectedSubCategory === button.filter
                                 ? "selected"
                                 : ""
-                            }
-                          >
+                            }>
                             {button.name}
                           </button>
                         </li>
@@ -358,8 +351,7 @@ export default function PostsReviewsMateriel() {
                 <div className="articles__filterPanel__desktop__container--categoryBtn">
                   <button
                     className="articles__filterPanel__desktop__container--categoryBtn--btn"
-                    onClick={toggleAccessories}
-                  >
+                    onClick={toggleAccessories}>
                     Accessoires
                   </button>
                   <ul className="subCategory">
@@ -372,15 +364,13 @@ export default function PostsReviewsMateriel() {
                               ? "selected"
                               : ""
                           }`}
-                          onClick={() => onSubCategoryClick(button.filter)}
-                        >
+                          onClick={() => onSubCategoryClick(button.filter)}>
                           <button
                             className={
                               selectedSubCategory === button.filter
                                 ? "selected"
                                 : ""
-                            }
-                          >
+                            }>
                             {button.name}
                           </button>
                         </li>
@@ -404,8 +394,7 @@ export default function PostsReviewsMateriel() {
               <div className="dropdownMenu__custom-select" ref={customSelect}>
                 <button
                   className="dropdownMenu__custom-select__select-button"
-                  onClick={handleShowMenu}
-                >
+                  onClick={handleShowMenu}>
                   <span>{currentFilter ? `${currentFilter}` : "Tous"}</span>
                   <span className="dropdownMenu__custom-select__select-button--arrow"></span>
                 </button>
@@ -414,8 +403,7 @@ export default function PostsReviewsMateriel() {
                     <li
                       key={name}
                       className={filter === currentFilter ? "selected" : ""}
-                      onClick={() => handleClickFilter(filter)}
-                    >
+                      onClick={() => handleClickFilter(filter)}>
                       {name}
                     </li>
                   ))}

@@ -20,7 +20,7 @@ export default function Newsletter() {
   const getNewsletter = async () => {
     try {
       const res = await axios.get(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/newsLetter`,
+        `${process.env.NEXT_PUBLIC_API_URL}/newsLetter`,
         {
           headers: {
             "auth-token": token,
@@ -42,12 +42,13 @@ export default function Newsletter() {
 
   useEffect(() => {
     getNewsletter();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token]);
 
   const handleDeleteSubscriber = async (id) => {
     try {
       const res = await axios.delete(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/newsLetter/${id}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/newsLetter/${id}`,
         {
           headers: {
             "auth-token": token,
@@ -98,15 +99,13 @@ export default function Newsletter() {
                   <a
                     href={`mailto:${subscriber.email}`}
                     target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                    rel="noopener noreferrer">
                     {subscriber.email}
                   </a>
                 </td>
                 <td>
                   <button
-                    onClick={() => handleDeleteSubscriber(subscriber._id)}
-                  >
+                    onClick={() => handleDeleteSubscriber(subscriber._id)}>
                     Supprimer
                   </button>
                 </td>

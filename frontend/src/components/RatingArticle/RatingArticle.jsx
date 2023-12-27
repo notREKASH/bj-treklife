@@ -20,7 +20,7 @@ export default function RatingArticle({ contentType, articleId }) {
 
     try {
       const res = axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/posts/${articleId}/ratings`,
+        `${process.env.NEXT_PUBLIC_API_URL}/posts/${articleId}/ratings`,
         {
           rating: index,
         }
@@ -42,8 +42,7 @@ export default function RatingArticle({ contentType, articleId }) {
             className={index <= (hover || rating) ? "on" : "off"}
             onClick={() => handleRating(index)}
             onMouseEnter={() => setHover(index)}
-            onMouseLeave={() => setHover(rating)}
-          >
+            onMouseLeave={() => setHover(rating)}>
             <span className="star">&#9733;</span>
           </button>
         );

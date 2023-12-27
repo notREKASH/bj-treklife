@@ -20,7 +20,7 @@ function NewPost() {
 
     try {
       const res = await axios.get(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/posts/${id}`
+        `${process.env.NEXT_PUBLIC_API_URL}/posts/${id}`
       );
       const data = res.data;
 
@@ -57,7 +57,7 @@ function NewPost() {
 
     try {
       const res = await axios.get(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/productsReviews/${id}`
+        `${process.env.NEXT_PUBLIC_API_URL}/productsReviews/${id}`
       );
 
       const data = res.data;

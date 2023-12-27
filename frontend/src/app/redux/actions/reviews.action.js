@@ -48,11 +48,11 @@ export const getReviews = (page = 1, limit = 5) => {
     });
     try {
       const res = await axios.get(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/productsReviews?page=${page}&limit=${limit}`
+        `${process.env.NEXT_PUBLIC_API_URL}/productsReviews?page=${page}&limit=${limit}`
       );
       dispatch({
         type: "GET_ALL_REVIEWS",
-        payload: res.data.reviews,
+        payload: res.data.productsReviews,
       });
       dispatch(setTotalPages(res.data.totalPages));
     } catch (error) {
@@ -72,7 +72,7 @@ export const getLatestReview = () => {
     });
     try {
       const res = await axios.get(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/productsReviews/latest-reviews`
+        `${process.env.NEXT_PUBLIC_API_URL}/productsReviews/latest-reviews`
       );
       const review = res.data;
       dispatch({
@@ -96,12 +96,13 @@ export const getSpecificReview = (id) => {
     });
     try {
       const res = await axios.get(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/productsReviews/${id}`
+        `${process.env.NEXT_PUBLIC_API_URL}/productsReviews/${id}`
       );
       dispatch({
         type: "GET_SPECIFIC_REVIEW",
         payload: res.data,
       });
+      dispatch(getReviews());
     } catch (error) {
       console.error(
         "Une erreur s'est produite lors de la récupération de la review"
@@ -134,7 +135,7 @@ export const getFilteredReviews = (
     });
     try {
       const res = await axios.get(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/productsReviews`,
+        `${process.env.NEXT_PUBLIC_API_URL}/productsReviews`,
         {
           params: {
             category: category,
@@ -168,7 +169,7 @@ export const createReview = (review, token) => {
   return async (dispatch) => {
     try {
       const res = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/productsReviews`,
+        `${process.env.NEXT_PUBLIC_API_URL}/productsReviews`,
         {
           ...review,
         },
@@ -208,7 +209,7 @@ export const deleteReview = (id, token) => {
   return async (dispatch) => {
     try {
       const res = await axios.delete(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/productsReviews/${id}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/productsReviews/${id}`,
         {
           headers: {
             "auth-token": token,
@@ -245,7 +246,7 @@ export const updateReview = (id, review, token) => {
   return async (dispatch) => {
     try {
       const res = await axios.patch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/productsReviews/${id}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/productsReviews/${id}`,
         {
           ...review,
         },

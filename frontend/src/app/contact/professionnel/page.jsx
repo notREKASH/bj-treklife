@@ -22,7 +22,7 @@ export default function Professionnel() {
 
     try {
       const res = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/sendmail/contact`,
+        `${process.env.NEXT_PUBLIC_API_URL}/sendmail/contact`,
         {
           firstName: data.get("firstName"),
           lastName: data.get("lastName"),
@@ -57,8 +57,7 @@ export default function Professionnel() {
         <form
           ref={form}
           onSubmit={handleSubmit}
-          className="professionnel__container__form"
-        >
+          className="professionnel__container__form">
           <div className="professionnel__container__form__name">
             <div>
               <label htmlFor="lastName">
@@ -114,8 +113,7 @@ export default function Professionnel() {
               id="subject"
               name="subject"
               value={selectValue}
-              onChange={handleChange}
-            >
+              onChange={handleChange}>
               <option value="" disabled>
                 -- Choissiez une objet de contact --
               </option>

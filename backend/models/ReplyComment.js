@@ -16,4 +16,6 @@ const ReplyCommentSchema = new mongoose.Schema({
   createdAt: { type: Date, default: Date.now },
 });
 
-module.exports = mongoose.model("ReplyComment", ReplyCommentSchema);
+const ReplyComment = mongoose.model("ReplyComment", ReplyCommentSchema);
+
+module.exports = ReplyComment;

@@ -12,7 +12,7 @@ export const metadata = {
       "Rencontrez Joris Benmehal, un développeur web passionné de montagne, de trekking et de photographie, partageant son amour pour l'aventure et la nature.",
     type: "website",
     locale: "fr_FR",
-    url: "https://bj-treklife.com/a-propos",
+    url: `https://bj-treklife.com/a-propos`,
     site_name: "BJ-Treklife",
     images: [
       {

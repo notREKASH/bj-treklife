@@ -30,11 +30,11 @@ function Newsletter() {
     };
 
     axios
-      .post(`${process.env.NEXT_PUBLIC_API_URL}/api/newsLetter`, newsletterData)
+      .post(`${process.env.NEXT_PUBLIC_API_URL}/newsLetter`, newsletterData)
       .then(() => {
         axios
           .post(
-            `${process.env.NEXT_PUBLIC_API_URL}/api/sendmail/newsletter`,
+            `${process.env.NEXT_PUBLIC_API_URL}/sendmail/newsletter`,
             newsletterData
           )
           .then((res) => {
@@ -47,7 +47,7 @@ function Newsletter() {
             });
           })
           .catch((err) =>
-            toast.error(`${err.response.data}`, {
+            toast.error(`${err.response.data.message}`, {
               position: "top-center",
               autoClose: 3000,
               hideProgressBar: true,
@@ -57,7 +57,7 @@ function Newsletter() {
           );
       })
       .catch((err) =>
-        toast.error(`${err.response.data}`, {
+        toast.error(`${err.response.data.message}`, {
           position: "top-center",
           autoClose: 3000,
           hideProgressBar: true,
