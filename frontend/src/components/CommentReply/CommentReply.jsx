@@ -15,7 +15,7 @@ export default function CommentReply({
 }) {
   const dispatch = useDispatch();
 
-  const token = useSelector((state) => state.auth?.token);
+  const isAuth = useSelector((state) => state.auth?.isAuth);
 
   const [icon, setIcon] = useState("");
   const [name, setName] = useState("");
@@ -56,7 +56,7 @@ export default function CommentReply({
   return (
     <form className="comment-form" onSubmit={handleSubmit}>
       <h4>Répondre à {replyToName}</h4>
-      {token && (
+      {isAuth && (
         <div className="comment-form__input-container admin">
           <label htmlFor="icon">Icon BJ-Treklife</label>
           <p>

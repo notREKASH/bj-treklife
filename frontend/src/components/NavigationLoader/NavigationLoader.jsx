@@ -12,7 +12,7 @@ function NavigationLoader() {
     setShowLoader(true);
     const timeout = setTimeout(() => {
       setShowLoader(false);
-    }, 500);
+    }, 750);
     return () => clearTimeout(timeout);
   }, [pathname]);
 

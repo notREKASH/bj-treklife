@@ -27,6 +27,8 @@ export default function CommentList({ contentType, articleId }) {
     }
   }, []);
 
+  // Get comments from store
+
   const comments = useSelector((state) =>
     contentType === "randonneeTrekking"
       ? state.randonneeComments?.randonneeComments
@@ -83,8 +85,7 @@ export default function CommentList({ contentType, articleId }) {
                   <button
                     onClick={() => {
                       handleDeleteComment(comment?._id);
-                    }}
-                  >
+                    }}>
                     <FontAwesomeIcon icon={faTrash} />{" "}
                   </button>
                 )}
@@ -102,8 +103,7 @@ export default function CommentList({ contentType, articleId }) {
               <div className="comment-list__container__comment--reply">
                 <button
                   className="comment-list__container__comment--reply--btn"
-                  onClick={() => handleReplies(comment?._id)}
-                >
+                  onClick={() => handleReplies(comment?._id)}>
                   <FontAwesomeIcon icon={faX} />
                 </button>
                 <CommentReply

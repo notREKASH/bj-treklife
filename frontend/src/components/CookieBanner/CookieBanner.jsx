@@ -15,6 +15,10 @@ const GA_TRACKING_ID = `${gtag.GA_TRACKING_ID}`;
 
 function CookieBanner() {
   const [showBanner, setShowBanner] = useState(false);
+
+  // Google Analytics
+  // Disable tracking if the opt-out cookie exists.
+
   const disableGoogleAnalytics = () => {
     resetCookieConsentValue("cookieConsent");
     window[`ga-disable-${GA_TRACKING_ID}`] = true;
@@ -22,6 +26,8 @@ function CookieBanner() {
     document.cookie =
       "_ga_EJ53PTCMRW=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
   };
+
+  // Initialize google analytics page view tracking
 
   const initializeGoogleAnalytics = () => {
     window[`ga-disable-${GA_TRACKING_ID}`] = false;
@@ -34,6 +40,8 @@ function CookieBanner() {
       page_path: window.location.pathname,
     });
   };
+
+  // Check if user has set cookie consent
 
   useEffect(() => {
     const consent = getCookieConsentValue("cookieConsent");
@@ -72,8 +80,7 @@ function CookieBanner() {
           onDecline={() => {
             disableGoogleAnalytics();
             setShowBanner(false);
-          }}
-        >
+          }}>
           J&rsquo;utilise des cookies uniquement pour analyser le trafic sur mon
           site et améliorer l&rsquo;expérience utilisateur. Aucune publicité
           n&rsquo;est affichée et aucune donnée n&rsquo;est partagée avec des
@@ -90,8 +97,7 @@ function CookieBanner() {
                 onClick={() => {
                   disableGoogleAnalytics();
                   setShowBanner(true);
-                }}
-              >
+                }}>
                 Réinitialiser mon choix pour les cookies 🍪
               </button>
             </div>

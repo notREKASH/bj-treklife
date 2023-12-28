@@ -24,6 +24,8 @@ function Footer() {
     setEmail(event.target.value);
   };
 
+  // Handle submit form newsletter to API and send email to user after subscription
+
   const handleSubmit = (event) => {
     event.preventDefault();
 

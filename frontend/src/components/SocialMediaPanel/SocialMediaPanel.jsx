@@ -5,17 +5,17 @@ function SocialMediaPanel() {
   const socialMedias = [
     {
       name: "facebook",
-      url: "https://www.facebook.com/",
+      url: "https://www.facebook.com/profile.php?id=61553734114609",
       logo: "/images/logo-facebook-panel.webp",
     },
     {
       name: "instagram",
-      url: "https://www.instagram.com/",
+      url: "https://www.instagram.com/bj.treklife/?fbclid=IwAR0hWnrv96zm9psUnZib3WH0iz36I4RIYOL_Z4e5ezPeN7P5IjfIx1CSSqQ",
       logo: "/images/logo-instagram-panel.webp",
     },
     {
       name: "youtube",
-      url: "https://www.youtube.com/",
+      url: "#",
       logo: "/images/logo-youtube-panel.webp",
     },
   ];
@@ -27,8 +27,7 @@ function SocialMediaPanel() {
         {socialMedias.map((socialMedia) => (
           <div
             className="socialMediaPanel__container--card"
-            key={socialMedia.name}
-          >
+            key={socialMedia.name}>
             <a href={socialMedia.url} target="_blank" rel="noopener noreferrer">
               <Image
                 src={socialMedia.logo}
