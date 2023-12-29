@@ -25,20 +25,32 @@ export const metadata = {
   },
 };
 
+const AProposData = [
+  {
+    id: 1,
+    text: "Bienvenue ! Je suis Joris Benmehal, 23 ans, un développeur full-stack avec une passion pour la montagne et la photographie. Mon parcours unique, marqué par un accident de la route, m’a rapproché de la nature et a aiguisé mon œil pour capturer sa beauté. Ici, je partage mon amour pour les sentiers montagneux et la création numérique.",
+  },
+  {
+    id: 2,
+    text: "Les pistes de ski alpin de mon enfance, et un accident en mars 2018, ont profondément marqué mon lien avec la montagne. Ces épreuves de 3 années ont transformé les périodes de convalescence en une quête de liberté, me poussant vers les treks et les expéditions qui définissent aujourd’hui mon existence. Ce blog est le reflet de cette métamorphose, une vitrine de mon aventure personnelle et des connaissances acquises au fil des sentiers parcourus et des vallées traversées.",
+  },
+  {
+    id: 3,
+    text: "Ici, vous ne trouverez pas seulement des itinéraires ou des revues d’équipement, mais des récits authentiques d’explorations et des partages d’expériences. Mon objectif est de vous offrir une perspective sincère et bienveillante, un accompagnement pour ceux qui, comme moi, ont trouvé dans la randonnée une source d’inspiration et de résilience.",
+  },
+  {
+    id: 4,
+    text: "Ce blog est une invitation à vous joindre à mon voyage, à découvrir comment les défis personnels se transforment en leçons universelles. C’est un appel à la communauté des esprits aventureux, à ceux qui souhaitent repousser les frontières de leur monde connu. Bienvenue dans un espace où chaque récit est une trace laissée pour guider, inspirer et rassembler.",
+  },
+];
+
 export default function Page() {
   return (
     <div className="a-propos">
       <h1>À propos</h1>
       <div className="a-propos__container">
         <div className="a-propos__container__mobile">
-          <p>
-            Bienvenue ! Je suis Joris Benmehal, 23 ans, un développeur
-            full-stack avec une passion pour la montagne et la photographie. Mon
-            parcours unique, marqué par un accident de la route, m&rsquo;a
-            rapproché de la nature et a aiguisé mon œil pour capturer sa beauté.
-            Ici, je partage mon amour pour les sentiers montagneux et la
-            création numérique.
-          </p>
+          <p>{AProposData[0].text}</p>
           <Image
             src="/images/a-propos/joris-benmehal.webp"
             alt="Benmehal Joris avec une capuche sur la tête"
@@ -49,25 +61,8 @@ export default function Page() {
             blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPUzZpfDwADuQG3zGD5JgAAAABJRU5ErkJggg=="
             sizes="100vw"
           />
-          <p>
-            Les pistes de ski alpin de mon enfance, et un accident en mars 2018,
-            ont profondément marqué mon lien avec la montagne. Ces épreuves de 3
-            années ont transformé les périodes de convalescence en une quête de
-            liberté, me poussant vers les treks et les expéditions qui
-            définissent aujourd&rsquo;hui mon existence. Ce blog est le reflet
-            de cette métamorphose, une vitrine de mon aventure personnelle et
-            des connaissances acquises au fil des sentiers parcourus et des
-            vallées traversées.
-          </p>
-          <p>
-            Ici, vous ne trouverez pas seulement des itinéraires ou des revues
-            d&rsquo;équipement, mais des récits authentiques
-            d&rsquo;explorations et des partages d&rsquo;expériences. Mon
-            objectif est de vous offrir une perspective sincère et
-            bienveillante, un accompagnement pour ceux qui, comme moi, ont
-            trouvé dans la randonnée une source d&rsquo;inspiration et de
-            résilience.
-          </p>
+          <p>{AProposData[1].text}</p>
+          <p>{AProposData[2].text}</p>
           <Image
             src="/images/a-propos/joris-benmehal-ski.webp"
             alt="Benmehal Joris dans les airs en ski avec une trainée de poudreuse derrière lui avec les skis en parallèle"
@@ -78,14 +73,7 @@ export default function Page() {
             blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPUzZpfDwADuQG3zGD5JgAAAABJRU5ErkJggg=="
             sizes="100vw"
           />
-          <p>
-            Ce blog est une invitation à vous joindre à mon voyage, à découvrir
-            comment les défis personnels se transforment en leçons universelles.
-            C&rsquo;est un appel à la communauté des esprits aventureux, à ceux
-            qui souhaitent repousser les frontières de leur monde connu.
-            Bienvenue dans un espace où chaque récit est une trace laissée pour
-            guider, inspirer et rassembler.
-          </p>
+          <p>{AProposData[3].text}</p>
         </div>
         <div className="a-propos__container__desktop">
           <div className="a-propos__container__desktop__content1">
@@ -100,46 +88,14 @@ export default function Page() {
               sizes="(max-width: 1054px) 25vw, 40vw"
             />
             <div className="a-propos__container__desktop__content1--text">
-              <p>
-                Bienvenue ! Je suis Joris Benmehal, 23 ans, un développeur
-                full-stack avec une passion pour la montagne et la photographie.
-                Mon parcours unique, marqué par un accident de la route,
-                m&rsquo;a rapproché de la nature et a aiguisé mon œil pour
-                capturer sa beauté. Ici, je partage mon amour pour les sentiers
-                montagneux et la création numérique.
-              </p>
-              <p>
-                Les pistes de ski alpin de mon enfance, et un accident en mars
-                2018, ont profondément marqué mon lien avec la montagne. Ces
-                épreuves de 3 années ont transformé les périodes de
-                convalescence en une quête de liberté, me poussant vers les
-                treks et les expéditions qui définissent aujourd&rsquo;hui mon
-                existence. Ce blog est le reflet de cette métamorphose, une
-                vitrine de mon aventure personnelle et des connaissances
-                acquises au fil des sentiers parcourus et des vallées
-                traversées.
-              </p>
+              <p>{AProposData[0].text}</p>
+              <p>{AProposData[1].text}</p>
             </div>
           </div>
           <div className="a-propos__container__desktop__content2">
             <div className="a-propos__container__desktop__content2--text">
-              <p>
-                Ici, vous ne trouverez pas seulement des itinéraires ou des
-                revues d&rsquo;équipement, mais des récits authentiques
-                d&rsquo;explorations et des partages d&rsquo;expériences. Mon
-                objectif est de vous offrir une perspective sincère et
-                bienveillante, un accompagnement pour ceux qui, comme moi, ont
-                trouvé dans la randonnée une source d&rsquo;inspiration et de
-                résilience.
-              </p>
-              <p>
-                Ce blog est une invitation à vous joindre à mon voyage, à
-                découvrir comment les défis personnels se transforment en leçons
-                universelles. C&rsquo;est un appel à la communauté des esprits
-                aventureux, à ceux qui souhaitent repousser les frontières de
-                leur monde connu. Bienvenue dans un espace où chaque récit est
-                une trace laissée pour guider, inspirer et rassembler.
-              </p>
+              <p>{AProposData[2].text}</p>
+              <p>{AProposData[3].text}</p>
             </div>
             <Image
               src="/images/a-propos/joris-benmehal-ski.webp"
