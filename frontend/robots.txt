@@ -1,2 +1,4 @@
 User-agent: *
 Disallow: /dashboard/
+
+Sitemap: https://www.bj-treklife.fr/sitemap.xml
