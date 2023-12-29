@@ -29,11 +29,10 @@ exports.getLatestProductReview = async (req, res) => {
 
     res.json(productReview);
   } catch (err) {
-    console.log(err);
-    // res.status(500).json({
-    //   message:
-    //     "Une erreur est survenue lors de la récupération du dernier avis produit. Veuillez réessayer plus tard.",
-    // });
+    res.status(500).json({
+      message:
+        "Une erreur est survenue lors de la récupération du dernier avis produit. Veuillez réessayer plus tard.",
+    });
   }
 };
 
