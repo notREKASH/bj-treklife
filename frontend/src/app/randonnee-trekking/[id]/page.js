@@ -47,7 +47,11 @@ export default async function Page({ params, searchParams }) {
         "Impossible de charger l'article. Veuillez réessayer plus tard."
       );
     } else {
-      post = await res.json();
+      const formattedPost = await res.json();
+      post = {
+        ...formattedPost,
+        date: new Date(formattedPost.date).toLocaleDateString(),
+      };
     }
   } catch (err) {
     console.error("Une erreur s'est produite lors de la récupération du post");

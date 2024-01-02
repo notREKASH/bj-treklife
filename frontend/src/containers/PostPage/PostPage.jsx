@@ -22,6 +22,7 @@ export default function PostPage({ post, id }) {
   const error = useSelector((state) => state.posts.error);
 
   const { push } = useRouter();
+
   useEffect(() => {
     if (error) {
       push("/404");
@@ -190,7 +191,7 @@ export default function PostPage({ post, id }) {
         </div>
         <div className="post--author">
           <p>Posté par {post.author}</p>
-          <p>Le {new Date(post.date).toLocaleDateString()}</p>
+          <p>Le {post.date}</p>
           <Link href="/randonnee-trekking">Retour</Link>
         </div>
         <div className="post--rating">

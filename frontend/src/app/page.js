@@ -42,7 +42,13 @@ export default async function Home() {
         "Impossible de charger les articles. Veuillez réessayer plus tard."
       );
     } else {
-      posts = await res.json();
+      const formattedPosts = await res.json();
+      posts = formattedPosts.map((post) => {
+        return {
+          ...post,
+          date: new Date(post.date).toLocaleDateString(),
+        };
+      });
     }
   } catch (err) {
     console.error(
@@ -64,7 +70,14 @@ export default async function Home() {
         "Impossible de charger les articles. Veuillez réessayer plus tard."
       );
     } else {
-      review = await res.json();
+      const formattedReview = await res.json();
+
+      const updateDate = {
+        ...formattedReview,
+        createdAt: new Date(formattedReview.createdAt).toLocaleDateString(),
+      };
+
+      review = updateDate;
     }
   } catch (err) {
     console.error(

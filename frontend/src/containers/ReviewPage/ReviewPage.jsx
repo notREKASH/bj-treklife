@@ -243,7 +243,7 @@ export default function ReviewPage({ review, id }) {
         </div>
         <div className="review--author">
           <p>Posté par {review.author}</p>
-          <p>Le {new Date(review.createdAt).toLocaleDateString()}</p>
+          <p>Le {review.createdAt}</p>
           <Link href="/randonnee-trekking">Retour</Link>
         </div>
         <div className="review--rating">

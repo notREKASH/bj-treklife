@@ -50,7 +50,11 @@ export default async function Page({ params, searchParams }) {
         "Impossible de charger l'article. Veuillez réessayer plus tard."
       );
     } else {
-      review = await res.json();
+      const formattedReview = await res.json();
+      review = {
+        ...formattedReview,
+        createdAt: new Date(formattedReview.createdAt).toLocaleDateString(),
+      };
     }
   } catch (err) {
     console.error(

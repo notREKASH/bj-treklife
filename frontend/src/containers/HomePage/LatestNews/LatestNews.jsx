@@ -56,9 +56,7 @@ function LatestNews({ latestsPosts }) {
                     Lire l&rsquo;article
                   </Link>
                 </p>
-                <p className="date">
-                  {new Date(post.date).toLocaleDateString()}
-                </p>
+                <p className="date">{post.date}</p>
               </div>
             </div>
           ))}

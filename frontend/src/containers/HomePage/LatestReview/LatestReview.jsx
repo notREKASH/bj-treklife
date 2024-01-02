@@ -43,9 +43,7 @@ function LatestReview({ latestReview }) {
           )}
           <div className="expedition-item__content">
             <h4>{latestReview?.title}</h4>
-            <p className="date">
-              {new Date(latestReview?.createdAt).toLocaleDateString()}
-            </p>
+            <p className="date">{latestReview?.createdAt}</p>
           </div>
         </div>
       </div>
