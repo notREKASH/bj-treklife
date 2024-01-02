@@ -32,10 +32,30 @@ export async function generateMetadata({ params, searchParams }, parent) {
   };
 }
 
-export default function Page({ params, searchParams }) {
+export default async function Page({ params, searchParams }) {
+  const id = params.id;
+  let post = null;
+
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts/${id}`, {
+      cache: "force-cache",
+      next: { revalidate: 86400 },
+    });
+
+    if (!res.ok) {
+      throw new Error(
+        "Impossible de charger l'article. Veuillez réessayer plus tard."
+      );
+    } else {
+      post = await res.json();
+    }
+  } catch (err) {
+    console.error("Une erreur s'est produite lors de la récupération du post");
+  }
+
   return (
     <div style={{ backgroundColor: "white" }}>
-      <PostPage id={params.id} />
+      <PostPage post={post} id={id} />
     </div>
   );
 }

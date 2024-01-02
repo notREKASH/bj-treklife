@@ -15,8 +15,7 @@ function Carousel({ images }) {
       autoPlay={true}
       interval={8000}
       className="carousel"
-      swipeable={false}
-    >
+      swipeable={false}>
       {images.map((image) => (
         <div key={image._id} className="carousel__container">
           <Image
@@ -33,6 +32,8 @@ function Carousel({ images }) {
           />
           <Image
             className="carousel__container--backgroundImage"
+            placeholder="blur"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPUzZpfDwADuQG3zGD5JgAAAABJRU5ErkJggg=="
             src={image.imageUrl}
             alt={image.caption}
             width={1920}

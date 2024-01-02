@@ -1,8 +1,5 @@
 const initialState = {
   posts: [],
-  latestsPosts: [],
-  latestsPostsLoaded: false,
-  post: {},
   currentPage: 1,
   totalPages: 0,
   filterName: "",
@@ -28,26 +25,11 @@ export default function postsReducer(state = initialState, action) {
         loading: true,
         error: null,
       };
-    case "GET_LATEST_POSTS":
-      return {
-        ...state,
-        latestsPosts: action.payload,
-        latestsPostsLoaded: true,
-        loading: false,
-        error: null,
-      };
     case "GET_ALL_POSTS":
       return {
         ...state,
         posts: action.payload,
         filterName: "",
-        loading: false,
-        error: null,
-      };
-    case "GET_SPECIFIC_POST":
-      return {
-        ...state,
-        post: action.payload,
         loading: false,
         error: null,
       };
@@ -79,12 +61,6 @@ export default function postsReducer(state = initialState, action) {
         posts: state.posts.map((post) =>
           post._id === action.payload._id ? action.payload : post
         ),
-      };
-    case "GET_SPECIFIC_POST_FAILED":
-      return {
-        ...state,
-        error: action.payload,
-        loading: false,
       };
     default:
       return state;

@@ -1,9 +1,8 @@
 "use client";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import "./ReviewPage.scss";
 import { useEffect } from "react";
-import { getSpecificReview } from "@/app/redux/actions/reviews.action";
 import Rating from "@/components/Rating/Rating";
 import Newsletter from "@/components/Newsletter/Newsletter";
 import SocialMediaPanel from "@/components/SocialMediaPanel/SocialMediaPanel";
@@ -18,8 +17,7 @@ import { useRouter } from "next/navigation";
 import Loader from "@/components/Loader/Loader";
 import ReactMarkdown from "react-markdown";
 
-export default function ReviewPage({ id }) {
-  const dispatch = useDispatch();
+export default function ReviewPage({ review, id }) {
   const { push } = useRouter();
   const error = useSelector((state) => state.reviews.error);
 
@@ -29,20 +27,14 @@ export default function ReviewPage({ id }) {
     }
   }, [error, push]);
 
-  useEffect(() => {
-    dispatch(getSpecificReview(id));
-  }, [dispatch, id]);
-
   const loading = useSelector((state) => state.reviews.loading);
-
-  const review = useSelector((state) => state.reviews.review);
-
-  const allImages =
-    review.carousels?.flatMap((carousel) => carousel.slides) || [];
 
   if (loading) {
     return <Loader />;
   }
+
+  const allImages =
+    review.carousels?.flatMap((carousel) => carousel.slides) || [];
 
   return (
     <>
@@ -231,8 +223,7 @@ export default function ReviewPage({ id }) {
                       key={`link${linkIndex}`}
                       href={link.url}
                       target="_blank"
-                      rel="noreferrer"
-                    >
+                      rel="noreferrer">
                       {link.name}
                     </a>
                   ))}

@@ -6,13 +6,7 @@ import SubSection from "@/components/SubSection/SubSection";
 import SuggestionPanel from "@/components/SuggestionPanel/SuggestionPanel";
 import Newsletter from "@/components/Newsletter/Newsletter";
 import SocialMediaPanel from "@/components/SocialMediaPanel/SocialMediaPanel";
-import { useDispatch, useSelector } from "react-redux";
-import { getSpecificPost } from "@/app/redux/actions/posts.action";
 import Loader from "@/components/Loader/Loader";
-import {
-  setRandonneeTrekkingFilterName,
-  setReviewsProductFilterName,
-} from "@/app/redux/actions/filter.actions";
 import DynamicGPXReader from "@/components/GPXReader/DynamicGPXReader";
 import Link from "next/link";
 import Carousel from "@/components/Carousel/Carousel";
@@ -22,9 +16,9 @@ import CommentsSection from "../CommentsSection/CommentsSection";
 import RatingArticle from "@/components/RatingArticle/RatingArticle";
 import { useRouter } from "next/navigation";
 import ReactMarkdown from "react-markdown";
+import { useSelector } from "react-redux";
 
-export default function PostPage({ id }) {
-  const dispatch = useDispatch();
+export default function PostPage({ post, id }) {
   const error = useSelector((state) => state.posts.error);
 
   const { push } = useRouter();
@@ -34,13 +28,6 @@ export default function PostPage({ id }) {
     }
   }, [error, push]);
 
-  useEffect(() => {
-    dispatch(getSpecificPost(id));
-    dispatch(setRandonneeTrekkingFilterName(id));
-    dispatch(setReviewsProductFilterName(id));
-  }, [dispatch, id]);
-
-  const post = useSelector((state) => state?.posts?.post);
   const loading = useSelector((state) => state.posts.loading);
 
   if (loading) {
@@ -61,13 +48,6 @@ export default function PostPage({ id }) {
     },
     { name: "Difficulté", value: `${post.details?.difficulty}/10` },
   ];
-
-  const categoryNames = {
-    randonnée: "la randonnée",
-    trekking: "le trekking",
-    alpinisme: "l'alpinisme",
-    voyage: "le voyage",
-  };
 
   const carouselTitle = (category) => {
     if (category === "randonnée") {

@@ -32,10 +32,33 @@ export async function generateMetadata({ params, searchParams }, parent) {
   };
 }
 
-export default function Page({ params, searchParams }) {
+export default async function Page({ params, searchParams }) {
+  const id = params.id;
+  let review = null;
+
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/productsReviews/${id}`,
+      {
+        cache: "force-cache",
+        next: { revalidate: 86400 },
+      }
+    );
+
+    if (!res.ok) {
+      throw new Error(
+        "Impossible de charger l'article. Veuillez réessayer plus tard."
+      );
+    } else {
+      review = await res.json();
+    }
+  } catch (err) {
+    console.error(err);
+  }
+
   return (
     <div style={{ backgroundColor: "white" }}>
-      <ReviewPage id={params.id} />
+      <ReviewPage review={review} id={id} />
     </div>
   );
 }

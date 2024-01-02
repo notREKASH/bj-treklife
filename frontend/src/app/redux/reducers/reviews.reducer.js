@@ -1,8 +1,5 @@
 const initialState = {
   reviews: [],
-  latestReview: {},
-  latestReviewLoaded: false,
-  review: {},
   currentPage: 1,
   totalPages: 0,
   filterName: "",
@@ -28,26 +25,11 @@ export default function reviewsReducer(state = initialState, action) {
         loading: true,
         error: null,
       };
-    case "GET_LATEST_REVIEW":
-      return {
-        ...state,
-        latestReview: action.payload,
-        latestReviewLoaded: true,
-        loading: false,
-        error: null,
-      };
     case "GET_ALL_REVIEWS":
       return {
         ...state,
         reviews: action.payload,
         filterName: "",
-        loading: false,
-        error: null,
-      };
-    case "GET_SPECIFIC_REVIEW":
-      return {
-        ...state,
-        review: action.payload,
         loading: false,
         error: null,
       };
@@ -87,12 +69,6 @@ export default function reviewsReducer(state = initialState, action) {
         ),
         loading: false,
         error: null,
-      };
-    case "GET_SPECIFIC_REVIEW_FAILED":
-      return {
-        ...state,
-        error: action.payload,
-        loading: false,
       };
     default:
       return state;

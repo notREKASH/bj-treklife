@@ -63,58 +63,6 @@ export const getReviews = (page = 1, limit = 5) => {
   };
 };
 
-// Get 1 latest review
-
-export const getLatestReview = () => {
-  return async (dispatch) => {
-    dispatch({
-      type: "GET_REVIEWS_REQUEST",
-    });
-    try {
-      const res = await axios.get(
-        `${process.env.NEXT_PUBLIC_API_URL}/productsReviews/latest-reviews`
-      );
-      const review = res.data;
-      dispatch({
-        type: "GET_LATEST_REVIEW",
-        payload: review,
-      });
-    } catch (error) {
-      console.error(
-        "Une erreur s'est produite lors de la récupération de la dernière review"
-      );
-    }
-  };
-};
-
-// Get a specific review
-
-export const getSpecificReview = (id) => {
-  return async (dispatch) => {
-    dispatch({
-      type: "GET_REVIEWS_REQUEST",
-    });
-    try {
-      const res = await axios.get(
-        `${process.env.NEXT_PUBLIC_API_URL}/productsReviews/${id}`
-      );
-      dispatch({
-        type: "GET_SPECIFIC_REVIEW",
-        payload: res.data,
-      });
-      dispatch(getReviews());
-    } catch (error) {
-      console.error(
-        "Une erreur s'est produite lors de la récupération de la review"
-      );
-      dispatch({
-        type: "GET_SPECIFIC_REVIEW_FAILED",
-        payload: error.response.data,
-      });
-    }
-  };
-};
-
 // Get Filtered Reviews
 
 export const getFilteredReviews = (

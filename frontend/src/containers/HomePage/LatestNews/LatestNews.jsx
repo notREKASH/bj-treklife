@@ -1,14 +1,11 @@
 "use client";
 import Link from "next/link";
 import "./LatestNews.scss";
-import { useSelector } from "react-redux";
 import SectionTag from "@/components/SectionTag/SectionTag";
 import GreenButton from "@/components/GreenButton/GreenButton";
 import Image from "next/image";
 
-function LatestNews() {
-  const latestsPosts = useSelector((state) => state?.posts?.latestsPosts);
-
+function LatestNews({ latestsPosts }) {
   const truncateText = (text, length) => {
     return text.length > length ? text.substring(0, length) + "..." : text;
   };
@@ -35,8 +32,7 @@ function LatestNews() {
               key={post._id}
               className={`news-item ${
                 index % 2 === 0 ? "text-bottom" : "text-top"
-              }`}
-            >
+              }`}>
               {post?.coverImageUrl && (
                 <Image
                   placeholder="blur"

@@ -59,57 +59,6 @@ export const getPosts = (page = 1, limit = 5) => {
   };
 };
 
-// Get 4 latest posts
-
-export const getLatestPosts = () => {
-  return async (dispatch) => {
-    dispatch({
-      type: "GET_POSTS_REQUEST",
-    });
-    try {
-      const res = await axios.get(
-        `${process.env.NEXT_PUBLIC_API_URL}/posts/latest-posts`
-      );
-      const postsClone = [...res.data];
-      dispatch({
-        type: "GET_LATEST_POSTS",
-        payload: postsClone.reverse(),
-      });
-    } catch (error) {
-      console.error(
-        "Une erreur s'est produite lors de la récupération des 4 derniers posts"
-      );
-    }
-  };
-};
-
-// Get a specific post
-
-export const getSpecificPost = (id) => {
-  return async (dispatch) => {
-    dispatch({
-      type: "GET_POSTS_REQUEST",
-    });
-    try {
-      const res = await axios.get(
-        `${process.env.NEXT_PUBLIC_API_URL}/posts/${id}`
-      );
-      dispatch({
-        type: "GET_SPECIFIC_POST",
-        payload: res.data,
-      });
-    } catch (error) {
-      console.error(
-        "Une erreur s'est produite lors de la récupération du post"
-      );
-      dispatch({
-        type: "GET_SPECIFIC_POST_FAILED",
-        payload: error.response.data,
-      });
-    }
-  };
-};
-
 // Get Filtered Posts
 
 export const getFilteredPosts = (filterName, page = 1, limit = 5) => {

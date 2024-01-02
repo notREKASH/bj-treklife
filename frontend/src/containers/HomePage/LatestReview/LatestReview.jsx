@@ -1,13 +1,10 @@
 "use client";
 import Link from "next/link";
 import "./LatestReview.scss";
-import { useSelector } from "react-redux";
 import SectionTag from "@/components/SectionTag/SectionTag";
 import Image from "next/image";
 
-function LatestReview() {
-  const latestReview = useSelector((state) => state?.reviews?.latestReview);
-
+function LatestReview({ latestReview }) {
   const truncateText = (text, length) => {
     return text.length > length ? text.substring(0, length) + "..." : text;
   };

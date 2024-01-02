@@ -17,7 +17,7 @@ function HeroBanner() {
         <div className="home__background__img">
           <Image
             placeholder="blur"
-            blurDataURL="/images/backgroundHome.webp"
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPUzZpfDwADuQG3zGD5JgAAAABJRU5ErkJggg=="
             src="/images/backgroundHome.webp"
             width={5464}
             height={3640}

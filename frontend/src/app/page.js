@@ -24,10 +24,53 @@ export const metadata = {
   },
 };
 
-export default function Home() {
+export default async function Home() {
+  let posts = null;
+  let review = null;
+
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/posts/latest-posts`,
+      {
+        cache: "force-cache",
+        next: { revalidate: 86400 },
+      }
+    );
+
+    if (!res.ok) {
+      throw new Error(
+        "Impossible de charger les articles. Veuillez réessayer plus tard."
+      );
+    } else {
+      posts = await res.json();
+    }
+  } catch (err) {
+    console.error(err);
+  }
+
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_URL}/productsReviews/latest-reviews`,
+      {
+        cache: "force-cache",
+        next: { revalidate: 86400 },
+      }
+    );
+
+    if (!res.ok) {
+      throw new Error(
+        "Impossible de charger les articles. Veuillez réessayer plus tard."
+      );
+    } else {
+      review = await res.json();
+    }
+  } catch (err) {
+    console.error(err);
+  }
+
   return (
     <>
-      <HomePage />
+      <HomePage posts={posts} review={review} />
     </>
   );
 }
