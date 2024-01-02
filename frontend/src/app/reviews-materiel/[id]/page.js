@@ -53,7 +53,9 @@ export default async function Page({ params, searchParams }) {
       review = await res.json();
     }
   } catch (err) {
-    console.error(err);
+    console.error(
+      "Une erreur s'est produite lors de la récupération de l'article de test de matériel"
+    );
   }
 
   return (

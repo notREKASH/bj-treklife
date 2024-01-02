@@ -45,7 +45,9 @@ export default async function Home() {
       posts = await res.json();
     }
   } catch (err) {
-    console.error(err);
+    console.error(
+      "Une erreur s'est produite lors de la récupération des derniers articles de randonnée et trekking"
+    );
   }
 
   try {
@@ -65,7 +67,9 @@ export default async function Home() {
       review = await res.json();
     }
   } catch (err) {
-    console.error(err);
+    console.error(
+      "Une erreur s'est produite lors de la récupération du dernier test de matériel"
+    );
   }
 
   return (
