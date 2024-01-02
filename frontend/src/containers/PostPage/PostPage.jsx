@@ -101,8 +101,7 @@ export default function PostPage({ id }) {
             <DynamicGPXReader gpxUrl={post.gpxFileUrl} />
             <Link
               className="post__container__information__gpxCard--file"
-              href={`${post.gpxFileData}`}
-            >
+              href={`${post.gpxFileData}`}>
               Télécharger le GPX
             </Link>
           </div>
