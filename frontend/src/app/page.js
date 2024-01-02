@@ -46,7 +46,7 @@ export default async function Home() {
       posts = formattedPosts.map((post) => {
         return {
           ...post,
-          date: new Date(post.date).toLocaleDateString(),
+          date: new Date(post.date).toLocaleDateString("fr-FR"),
         };
       });
     }
@@ -74,7 +74,9 @@ export default async function Home() {
 
       const updateDate = {
         ...formattedReview,
-        createdAt: new Date(formattedReview.createdAt).toLocaleDateString(),
+        createdAt: new Date(formattedReview.createdAt).toLocaleDateString(
+          "fr-FR"
+        ),
       };
 
       review = updateDate;

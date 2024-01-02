@@ -50,7 +50,7 @@ export default async function Page({ params, searchParams }) {
       const formattedPost = await res.json();
       post = {
         ...formattedPost,
-        date: new Date(formattedPost.date).toLocaleDateString(),
+        date: new Date(formattedPost.date).toLocaleDateString("fr-FR"),
       };
     }
   } catch (err) {

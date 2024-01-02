@@ -53,7 +53,9 @@ export default async function Page({ params, searchParams }) {
       const formattedReview = await res.json();
       review = {
         ...formattedReview,
-        createdAt: new Date(formattedReview.createdAt).toLocaleDateString(),
+        createdAt: new Date(formattedReview.createdAt).toLocaleDateString(
+          "fr-FR"
+        ),
       };
     }
   } catch (err) {
