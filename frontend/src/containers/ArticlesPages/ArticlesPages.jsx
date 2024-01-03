@@ -132,14 +132,14 @@ export default function ArticlesRandonneeTrek() {
               <h3>Filtrer par catégorie</h3>
               <ul
                 className="articles__filterPanel--desktop__ul"
-                onClick={onClickFilterChange}
-              >
+                onClick={onClickFilterChange}>
                 {filterButtons.map((button, index) => (
                   <li key={button.name}>
                     <button
                       onClick={() => handleButtonClick(button.name)}
-                      className={selectedButtons[button.name] ? "selected" : ""}
-                    >
+                      className={
+                        selectedButtons[button.name] ? "selected" : ""
+                      }>
                       {button.name}
                     </button>
                   </li>
@@ -161,8 +161,7 @@ export default function ArticlesRandonneeTrek() {
               <div className="dropdownMenu__custom-select" ref={customSelect}>
                 <button
                   className="dropdownMenu__custom-select__select-button"
-                  onClick={handleShowMenu}
-                >
+                  onClick={handleShowMenu}>
                   <span>{currentFilter ? `${currentFilter}` : "tous"}</span>
                   <span className="dropdownMenu__custom-select__select-button--arrow"></span>
                 </button>
@@ -171,8 +170,7 @@ export default function ArticlesRandonneeTrek() {
                     <li
                       key={name}
                       className={filter === currentFilter ? "selected" : ""}
-                      onClick={() => handleClickFilter(filter)}
-                    >
+                      onClick={() => handleClickFilter(filter)}>
                       {name}
                     </li>
                   ))}
