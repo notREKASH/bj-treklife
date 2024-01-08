@@ -33,7 +33,7 @@ export default async function Home() {
       `${process.env.NEXT_PUBLIC_API_URL}/posts/latest-posts`,
       {
         cache: "force-cache",
-        next: { revalidate: 86400 },
+        next: { revalidate: 3600 },
       }
     );
 
@@ -61,7 +61,7 @@ export default async function Home() {
       `${process.env.NEXT_PUBLIC_API_URL}/productsReviews/latest-reviews`,
       {
         cache: "force-cache",
-        next: { revalidate: 86400 },
+        next: { revalidate: 3600 },
       }
     );
 
