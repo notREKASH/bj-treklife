@@ -29,7 +29,7 @@ exports.findAllPosts = async ({ page, limit, activityType }) => {
 // GET 4 LATEST POSTS
 
 exports.findLatestPosts = async () => {
-  const posts = await Post.find().sort({ date: -1 }).limit(4).select({
+  const posts = await Post.find().limit(4).select({
     title: 1,
     coverImageUrl: 1,
     altImageCover: 1,
