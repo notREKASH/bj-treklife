@@ -39,7 +39,7 @@ exports.findAllProductsReviews = async (
 
 exports.findLatestProductReview = async () => {
   const productReview = await ProductReview.findOne()
-    .sort({ createdAt: +1 })
+    .sort({ createdAt: -1 })
     .select({
       title: 1,
       coverImageUrl: 1,
