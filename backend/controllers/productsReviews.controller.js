@@ -8,8 +8,8 @@ exports.getAllProductsReviews = async (req, res) => {
     const response = await productsReviewsService.findAllProductsReviews(
       parseInt(page),
       parseInt(limit),
-      category || undefined,
-      subCategory || undefined
+      category,
+      subCategory
     );
     res.json(response);
   } catch (err) {

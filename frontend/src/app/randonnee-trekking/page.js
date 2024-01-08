@@ -25,11 +25,31 @@ export const metadata = {
   },
 };
 
-export default function RandonneeTrekking() {
+export default async function RandonneeTrekking() {
+  let posts = null;
+
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/posts`, {
+      cache: "force-cache",
+      next: { revalidate: 86400 },
+    });
+
+    if (!res.ok) {
+      throw new Error(
+        "Impossible de charger les articles. Veuillez réessayer plus tard."
+      );
+    } else {
+      const formattedPosts = await res.json();
+      posts = formattedPosts.posts;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+
   return (
     <>
       <main className="articles-bg">
-        <ArticlesRandonneeTrek />
+        <ArticlesRandonneeTrek posts={posts} />
       </main>
     </>
   );

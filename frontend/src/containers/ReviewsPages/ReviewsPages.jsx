@@ -18,6 +18,7 @@ import {
 } from "@/app/redux/actions/filter.actions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilter } from "@fortawesome/free-solid-svg-icons";
+import { useRouter } from "next/navigation";
 
 const filterButtons = [
   {
@@ -25,57 +26,17 @@ const filterButtons = [
     filter: "Tous",
   },
   {
-    name: "Chaussure",
-    filter: "Chaussure",
+    name: "Equipements",
+    filter: "Equipements",
   },
   {
-    name: "Sac à dos",
-    filter: "Sac à dos",
+    name: "Vêtements",
+    filter: "Vêtements",
   },
-  {
-    name: "Tente",
-    filter: "Tente",
-  },
-  {
-    name: "Duvet",
-    filter: "Duvet",
-  },
-  {
-    name: "Réchaud",
-    filter: "Réchaud",
-  },
-  {
-    name: "Kit Popote",
-    filter: "Kit Popote",
-  },
-  {
-    name: "Matelas",
-    filter: "Matelas",
-  },
-  {
-    name: "Frontale",
-    filter: "Frontale",
-  },
-  {
-    name: "Filtre à eau",
-    filter: "Filtre à eau",
-  },
-  {
-    name: "Polaire",
-    filter: "Polaire",
-  },
-  {
-    name: "Veste imperméable",
-    filter: "Veste imperméable",
-  },
-  {
-    name: "Doudoune",
-    filter: "Doudoune",
-  },
-  {
-    name: "Pantalon",
-    filter: "Pantalon",
-  },
+  // {
+  //   name: "Accessoires",
+  //   filter: "Accessoires",
+  // },
 ];
 
 const equipmentFilter = [
@@ -139,125 +100,75 @@ const accessoriesFilter = [
   },
 ];
 
-export default function PostsReviewsMateriel() {
+export default function PostsReviewsMateriel({ reviews, filterName }) {
   const dispatch = useDispatch();
-  const reviews = useSelector((state) => state.reviews.reviews);
+  const { push } = useRouter();
+
+  const [currentFilter, setCurrentFilter] = useState(null);
+  const [equipementToggle, setEquipementToggle] = useState(false);
+  const [clothingToggle, setClothingToggle] = useState(false);
+  const [accessoriesToggle, setAccessoriesToggle] = useState(false);
+  const [selectedSubCategory, setSelectedSubCategory] = useState(null);
+  console.log(selectedSubCategory);
+
+  const toggleSubCategory = (filter) => {
+    if (filter === "Equipements") {
+      setSelectedSubCategory(!selectedSubCategory);
+    } else if (filter === "Vêtements") {
+      setSelectedSubCategory(!selectedSubCategory);
+    } else if (filter === "Accessoires") {
+      setSelectedSubCategory(!selectedSubCategory);
+    } else {
+      setSelectedSubCategory(null);
+    }
+  };
 
   useEffect(() => {
-    if (!reviews.length) {
-      setEquipementToggle(false);
-      setClothingToggle(false);
-      setAccessoriesToggle(false);
-      dispatch(getReviews());
+    if (filterName) {
+      if (filterName === "Equipements") {
+        setEquipementToggle(true);
+      } else if (filterName === "Vêtements") {
+        setClothingToggle(true);
+      } else if (filterName === "Accessoires") {
+        setAccessoriesToggle(true);
+      } else if (filterName === "Tous") {
+        setEquipementToggle(false);
+        setClothingToggle(false);
+        setAccessoriesToggle(false);
+      }
     }
-  }, [dispatch, reviews]);
+  }, [filterName]);
 
-  const currentFilter = useSelector(
-    (state) => state?.filter?.reviewsProductSubCategory
-  );
   const customSelect = useRef(null);
 
   const handleShowMenu = () => {
     customSelect.current.classList.toggle("active");
   };
 
-  const [equipementToggle, setEquipementToggle] = useState(false);
-  const [clothingToggle, setClothingToggle] = useState(false);
-  const [accessoriesToggle, setAccessoriesToggle] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState("");
-  const [selectedSubCategory, setSelectedSubCategory] = useState("");
-
-  // Reset filter when page is loaded
-
-  useEffect(() => {
-    if (currentFilter === "") {
-      dispatch(setReviewsProductCategory(""));
-      dispatch(setReviewsProductSubCategory(""));
-      dispatch(setCurrentReviewsPage(1));
-      dispatch(getReviews());
-    }
-  }, [currentFilter, dispatch]);
-
-  // Filter by category and subcategory for mobile
-
   const handleClickFilter = (filter) => {
-    if (filter === "Tous") {
-      dispatch(setReviewsProductCategory(""));
-      dispatch(setReviewsProductSubCategory(""));
-      dispatch(getReviews());
+    setCurrentFilter(filter);
+    handleFilter(filter);
+    updateFilter(filter);
+  };
+
+  const updateFilter = (filter) => {
+    dispatch(setReviewsProductCategory(filter));
+  };
+
+  const handleFilter = (category, subCategory) => {
+    if (category === "Tous") {
+      push("/reviews-materiel");
+    } else if (
+      (category === "Equipements" && subCategory) ||
+      (category === "Vêtements" && subCategory) ||
+      (category === "Accessoires" && subCategory)
+    ) {
+      push(
+        `/reviews-materiel/categorie/${category}&subCategory=${subCategory}`
+      );
     } else {
-      dispatch(getFilteredReviews("", filter));
+      push(`/reviews-materiel/categorie/${category}`);
     }
-    handleShowMenu();
-  };
-
-  // Reset filter when user click on "Tous" button
-
-  const onClickFilterChange = (e) => {
-    const filterName = e.target.textContent;
-
-    if (filterName === "Tous") {
-      setEquipementToggle(false);
-      setClothingToggle(false);
-      setAccessoriesToggle(false);
-      dispatch(setReviewsProductCategory(""));
-      dispatch(setReviewsProductSubCategory(""));
-      dispatch(getReviews());
-    }
-  };
-
-  // Toggle filter by category and subcategory for desktop
-
-  const toggleEquipment = (e) => {
-    setSelectedCategory("Equipements");
-    setEquipementToggle((prevState) => !prevState);
-    if (equipementToggle) {
-      dispatch(getReviews());
-      dispatch(setReviewsProductCategory(""));
-      dispatch(setReviewsProductSubCategory(""));
-    } else {
-      dispatch(getFilteredReviews("Equipements"));
-      setAccessoriesToggle(false);
-      setClothingToggle(false);
-    }
-    setSelectedSubCategory("");
-  };
-
-  const toggleClothing = (e) => {
-    setSelectedCategory("Vêtements");
-    setClothingToggle((prevState) => !prevState);
-    if (clothingToggle) {
-      dispatch(getReviews());
-      dispatch(setReviewsProductCategory(""));
-      dispatch(setReviewsProductSubCategory(""));
-    } else {
-      dispatch(getFilteredReviews("Vêtements"));
-      setAccessoriesToggle(false);
-      setEquipementToggle(false);
-    }
-    setSelectedSubCategory("");
-  };
-
-  const toggleAccessories = () => {
-    setSelectedCategory("Accessoires");
-    setAccessoriesToggle((prevState) => !prevState);
-    if (accessoriesToggle) {
-      dispatch(getReviews());
-      dispatch(setReviewsProductCategory(""));
-      dispatch(setReviewsProductSubCategory(""));
-    } else {
-      dispatch(getFilteredReviews("Accessoires"));
-      setClothingToggle(false);
-      setEquipementToggle(false);
-    }
-    setSelectedSubCategory("");
-  };
-
-  // Filter by subcategory
-
-  const onSubCategoryClick = (subCategoryName) => {
-    setSelectedSubCategory(subCategoryName);
-    dispatch(getFilteredReviews(selectedCategory, subCategoryName));
   };
 
   return (
@@ -287,100 +198,82 @@ export default function PostsReviewsMateriel() {
             <div className="articles__filterPanel__desktop">
               <h3>Filtrer par catégorie</h3>
               <div className="articles__filterPanel__desktop__container">
-                <div className="articles__filterPanel__desktop__container--categoryBtn">
-                  <button
-                    className="articles__filterPanel__desktop__container--categoryBtn--btn"
-                    onClick={onClickFilterChange}>
-                    Tous
-                  </button>
-                </div>
-                <div className="articles__filterPanel__desktop__container--categoryBtn">
-                  <button
-                    className="articles__filterPanel__desktop__container--categoryBtn--btn"
-                    onClick={toggleEquipment}>
-                    Equipements
-                  </button>
-                  <ul className="subCategory">
-                    {equipementToggle &&
-                      equipmentFilter.map((button) => (
-                        <li
-                          key={button.name}
-                          className={`subCategory__item ${
-                            selectedSubCategory === button.filter
-                              ? "selected"
-                              : ""
-                          }`}
-                          onClick={() => onSubCategoryClick(button.filter)}>
-                          <button
-                            className={
+                {filterButtons.map((button, index) => (
+                  <div
+                    key={button.name}
+                    className="articles__filterPanel__desktop__container--categoryBtn">
+                    <button
+                      className="articles__filterPanel__desktop__container--categoryBtn--btn"
+                      onClick={() => {
+                        setCurrentFilter(button.filter);
+                        handleFilter(button.filter);
+                        toggleSubCategory(button.filter);
+                      }}>
+                      {button.name}
+                    </button>
+                    <ul className="subCategory">
+                      {button.filter === "Equipements" &&
+                        equipementToggle &&
+                        equipmentFilter.map((equipment) => (
+                          <li
+                            key={equipment.name}
+                            className={`subCategory__item ${
+                              selectedSubCategory === equipment.name
+                                ? "selected"
+                                : ""
+                            }`}
+                            onClick={() => {
+                              setCurrentFilter(equipment.filter);
+                              handleFilter("Equipements", equipment.filter);
+                            }}>
+                            <button
+                              className={
+                                selectedSubCategory === button.filter
+                                  ? "selected"
+                                  : ""
+                              }>
+                              {equipment.name}
+                            </button>
+                          </li>
+                        ))}
+                      {button.filter === "Vêtements" &&
+                        clothingToggle &&
+                        clothingFilter.map((clothing) => (
+                          <li
+                            key={clothing.name}
+                            className={`subCategory__item ${
                               selectedSubCategory === button.filter
                                 ? "selected"
                                 : ""
-                            }>
-                            {button.name}
-                          </button>
-                        </li>
-                      ))}
-                  </ul>
-                </div>
-                <div className="articles__filterPanel__desktop__container--categoryBtn">
-                  <button
-                    className="articles__filterPanel__desktop__container--categoryBtn--btn"
-                    onClick={toggleClothing}>
-                    Vêtements
-                  </button>
-                  <ul className="subCategory">
-                    {clothingToggle &&
-                      clothingFilter.map((button) => (
-                        <li
-                          key={button.name}
-                          className={`subCategory__item ${
-                            selectedSubCategory === button.filter
-                              ? "selected"
-                              : ""
-                          }`}
-                          onClick={() => onSubCategoryClick(button.filter)}>
-                          <button
-                            className={
-                              selectedSubCategory === button.filter
-                                ? "selected"
-                                : ""
-                            }>
-                            {button.name}
-                          </button>
-                        </li>
-                      ))}
-                  </ul>
-                </div>
-                <div className="articles__filterPanel__desktop__container--categoryBtn">
-                  <button
-                    className="articles__filterPanel__desktop__container--categoryBtn--btn"
-                    onClick={toggleAccessories}>
-                    Accessoires
-                  </button>
-                  <ul className="subCategory">
-                    {accessoriesToggle &&
-                      accessoriesFilter.map((button) => (
-                        <li
-                          key={button.name}
-                          className={`subCategory__item ${
-                            selectedSubCategory === button.filter
-                              ? "selected"
-                              : ""
-                          }`}
-                          onClick={() => onSubCategoryClick(button.filter)}>
-                          <button
-                            className={
-                              selectedSubCategory === button.filter
-                                ? "selected"
-                                : ""
-                            }>
-                            {button.name}
-                          </button>
-                        </li>
-                      ))}
-                  </ul>
-                </div>
+                            }`}
+                            onClick={() => {
+                              setCurrentFilter(clothing.filter);
+                              handleFilter("Vêtements", clothing.filter);
+                            }}>
+                            <button
+                              className={
+                                selectedSubCategory === button.filter
+                                  ? "selected"
+                                  : ""
+                              }>
+                              {clothing.name}
+                            </button>
+                          </li>
+                        ))}
+                      {/* {button.filter === "Accessoires" &&
+                        accessoriesFilter.map((accessory) => (
+                          <li
+                            key={accessory.name}
+                            onClick={() => {
+                              setCurrentFilter(accessory.filter);
+                              handleFilter(accessory.filter);
+                            }}>
+                            {accessory.name}
+                          </li>
+                        ))} */}
+                    </ul>
+                  </div>
+                ))}
               </div>
             </div>
             <div className="newsletterPanel">
@@ -399,7 +292,7 @@ export default function PostsReviewsMateriel() {
                 <button
                   className="dropdownMenu__custom-select__select-button"
                   onClick={handleShowMenu}>
-                  <span>{currentFilter ? `${currentFilter}` : "Tous"}</span>
+                  <span>{filterName ? `${filterName}` : "Tous"}</span>
                   <span className="dropdownMenu__custom-select__select-button--arrow"></span>
                 </button>
                 <ul className="dropdownMenu__custom-select--select-dropdown">

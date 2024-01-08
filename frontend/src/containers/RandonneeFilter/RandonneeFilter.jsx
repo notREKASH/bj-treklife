@@ -1,16 +1,13 @@
 "use client";
 
+import "./RandonneeFilter.scss";
 import PostCard from "@/components/PostCard/PostCard";
-import "./ArticlesPages.scss";
 import Newsletter from "@/components/Newsletter/Newsletter";
 import SocialMediaPanel from "@/components/SocialMediaPanel/SocialMediaPanel";
 import PaginationComponent from "@/components/Paginate/Paginate";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFilter } from "@fortawesome/free-solid-svg-icons";
 import { useRouter } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { setRandonneeTrekkingFilterName } from "@/app/redux/actions/filter.actions";
 
 const filterButtons = [
   {
@@ -27,27 +24,9 @@ const filterButtons = [
   },
 ];
 
-export default function ArticlesRandonneeTrek({ posts, filterName }) {
+export default function RandonneeFilter({ posts }) {
+  console.log(posts);
   const { push } = useRouter();
-  const dispatch = useDispatch();
-
-  const [currentFilter, setCurrentFilter] = useState(null);
-
-  const customSelect = useRef(null);
-
-  const handleClickFilter = (filter) => {
-    setCurrentFilter(filter);
-    handleFilter(filter);
-    updateFilter(filter);
-  };
-
-  const updateFilter = (filter) => {
-    dispatch(setRandonneeTrekkingFilterName(filter));
-  };
-
-  const handleShowMenu = () => {
-    customSelect.current.classList.toggle("active");
-  };
 
   const handleFilter = (filter) => {
     if (filter === "Tous") {
@@ -61,11 +40,7 @@ export default function ArticlesRandonneeTrek({ posts, filterName }) {
     <>
       <div className="articles-layout">
         <div className="articles-layout__background">
-          {currentFilter ? (
-            <h2>Retrouvez toutes mes sorties {currentFilter}</h2>
-          ) : (
-            <h2>Retrouvez toutes mes sorties</h2>
-          )}
+          <h2>Retrouvez toutes mes sorties</h2>
         </div>
         <div className="articles">
           <div className="articles--container">
@@ -108,21 +83,13 @@ export default function ArticlesRandonneeTrek({ posts, filterName }) {
           <div className="filterPanel--mobile">
             <div className="dropdownMenu">
               <FontAwesomeIcon icon={faFilter} className="filter-ico" />
-              <div className="dropdownMenu__custom-select" ref={customSelect}>
-                <button
-                  className="dropdownMenu__custom-select__select-button"
-                  onClick={handleShowMenu}>
-                  <span>{filterName ? `${filterName}` : "tous"}</span>
+              <div className="dropdownMenu__custom-select">
+                <button className="dropdownMenu__custom-select__select-button">
                   <span className="dropdownMenu__custom-select__select-button--arrow"></span>
                 </button>
                 <ul className="dropdownMenu__custom-select--select-dropdown">
                   {filterButtons.map(({ name, filter }) => (
-                    <li
-                      key={name}
-                      className={filter === currentFilter ? "selected" : ""}
-                      onClick={() => handleClickFilter(filter)}>
-                      {name}
-                    </li>
+                    <li key={name}>{name}</li>
                   ))}
                 </ul>
               </div>

@@ -37,6 +37,8 @@ import CookieBanner from "@/components/CookieBanner/CookieBanner";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Head from "next/head";
+import Loader from "@/components/Loader/Loader";
+import NavigationLoader from "@/components/NavigationLoader/NavigationLoader";
 
 export default function RootLayout({ children }) {
   return (
@@ -47,6 +49,7 @@ export default function RootLayout({ children }) {
       </Head>
       <body className={lato.className}>
         <ReduxProvider>
+          <NavigationLoader />
           <Header />
           <main>
             {children}
