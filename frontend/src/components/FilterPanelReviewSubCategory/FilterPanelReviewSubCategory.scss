@@ -1,0 +1,32 @@
+@import "../../styles/variables.scss";
+
+.subCategory {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15em;
+  width: 90%;
+  margin: 0 0 0 auto;
+  padding-top: 0.15em;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    background-color: #000000;
+
+    button {
+      @include Button;
+      color: rgb(233, 233, 233);
+
+      &.selected {
+        color: black;
+      }
+    }
+
+    &.selected {
+      background-color: rgb(233, 233, 233);
+      border: 1px solid black;
+    }
+  }
+}

@@ -16,3 +16,16 @@ $color-tertiary: #ffeead;
 $color-background: #0e0e0e;
 
 // Variables for font-size
+
+// Buttons
+
+@mixin Button {
+  height: 30px;
+  width: 100%;
+  border: none;
+  background-color: transparent;
+  font-size: 1em;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+}

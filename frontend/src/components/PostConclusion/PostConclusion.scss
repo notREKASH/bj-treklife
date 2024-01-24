@@ -1,0 +1,34 @@
+@import "../../styles/variables.scss";
+
+.conclusion {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+
+  &--text {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    padding: 1em;
+    line-height: 28px;
+    text-align: justify;
+
+    h3 {
+      font-size: 1.2em;
+      font-weight: 700;
+
+      @media (min-width: $xs) {
+        font-size: 1.35em;
+      }
+
+      @media (min-width: $sm) {
+        font-size: 1.5em;
+      }
+    }
+
+    p {
+      font-size: 1em;
+      font-weight: 400;
+    }
+  }
+}
