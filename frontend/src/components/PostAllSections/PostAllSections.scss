@@ -1,0 +1,18 @@
+.allSections {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+
+  &__sections {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: fit-content;
+    gap: 1em;
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+  }
+}

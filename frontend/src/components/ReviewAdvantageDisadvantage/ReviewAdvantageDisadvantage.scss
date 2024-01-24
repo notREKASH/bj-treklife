@@ -1,0 +1,74 @@
+@import "../../styles/variables.scss";
+
+.advantagesDisadvantages {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: fit-content;
+
+  &--text {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    line-height: 28px;
+    text-align: justify;
+
+    h3 {
+      font-size: 1.2em;
+      font-weight: 700;
+
+      @media (min-width: $xs) {
+        font-size: 1.35em;
+      }
+
+      @media (min-width: $sm) {
+        font-size: 1.5em;
+      }
+    }
+
+    p {
+      font-size: 1em;
+      font-weight: 400;
+    }
+  }
+
+  &--table {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    padding: 1em;
+
+    div {
+      display: flex;
+
+      p {
+        display: flex;
+        align-items: center;
+        flex: 1;
+        gap: 0.5em;
+
+        .advantage {
+          color: green;
+          font-size: 1.25rem;
+          font-weight: 700;
+        }
+
+        .disadvantage {
+          color: red;
+          font-size: 1.25rem;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+
+  &--explanation {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    line-height: 28px;
+    text-align: justify;
+    font-size: 1em;
+    font-weight: 400;
+  }
+}

@@ -2,7 +2,6 @@
 
 import { useEffect } from "react";
 import "./PostPage.scss";
-import SubSection from "@/components/SubSection/SubSection";
 import SuggestionPanel from "@/components/SuggestionPanel/SuggestionPanel";
 import Newsletter from "@/components/Newsletter/Newsletter";
 import SocialMediaPanel from "@/components/SocialMediaPanel/SocialMediaPanel";
@@ -10,13 +9,16 @@ import Loader from "@/components/Loader/Loader";
 import DynamicGPXReader from "@/components/GPXReader/DynamicGPXReader";
 import Link from "next/link";
 import Carousel from "@/components/Carousel/Carousel";
-import ImageFullscreen from "@/components/ImageFullscreen/ImageFullscreen";
 import Image from "next/image";
 import CommentsSection from "../CommentsSection/CommentsSection";
 import RatingArticle from "@/components/RatingArticle/RatingArticle";
 import { useRouter } from "next/navigation";
-import ReactMarkdown from "react-markdown";
 import { useSelector } from "react-redux";
+import PostSectionIntro from "@/components/PostSectionIntro/PostSectionIntro";
+import PostAllSections from "@/components/PostAllSections/PostAllSections";
+import PostConclusion from "@/components/PostConclusion/PostConclusion";
+import PostUtils from "@/components/PostUtils/PostUtils";
+import PostSummary from "@/components/PostSummary/PostSummary";
 
 export default function PostPage({ post, id }) {
   const error = useSelector((state) => state.posts.error);
@@ -37,18 +39,6 @@ export default function PostPage({ post, id }) {
 
   const allImages =
     post.carousels?.flatMap((carousel) => carousel.slides) || [];
-
-  const descriptionUtils = [
-    { name: "Localisation", value: post.details?.location },
-    { name: "Activité", value: post.details?.activityType },
-    { name: "Durée", value: post.details?.duration + " heures" },
-    { name: "Distance", value: post.details?.distance + " km" },
-    {
-      name: "Dénivelé",
-      value: `${post.details?.elevationGain} D+ et ${post.details?.elevationLoss} D-`,
-    },
-    { name: "Difficulté", value: `${post.details?.difficulty}/10` },
-  ];
 
   const carouselTitle = (category) => {
     if (category === "randonnée") {
@@ -87,94 +77,15 @@ export default function PostPage({ post, id }) {
             </Link>
           </div>
           <div className="post__container__information__description">
-            <div className="post__container__information__description--utils">
-              {descriptionUtils.map((descriptionUtil, descriptionIndex) => (
-                <div key={`description${descriptionIndex}`}>
-                  <p>
-                    {descriptionUtil.name}:<span>{descriptionUtil.value}</span>
-                  </p>
-                </div>
-              ))}
-            </div>
-            <div className="post__container__information__description--summary">
-              {post.sections?.map((section, summaryIndex) => (
-                <div key={`summary${summaryIndex}`}>
-                  <h3>{section.title}</h3>
-                </div>
-              ))}
-            </div>
+            <PostUtils post={post} />
+            <PostSummary post={post} />
           </div>
         </div>
         <div className="post__container__content">
           <div className={`post__container__content__leftContent`}>
-            <div className="post__container__content__leftContent__introduction">
-              <div className="post__container__content__leftContent__introduction--text">
-                <h3>Introduction</h3>
-                <ReactMarkdown components={{ p: "p" }}>
-                  {post.introduction?.content}
-                </ReactMarkdown>
-              </div>
-              <div className="post__container__content__leftContent__introduction--image">
-                {post.introduction?.imageUrl && (
-                  <Image
-                    className="post__container__content__leftContent__introduction--image--img"
-                    placeholder="blur"
-                    blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPUzZpfDwADuQG3zGD5JgAAAABJRU5ErkJggg=="
-                    src={post.introduction?.imageUrl}
-                    alt={post.introduction?.altImage}
-                    width={1920}
-                    height={1080}
-                    quality={90}
-                    sizes="(max-width: 1024px) 100vw, 70vw"
-                  />
-                )}
-                {post.introduction?.imageUrl && (
-                  <Image
-                    className="backgroundImage"
-                    src={post.introduction?.imageUrl}
-                    alt={post.title}
-                    width={1920}
-                    height={1080}
-                    quality={1}
-                    sizes="(max-width: 1024px) 100vw, 70vw"
-                  />
-                )}
-                {post.introduction?.imageUrl && (
-                  <ImageFullscreen
-                    src={post.introduction?.imageUrl}
-                    alt={post.introduction?.altImage}
-                  />
-                )}
-              </div>
-            </div>
-            <div className="post__container__content__leftContent__allSections">
-              {post.sections?.map((section, sectionIndex) => (
-                <div key={`section${sectionIndex}`}>
-                  {section.subSections.map((subSection, subSectionIndex) => (
-                    <div key={`subSection${subSectionIndex}`}>
-                      {subSectionIndex <= 5 && (
-                        <SubSection
-                          title={
-                            subSectionIndex === 0 ? `${section.title}` : ""
-                          }
-                          content={subSection?.content}
-                          imageUrl={subSection?.imageUrl}
-                          altImage={subSection?.altImage}
-                        />
-                      )}
-                    </div>
-                  ))}
-                </div>
-              ))}
-            </div>
-            <div className="post__container__content__leftContent__conclusion">
-              <div className="post__container__content__leftContent__conclusion--text">
-                <h3>Conclusion</h3>
-                <ReactMarkdown components={{ p: "p" }}>
-                  {post?.conclusion}
-                </ReactMarkdown>
-              </div>
-            </div>
+            <PostSectionIntro post={post} />
+            <PostAllSections post={post} />
+            <PostConclusion post={post} />
           </div>
           <div className={`post__container__content__rightContent`}>
             <SuggestionPanel

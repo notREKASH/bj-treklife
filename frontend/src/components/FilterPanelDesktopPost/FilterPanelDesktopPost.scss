@@ -1,0 +1,41 @@
+@import "../../styles/variables.scss";
+
+.desktop {
+  background-color: rgb(233, 233, 233);
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1em;
+
+  h3 {
+    width: 100%;
+    text-align: center;
+    font-size: 1.3em;
+    font-weight: 700;
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+    color: #000000;
+    border-bottom: 1px solid #0e0e0e;
+  }
+
+  &__ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    width: 100%;
+
+    li {
+      button {
+        @include Button;
+        background-color: black;
+        border-radius: 6px;
+        color: rgb(233, 233, 233);
+
+        &.selected {
+          color: black;
+          background-color: rgb(233, 233, 233);
+          border: 1px solid black;
+        }
+      }
+    }
+  }
+}

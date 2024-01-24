@@ -1,0 +1,50 @@
+@import "../../styles/variables.scss";
+
+.linkShop {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: fit-content;
+  gap: 2em;
+  padding: 1em;
+
+  &--text {
+    display: flex;
+    flex-direction: column;
+    line-height: 28px;
+    text-align: justify;
+
+    h3 {
+      font-size: 1.2em;
+      font-weight: 700;
+
+      @media (min-width: $xs) {
+        font-size: 1.35em;
+      }
+
+      @media (min-width: $sm) {
+        font-size: 1.5em;
+      }
+    }
+
+    p {
+      font-size: 1em;
+      font-weight: 400;
+    }
+  }
+
+  &--links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    a {
+      color: blue;
+      text-decoration: underline;
+      font-size: 1rem;
+
+      @media (min-width: $sm) {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}

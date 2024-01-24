@@ -1,0 +1,61 @@
+@import "../../styles/variables.scss";
+
+.ratings {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  gap: 2em;
+  padding: 1em;
+
+  &--text {
+    display: flex;
+    flex-direction: column;
+    line-height: 28px;
+    text-align: justify;
+
+    h3 {
+      font-size: 1.2em;
+      font-weight: 700;
+
+      @media (min-width: $xs) {
+        font-size: 1.35em;
+      }
+
+      @media (min-width: $sm) {
+        font-size: 1.5em;
+      }
+    }
+
+    p {
+      font-size: 1em;
+      font-weight: 400;
+    }
+  }
+
+  &--rating {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+    @media (min-width: $xs) {
+      flex-wrap: wrap;
+      flex-direction: unset;
+    }
+
+    .singleRating {
+      display: flex;
+      flex: 1;
+      min-width: fit-content;
+      gap: 0.5em;
+
+      p {
+        font-size: 1rem;
+
+        @media (min-width: $sm) {
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+}
