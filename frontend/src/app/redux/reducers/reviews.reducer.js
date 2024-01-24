@@ -1,5 +1,6 @@
 const initialState = {
   reviews: [],
+  review: {},
   currentPage: 1,
   totalPages: 0,
   filterName: "",
@@ -69,6 +70,11 @@ export default function reviewsReducer(state = initialState, action) {
         ),
         loading: false,
         error: null,
+      };
+    case "GET_SPECIFIC_REVIEW":
+      return {
+        ...state,
+        review: action.payload,
       };
     default:
       return state;

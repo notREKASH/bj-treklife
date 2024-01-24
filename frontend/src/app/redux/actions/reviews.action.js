@@ -227,3 +227,23 @@ export const updateReview = (id, review, token) => {
     }
   };
 };
+
+// Get specific review
+
+export const getSpecificReview = (id) => {
+  return async (dispatch) => {
+    try {
+      const res = await axios.get(
+        `${process.env.NEXT_PUBLIC_API_URL}/productsReviews/${id}`
+      );
+      dispatch({
+        type: "GET_SPECIFIC_REVIEW",
+        payload: res.data,
+      });
+    } catch (error) {
+      console.error(
+        "Une erreur s'est produite lors de la récupération de la review spécifique"
+      );
+    }
+  };
+};

@@ -212,3 +212,23 @@ export const updatePost = (id, post, token) => {
     }
   };
 };
+
+// Get a post
+
+export const getSpecificPost = (id) => {
+  return async (dispatch) => {
+    try {
+      const res = await axios.get(
+        `${process.env.NEXT_PUBLIC_API_URL}/posts/${id}`
+      );
+      dispatch({
+        type: "GET_SPECIFIC_POST",
+        payload: res.data,
+      });
+    } catch (error) {
+      console.error(
+        "Une erreur s'est produite lors de la récupération du post"
+      );
+    }
+  };
+};

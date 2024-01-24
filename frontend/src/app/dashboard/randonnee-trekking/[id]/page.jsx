@@ -519,8 +519,7 @@ function Page({ params, searchParams }) {
                   <button
                     onClick={(e) =>
                       handleDeleteSubSection(e, sectionIndex, subSectionIndex)
-                    }
-                  >
+                    }>
                     Supprimer la sous-section
                   </button>
                   <label>Contenu textuel</label>
@@ -631,8 +630,7 @@ function Page({ params, searchParams }) {
                   <button
                     onClick={(e) =>
                       handleDeleteSlide(e, carouselIndex, slideIndex)
-                    }
-                  >
+                    }>
                     Supprimer la slide
                   </button>
                   <label>Titre de l&rsquo;image</label>

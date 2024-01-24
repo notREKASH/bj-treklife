@@ -1,5 +1,6 @@
 const initialState = {
   posts: [],
+  post: {},
   currentPage: 1,
   totalPages: 0,
   filterName: "",
@@ -61,6 +62,11 @@ export default function postsReducer(state = initialState, action) {
         posts: state.posts.map((post) =>
           post._id === action.payload._id ? action.payload : post
         ),
+      };
+    case "GET_SPECIFIC_POST":
+      return {
+        ...state,
+        post: action.payload,
       };
     default:
       return state;
