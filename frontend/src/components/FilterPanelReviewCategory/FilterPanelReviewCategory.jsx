@@ -50,9 +50,9 @@ export default function FilterPanelReviewCategory({
   };
 
   return (
-    <div className="articles__filterPanel__desktop__container--categoryBtn">
+    <div className="categoryBtn">
       <button
-        className="articles__filterPanel__desktop__container--categoryBtn--btn"
+        className="categoryBtn--btn"
         onClick={(e) => {
           onClickFilterChange(e);
         }}>

@@ -64,9 +64,9 @@ const accessoriesFilter = [
 
 export default function FilterPanelDesktopReview() {
   return (
-    <div className="articles__filterPanel__desktop">
+    <div className="desktop">
       <h3>Filtrer par catégorie</h3>
-      <div className="articles__filterPanel__desktop__container">
+      <div className="desktop__container">
         <FilterPanelReviewCategory categoryName="Tous" />
         <FilterPanelReviewCategory
           categoryName="Equipements"
