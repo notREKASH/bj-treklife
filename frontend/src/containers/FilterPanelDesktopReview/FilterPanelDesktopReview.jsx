@@ -33,10 +33,10 @@ const clothingFilter = [
     name: "Chaussure",
     filter: "Chaussure",
   },
-  // {
-  //   name: "Polaire",
-  //   filter: "Polaire",
-  // },
+  {
+    name: "Polaire",
+    filter: "Polaire",
+  },
   // {
   //   name: "Veste imperméable",
   //   filter: "Veste imperméable",
