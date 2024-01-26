@@ -2,10 +2,11 @@
 
 import "./CommentReply.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { addRandonneeReply } from "@/app/redux/actions/randonneeComments.action";
 import { addProductsRReply } from "@/app/redux/actions/productsRComments.actions";
+import { updateIsAuth } from "@/app/redux/actions/auth.action";
 
 export default function CommentReply({
   contentType,
@@ -16,6 +17,7 @@ export default function CommentReply({
   const dispatch = useDispatch();
 
   const isAuth = useSelector((state) => state.auth?.isAuth);
+  const token = sessionStorage.getItem("token");
 
   const [icon, setIcon] = useState("");
   const [name, setName] = useState("");
@@ -24,6 +26,10 @@ export default function CommentReply({
   const [privacyPolicy, setPrivacyPolicy] = useState(false);
   const [cgu, setCgu] = useState(false);
   const [mentionsLegales, setMentionsLegales] = useState(false);
+
+  const copyToClipboard = () => {
+    setIcon("https://live.staticflickr.com/65535/53359769088_0712c6109d_b.jpg");
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -37,12 +43,10 @@ export default function CommentReply({
       mentionsLegales,
     };
 
-    console.log(replyData);
-
     if (contentType === "randonneeTrekking") {
-      dispatch(addRandonneeReply(articleId, commentId, replyData, token));
+      dispatch(addRandonneeReply(articleId, commentId, replyData));
     } else if (contentType === "productReview") {
-      dispatch(addProductsRReply(articleId, commentId, replyData, token));
+      dispatch(addProductsRReply(articleId, commentId, replyData));
     }
 
     setName("");
@@ -53,13 +57,19 @@ export default function CommentReply({
     setMentionsLegales(false);
   };
 
+  useEffect(() => {
+    if (!isAuth && token) {
+      dispatch(updateIsAuth(token));
+    }
+  }, [isAuth, token, dispatch]);
+
   return (
     <form className="comment-form" onSubmit={handleSubmit}>
       <h4>Répondre à {replyToName}</h4>
       {isAuth && (
         <div className="comment-form__input-container admin">
           <label htmlFor="icon">Icon BJ-Treklife</label>
-          <p>
+          <p onClick={copyToClipboard}>
             https://live.staticflickr.com/65535/53359769088_0712c6109d_b.jpg
           </p>
           <input

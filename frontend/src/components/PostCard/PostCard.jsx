@@ -10,7 +10,7 @@ import {
   getPosts,
   setCurrentRandonneeTrekkingPage,
 } from "@/app/redux/actions/posts.action";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   deleteReview,
   getFilteredReviews,
@@ -24,6 +24,7 @@ import {
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { updateIsAuth } from "@/app/redux/actions/auth.action";
 
 export default function PostCard({
   postTitle,
@@ -39,14 +40,14 @@ export default function PostCard({
   const dispatch = useDispatch();
   const id = postId;
 
-  const [token, setToken] = useState("");
+  const isAuth = useSelector((state) => state.auth?.isAuth);
+  const token = sessionStorage.getItem("token");
 
   useEffect(() => {
-    const storedToken = sessionStorage.getItem("token");
-    if (storedToken) {
-      setToken(storedToken);
+    if (!isAuth && token) {
+      dispatch(updateIsAuth(token));
     }
-  }, []);
+  }, [isAuth, token, dispatch]);
 
   const truncateText = (text, length) => {
     return text.length > length ? text.substring(0, length) + "..." : text;
@@ -145,8 +146,7 @@ export default function PostCard({
           {truncateText(postContent, 380)}
           <Link
             href={`/${postUrl}/${id}`}
-            className="post-card__content--readMore"
-          >
+            className="post-card__content--readMore">
             Lire l&rsquo;article
           </Link>
         </p>
@@ -155,7 +155,7 @@ export default function PostCard({
             {reviewProductSubCategory()}
           </button>
         </div>
-        {token ? (
+        {isAuth ? (
           <div className="post-card__content--delete">
             <button onClick={handleTryToDelete}>
               <FontAwesomeIcon icon={faTrashAlt} />

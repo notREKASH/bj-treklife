@@ -131,7 +131,7 @@ export const deleteRandonneeComment = (id, commentId, token) => {
 
 // Add a reply
 
-export const addRandonneeReply = (id, commentId, reply) => {
+export const addRandonneeReply = (id, commentId, reply, token) => {
   return async (dispatch) => {
     try {
       const res = await axios.post(

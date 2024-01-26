@@ -11,6 +11,11 @@ export default function authReducer(state = initialState, action) {
         isAuth: true,
         token: action.payload,
       };
+    case "UPDATE_ISAUTH":
+      return {
+        ...state,
+        isAuth: true,
+      };
     default:
       return state;
   }

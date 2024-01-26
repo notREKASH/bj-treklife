@@ -1,15 +1,19 @@
 "use client";
 import "./login.scss";
-import { useState, useRef } from "react";
-import { useDispatch } from "react-redux";
+import { useState, useRef, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { login } from "../redux/actions/auth.action";
+import { useRouter } from "next/navigation";
 
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const form = useRef(null);
 
+  const { push } = useRouter();
+
   const dispatch = useDispatch();
+  const isAuth = useSelector((state) => state.auth?.isAuth);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -17,6 +21,12 @@ function Login() {
 
     form.current.reset();
   };
+
+  useEffect(() => {
+    if (isAuth) {
+      push("/dashboard");
+    }
+  }, [isAuth, push]);
 
   return (
     <div>

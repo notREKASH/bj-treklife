@@ -6,17 +6,21 @@ import "./Header.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { updateIsAuth } from "@/app/redux/actions/auth.action";
+import { useDispatch, useSelector } from "react-redux";
 
 function Header() {
-  const [token, setToken] = useState("");
+  const dispatch = useDispatch();
+
+  const isAuth = useSelector((state) => state.auth?.isAuth);
 
   useEffect(() => {
-    const storedToken = sessionStorage.getItem("token");
-    if (storedToken) {
-      setToken(storedToken);
+    const token = sessionStorage.getItem("token");
+    if (!isAuth && token) {
+      dispatch(updateIsAuth(token));
     }
-  }, []);
+  }, [isAuth, dispatch]);
 
   return (
     <>
@@ -41,7 +45,7 @@ function Header() {
             <Link href="/contact">Contact</Link>
           </div>
           <div>
-            {token ? (
+            {isAuth ? (
               <Link href="/dashboard">Dashboard</Link>
             ) : (
               <Link href="/login">

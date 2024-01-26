@@ -12,20 +12,21 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { deleteRandonneeComment } from "@/app/redux/actions/randonneeComments.action";
 import { deleteProductsRComment } from "@/app/redux/actions/productsRComments.actions";
+import { updateIsAuth } from "@/app/redux/actions/auth.action";
 
 export default function CommentList({ contentType, articleId }) {
   const dispatch = useDispatch();
   const [reply, setReply] = useState(false);
   const [replyTo, setReplyTo] = useState("");
 
-  const [token, setToken] = useState("");
+  const isAuth = useSelector((state) => state.auth?.isAuth);
 
   useEffect(() => {
-    const storedToken = sessionStorage.getItem("token");
-    if (storedToken) {
-      setToken(storedToken);
+    const token = sessionStorage.getItem("token");
+    if (!isAuth && token) {
+      dispatch(updateIsAuth(token));
     }
-  }, []);
+  }, [isAuth, dispatch]);
 
   // Get comments from store
 
@@ -81,7 +82,7 @@ export default function CommentList({ contentType, articleId }) {
                     Répondre
                   </button>
                 )}
-                {token && (
+                {isAuth && (
                   <button
                     onClick={() => {
                       handleDeleteComment(comment?._id);

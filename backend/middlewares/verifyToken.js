@@ -9,7 +9,8 @@ const verifyToken = (req, res, next) => {
     req.user = verified;
     next();
   } catch (err) {
-    res.status(400).send("Token invalide.");
+    // No need to send a 400 status code here, because the token is not valid.
+    // res.status(400).send("Token invalide.");
   }
 };
 

@@ -8,6 +8,7 @@ import { faPersonHiking, faTrash } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import { deleteRandonneeReply } from "@/app/redux/actions/randonneeComments.action";
 import { deleteProductsRReply } from "@/app/redux/actions/productsRComments.actions";
+import { updateIsAuth } from "@/app/redux/actions/auth.action";
 
 export default function CommentReplyList({
   contentType,
@@ -23,14 +24,15 @@ export default function CommentReplyList({
   );
 
   const comment = comments?.find((comment) => comment?._id === commentId);
-  const [token, setToken] = useState("");
+
+  const isAuth = useSelector((state) => state.auth?.isAuth);
 
   useEffect(() => {
-    const storedToken = sessionStorage.getItem("token");
-    if (storedToken) {
-      setToken(storedToken);
+    const token = sessionStorage.getItem("token");
+    if (!isAuth && token) {
+      dispatch(updateIsAuth(token));
     }
-  }, []);
+  }, [isAuth, dispatch]);
 
   const [replyIsDefined, setReplyIsDefined] = useState(false);
 
@@ -66,8 +68,7 @@ export default function CommentReplyList({
         {comment?.replies?.map((reply) => (
           <li
             key={reply?._id}
-            className="comment-replyList__container__replies"
-          >
+            className="comment-replyList__container__replies">
             <div className="comment-replyList__container__replies__information">
               <div className="comment-replyList__container__replies__information__content">
                 <div className="comment-replyList__container__replies__information__content--avatar">
@@ -89,12 +90,11 @@ export default function CommentReplyList({
                 </div>
               </div>
               <div>
-                {token && (
+                {isAuth && (
                   <button
                     onClick={() => {
                       handleDeleteReply(reply?._id);
-                    }}
-                  >
+                    }}>
                     <FontAwesomeIcon icon={faTrash} />{" "}
                   </button>
                 )}

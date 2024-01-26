@@ -12,3 +12,15 @@ exports.login = async (req, res) => {
     });
   }
 };
+
+exports.checkToken = async (req, res) => {
+  try {
+    const isAuth = await authServices.checkToken();
+    res.json(isAuth);
+  } catch (err) {
+    res.status(500).json({
+      message:
+        "Une erreur est survenue lors de la vérification du token. Veuillez réessayer plus tard.",
+    });
+  }
+};
