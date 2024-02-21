@@ -25,6 +25,12 @@ function GPXLayer({ gpxUrl }) {
         } catch (error) {}
       })
       .addTo(map);
+
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 20,
+      attribution:
+        '<a href="https://www.openstreetmap.org/">© les contributeurs d’OpenStreetMap</a>, <a href="https://www.openstreetmap.org/copyright">licence ODbL</a>',
+    }).addTo(map);
   }, [gpxUrl, map]);
 
   return null;
