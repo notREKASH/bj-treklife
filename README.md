@@ -8,15 +8,15 @@ BJ-TrekLife est une plateforme dédiée aux amateurs de randonnée, de trekking,
 
 ## Screenshots
 
-![App Screenshot](https://media.licdn.com/dms/image/D4E2DAQHBNZT3tOreZg/profile-treasury-image-shrink_800_800/0/1705498776704?e=1712217600&v=beta&t=-hO6poQfsIr6pCVUiHJA6vTViWU-Z62NDaRjO30YmQ8)
+![App Screenshot](https://live.staticflickr.com/65535/53702611200_613447aefe_h.jpg)
 ---
-![App Screenshot](https://media.licdn.com/dms/image/D4E2DAQEFPOihfEKsPw/profile-treasury-image-shrink_800_800/0/1705498798274?e=1712217600&v=beta&t=FaVrnTVDHGWerg1U8KZVGUH8XnRuADYo4gQpS4yiq8I)
+![App Screenshot](https://live.staticflickr.com/65535/53702517129_1db10cbe91_h.jpg)
 ---
-![App Screenshot](https://media.licdn.com/dms/image/D4E2DAQFKECA97Hh2kw/profile-treasury-image-shrink_800_800/0/1705498820788?e=1712217600&v=beta&t=KFFjklzV2gHpzbQSAG_eymK3SeMRQtoib7MDmVnF6mY)
+![App Screenshot](https://live.staticflickr.com/65535/53702178726_eb3a979acb_h.jpg)
 ---
-![App Screenshot](https://media.licdn.com/dms/image/D4E2DAQEiF1RFT6ABJw/profile-treasury-image-shrink_800_800/0/1705498833650?e=1712217600&v=beta&t=91tpStssIqMNlv7HO44eGFkZemVNg2JA9XUZRFnrENE)
+![App Screenshot](https://live.staticflickr.com/65535/53702611215_80e9a6947a_h.jpg)
 ---
-![App Screenshot](https://media.licdn.com/dms/image/D4E2DAQGvZoMMW3of0Q/profile-treasury-image-shrink_800_800/0/1705498857385?e=1712217600&v=beta&t=YMuAbGNCVqZH0vRyoXZ5ocwQ68RX_KJwWpwPddw3pYw)
+![App Screenshot](https://live.staticflickr.com/65535/53702611210_541fc29fe0_h.jpg)
 ## Tech Stack
 
 **Technologies Front-End:** Utilisation de NextJS, Redux, et SASS
